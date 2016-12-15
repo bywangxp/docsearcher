@@ -1,0 +1,158 @@
+#userCenter
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    right: -100%;
+    top: 0px;
+    background-color: #0097ff;
+    z-index: 1999;
+    /*隐藏菜单*/
+    visibility: visible;
+}
+#userCenter .userLogo
+{
+    width: 100%;
+    margin-top: 100px;
+    height: 130px;
+}
+#userCenter .userLogo div
+{
+    width: 130px;
+    height: 130px;
+    position: relative;
+    margin: auto auto;
+    border-radius: 65px;
+    background-color: yellow;
+    box-shadow: 0px 0px 34px #757575;
+}
+#userCenter .userLogo img
+{
+    width: 120px;
+    height:120px;
+    margin-top: 5px;
+}
+#userCenter .div1
+{
+    width: 100%;
+    margin-top: 30px;
+}
+#userCenter .div1 .name
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 800;
+    font-size: 20px;
+    color: white;
+    text-shadow: 4px 3px 6px #2d2d2d;
+}
+#userCenter .div1 .coin
+{
+    position: absolute;
+    right: 32px;
+    margin-top: -22px;
+}
+#userCenter .div1 .coin .num
+{
+    display: inline-block;
+    color: purple;
+}
+#userCenter .discript
+{
+    margin-top: 10px;
+}
+#userCenter .start
+{
+    width: 16px;
+    display: inline-block;
+    position: absolute;
+    left: 30px;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+}
+#userCenter .body
+{
+    width: 181px;
+    margin: 0 auto;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+}
+#userCenter .end
+{
+    width: 16px;
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    margin-top: -22px;
+}
+#userCenter .btn
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 800;
+    font-size: 18px;
+    background-color: #ffb100;
+    height: 45px;
+    padding-top: 8px;
+    margin-top: 10px;
+}
+#userCenter .btn img
+{
+    width: 26px;
+}
+#menu2
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 17px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 20px;
+}
+#menu2 .ul
+{
+    width: 100%;
+    background-color: #008bea;
+}
+#menu2 a
+{
+    color: white;
+    font-weight: 500;
+    border: 1px #159efd solid;
+}
+#menu2 a:hover
+{
+    color: #0097ff;
+    font-weight: 700;
+    background-color: #ffe800;
+}
+#menu2 a:active
+{
+    color: #0097ff;
+    font-weight: 700;
+    background-color: #ffe800;
+}
+#menu2 a:focus{
+    background-color: #ffe800;
+    color: #0097ff;
+}
+#menu2 .active
+{
+    color: #0097ff;
+    font-weight: 700;
+    background-color: #ffe800;
+}
+#menu2 .tag
+{
+    display: inline-block;
+    right: 10px;
+    top: 15px;
+    position: absolute;
+    background-color: #037cd0;
+}

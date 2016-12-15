@@ -1,0 +1,483 @@
+#slideShow
+{
+    margin-left: 180px;
+    position: absolute;
+    top: 192px;
+    /*默认关闭*/
+    visibility: visible;
+}
+#slideShow .slide
+{
+	width:340px;
+	height:345px;
+	margin-left: 20px;
+	margin-top: 20px;
+	background-color: #f7f7f7;
+    float: left;
+}
+#slideShow .slide a
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    color: #02416d;
+    text-decoration: none;
+}
+#slideShowList .slide:hover
+{
+    background-color: #dedede;
+}
+#slideShow .slide:hover
+{
+    background-color: #c3d2f9;
+}
+#slideShow .slide .title
+{
+    width: 180px;
+    margin-left: 10px;
+    margin-top: 6px;
+    position: absolute;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 700;
+    font-size: 17px;
+    color: #00497b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+}
+#slideShow .slide .coin
+{
+	width: 60px;
+    margin-left: 188px;
+    margin-top: 6px;
+    position: absolute;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 17px;
+    cursor: pointer;
+}
+#slideShow .slide .coin .num
+{
+    margin-left: 10px;
+    display: inline-block;
+    margin-top: 3px;
+    cursor: pointer;
+}
+#slideShow .slide .coin img
+{
+    width: 20px;
+    height: 20px;
+    margin-top: -5px;
+    margin-left: 3px;
+}
+#slideShow .slide .grade
+{
+    width: 70px;
+    position: absolute;
+    right: 0;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+	margin-top: 4px;
+    cursor: pointer;
+}
+#slideShow .slide .grade span
+{
+	font-weight: 700;
+    font-size: 20px;
+	color: red;
+    cursor: pointer;
+}
+#slideShow .slide .page
+{
+    /*visibility: hidden;*/
+	width:320px;
+	height:243px;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: #eee;
+    position: absolute;
+    margin-top: 37px;
+    cursor: pointer;
+}
+#slideShow .slide .select
+{
+	position: absolute;
+    margin-left: 16px;
+    margin-top: 37px;
+    cursor: pointer;
+}
+#slideShow .slide .select img
+{
+	width: 30px;
+	height: 30px;
+}
+#slideShow .slide .fav
+{
+	position: absolute;
+	margin-left: 291px;
+    margin-top: 37px;
+    cursor: pointer;
+}
+#slideShow .slide .fav img
+{
+	width: 30px;
+	height: 27px;
+}
+#slideShow .slide img
+{
+	margin-top: 6px;
+	width:308px;
+	height:231px;
+}
+#slideShow .slide .div1
+{
+    width: 70px;
+    position: absolute;
+}
+#slideShow .slide .div2
+{
+    position: absolute;
+    width: 100px;
+    right: 2px;
+}
+#slideShow .slide .div3
+{
+	position: absolute;
+    left: 72px;
+    font-weight: 600;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+}
+#slideShow .slide .div4
+{
+	width:318px;
+	height: 32px;
+    margin: 0px 12px;
+    position: absolute;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-size: 12px;
+    margin-top: 304px;
+    line-height: 16px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#slideShow .slide .div4 p
+{
+	width: 100%;
+    word-wrap: break-word;
+    text-align: justify;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#slideShow .slide .div4 span
+{
+	color: red;
+}
+#slideShow .slide .seg1
+{
+    position: absolute;
+    width: 340px;
+}
+#slideShow .slide .seg2
+{
+    position: absolute;
+    width: 340px;
+    margin-top: 283px;
+}
+#slideShow .more
+{
+	margin: 15px auto;
+	width: 100%;
+	display: inline-block;
+}
+
+#slideShowList
+{
+    margin-left: 180px;
+    position: absolute;
+    top: 192px;
+    width: 100%;
+    /*默认关闭*/
+    visibility: visible;
+}
+#slideShowList .top
+{
+    border-bottom: 2px #c5c5c5 solid;
+    border-top: 1px #0097ff solid;
+    height: 50px;
+    width: 100%;
+    vertical-align: middle;
+    text-align: left;
+    margin-top: 1px;
+}
+#slideShowList .top img
+{
+	width:20px;
+}
+#slideShowList .top .div1
+{
+	width:30px;
+	margin-right: 0px;
+	display: inline-block;
+    margin-left: 15px;
+}
+#slideShowList .top .div1 .choose1
+{
+	width: 24px;
+	height: 24px;
+	border: 4px #0097ff solid;
+	background-color: white;
+    margin-top: -17px;
+    position: absolute;
+    cursor: pointer;
+}
+#slideShowList .top .div1 .selected
+{
+    background-color: #037cd0;
+}
+#slideShowList .top .div2
+{
+	width:235px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#slideShowList .top .div3
+{
+	width: 90px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#slideShowList .top .div4
+{
+	width: 90px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#slideShowList .top .div5
+{
+	width: 90px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#slideShowList .top .div6
+{
+	width: 60px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#slideShowList .top .div7
+{
+	width: 90px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#slideShowList .top .blank
+{
+	width: 1%;
+	display: inline-block;
+}
+#slideShowList .slide
+{
+    border-bottom: 1px #d6d6d6 solid;
+    height: 45px;
+    width: 100%;
+    vertical-align: middle;
+    text-align: left;
+    cursor: pointer;
+}
+#slideShowList .slide img
+{
+	width:20px;
+}
+#slideShowList .slide .div1
+{
+	width:30px;
+	margin-right: 0px;
+	display: inline-block;
+    margin-left: 15px;
+}
+#slideShowList .slide .div1 .choose2
+{
+	width: 24px;
+	height: 24px;
+	border: 4px #0097ff solid;
+	background-color: #ffffff;
+    margin-top: -17px;
+    position: absolute;
+}
+#slideShowList .slide .div1 .selected
+{
+    background-color: #037cd0;
+}
+#slideShowList .slide .div2
+{
+	width:235px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 5px;
+}
+#slideShowList .slide .div2 a
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    color: #02416d;
+    text-decoration: none;
+}
+#slideShowList .slide .div2 .text
+{
+    width: 144px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: -5px;
+}
+#slideShowList .slide .div2 .num
+{
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 14px;
+}
+#slideShowList .slide .div2 .img1
+{
+	width: 16px;
+}
+#slideShowList .slide .div2 .img2
+{
+	width: 30px;
+}
+#slideShowList .slide .div2 .div_1
+{
+	position: absolute;
+	display: inline-block;
+    left: 200px;
+    margin-top: -13px;
+}
+#slideShowList .slide .div2 .div_2
+{
+	position: absolute;
+	display: inline-block;
+    left: 220px;
+    margin-top: -11px;
+}
+#slideShowList .slide .div2 .div_3
+{
+	position: absolute;
+	display: inline-block;
+    left: 269px;
+    margin-top: -15px;
+}
+#slideShowList .slide .div2 .div_4
+{
+    position: absolute;
+    display: inline-block;
+    left: 243px;
+    margin-top: -13px;
+}
+#slideShowList .slide .div3
+{
+	width: 90px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: left;
+/*    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;*/
+}
+#slideShowList .slide .div3 img
+{
+	margin-right: 7px;
+	right: 0px;
+}
+#slideShowList .slide .div4
+{
+	width: 90px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+}
+#slideShowList .slide .div5
+{
+	width: 90px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 5px;
+}
+#slideShowList .slide .div6
+{
+	width: 60px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 5px;
+}
+#slideShowList .slide .div6 span
+{
+	font-weight: 700;
+    font-size: 17px;
+	color: red;
+}
+#slideShowList .slide .div7
+{
+	width: 130px;
+	display: inline-block;
+	font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+}
+#slideShowList .slide .blank
+{
+	width: 1%;
+	display: inline-block;
+}
+#slideShowList .more
+{
+	margin: 15px 0px 15px 350px;
+	width: 90%;
+	text-align: left;
+	display: inline-block;
+}
+#back
+{
+	position: fixed;
+	bottom: 30px;
+	right:30px;
+}

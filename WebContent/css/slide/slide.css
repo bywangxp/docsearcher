@@ -1,0 +1,203 @@
+body
+{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#title
+{
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    background-color: white;
+    text-align: left;
+}
+#title .div0
+{
+    display: inline-block;
+    margin: 4px 0px 0px 13px;
+}
+#title .div0 img
+{
+    width: 30px; 
+}
+#title .div1
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 700;
+    font-size: 18px;
+    font-style: normal;
+    display: inline-block;
+    width: 150px;
+    margin-left: 22px;
+    margin-top: 7px;
+}
+#title .div2
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 700;
+    font-size: 18px;
+    font-style: normal;
+    display: inline-block;
+    width: 60px;
+}
+#title .div3
+{
+    display: inline-block;
+    width: 240px;
+}
+#title .div4
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 700;
+    font-size: 18px;
+    font-style: normal;
+    display: inline-block;
+    width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: -6px;
+}
+#title .div5
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 700;
+    font-size: 18px;
+    font-style: normal;
+    display: inline-block;
+    width: 60px;
+    color: red;
+}
+#title .div5 span
+{
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+}
+#title .div6
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    display: inline-block;
+    width: 20px;
+}
+#title .div7
+{
+    display: inline-block;
+    width: 20px;
+    margin-left: -5px;
+}
+#title .btn
+{
+    margin-top: -7px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: #00a1cb;
+    color: white;
+    text-shadow: none;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    width: 70px;
+    margin-left: 20px;
+}
+#slide
+{
+    
+}
+#slide .left
+{
+    width: 230px;
+    height: 100%;
+    position: fixed;
+    left: 10px;
+    /*top: 40px;*/
+    overflow: overlay;
+    padding-top: 40px;
+
+}
+#slide .left .div
+{
+    width: 225px;
+    background-color: #403f3f;
+    height: 155px;
+    padding-top: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#slide .left .div:hover
+{
+    background-color: #737373;
+}
+#slide .left .div .num
+{
+    float: left;
+    margin-left: 10px;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+}
+#slide .left img
+{
+    width: 180px;
+}
+#slide .blank
+{
+    width: 1px;
+    height: 100%;
+    position: fixed;
+    left: 265px;
+    top: 40px;
+    background-color: #404040;
+}
+#slide .h5slide
+{
+    background-color: white;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 50;
+    left: 295px;
+}
+
+::-webkit-scrollbar  
+{  
+    width: 5px;  
+    height: 0px;  
+    background-color: rgba(0,0,0,0.5);  
+}
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.5);  
+    border-radius: 30px;  
+    background-color: #333333;  
+}
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #0097ff;  
+}
+
+#input-21a
+{
+    height:40px;
+}
+#input_1
+{
+    height: 40px;
+}

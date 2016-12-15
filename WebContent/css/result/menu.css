@@ -1,0 +1,55 @@
+.cover
+{
+    background-color: #0097ff;
+    z-index: -1;
+    width:180px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+}
+#menu
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 17px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 180px;
+    position: fixed;
+    top:194px;
+    /*overflow: hidden;*/
+}
+#menu .ul
+{
+    width: 180px;
+}
+#menu a
+{
+    color: white;
+    font-weight: 500;
+    border: 1px #159efd solid;
+}
+#menu a:hover
+{
+    color: #0097ff;
+    font-weight: 700;
+}
+#menu a:active
+{
+    color: #0097ff;
+    font-weight: 700;
+}
+#menu .active
+{
+    color: #0097ff;
+    font-weight: 700;
+    background-color: #ffe800;
+}
+#menu .tag
+{
+    display: inline-block;
+    right: 10px;
+    top: 15px;
+    position: absolute;
+    background-color: #037cd0;
+}

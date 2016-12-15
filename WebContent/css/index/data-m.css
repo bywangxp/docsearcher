@@ -1,0 +1,23 @@
+#data
+{
+    /*height: 480px;*/
+}
+#data #chart1
+{
+    width: 500px;
+    height:400px;
+    display: inline-block;
+    margin-top: 50px;
+}
+#data #chart2
+{
+    width: 500px;
+    height:400px;
+    display: inline-block;
+    margin-top: 50px;
+}
+#data .blank
+{
+    width: 50px;
+    display: inline-block;
+}

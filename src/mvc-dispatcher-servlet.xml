@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        ">
+
+	<!-- 启动自动扫描该包下所有的Bean(例如@Controller) -->
+	<context:component-scan base-package="ustc.sse.water.docsearcher" />
+
+	<!-- 基于注释的事务，当注释中发现@Transactional时，使用id为“transactionManager”的事务管理器 -->
+	<!-- 如果没有设置transaction-manager的值，则spring以缺省默认的事务管理器来处理事务，默认事务管理器为第一个加载的事务管理器 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 定义视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<mvc:annotation-driven />
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+	
+	
+	
+	
+	
+	<!-- 日志拦截器 -->
+	 <mvc:interceptor>
+	      <mvc:mapping path="/**"/>
+	      <bean class="ustc.see.water.docsearcher.interceptor.LogWriterInterceptor"></bean>
+	   </mvc:interceptor>
+	   <!-- 用户权限拦截器 -->
+	   <mvc:interceptor>
+	      <mvc:mapping path="/*/*"/>
+	      <bean class="ustc.see.water.docsearcher.interceptor.LoginInterceptor">
+	            <property name="allowUrls">  
+		            <list>  
+		             <!--  如果请求中包含以下路径，则不进行拦截   -->
+		              <value>/js</value>  
+		              <value>/jsps</value>
+		              <value>/css</value>  
+		              <value>/image</value>  
+		              <value>/images</value>  
+		            </list>  
+	           </property>
+	      
+	      
+	      
+	      </bean>
+	   </mvc:interceptor>
+	
+	</mvc:interceptors>
+    <!-- 统一异常处理器 -->
+    <bean class="ustc.see.water.docsearcher.exception.UserExceptionResolver"/>
+	<bean id="stringConverter"
+		class="org.springframework.http.converter.StringHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/plain;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 输出对象转JSON支持 -->
+	<bean id="jsonConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/plain;charset=utf-8</value>
+				<value>text/html;charset=utf-8</value>
+				<value>text/json;charset=utf-8</value>
+				<value>application/json;charset=utf-8</value>
+			</list>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list> 
+				<ref bean="stringConverter" />
+				<ref bean="jsonConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:defaultEncoding="utf-8" />
+
+</beans>

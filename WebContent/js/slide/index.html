@@ -1,0 +1,189 @@
+<!DOCTYPE>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DocSearcher</title>
+
+	<link rel="icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
+    <meta name="author" content="孙剑峰" />
+    <meta name="Copyright" content="ustc" />
+    <meta name="keywords" content="DocSearcher,404" />
+    <meta name="description" content="DocSearcher" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+	<link href="css/common.css" type="text/css" rel="stylesheet"/>
+	<link href="css/common/scroll.css" type="text/css" rel="stylesheet"/>
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+
+	<link href="css/common/head.css" type="text/css" rel="stylesheet" media="screen and (min-width: 1200px)"/>
+	<link href="css/common/user.css" type="text/css" rel="stylesheet" media="screen and (min-width: 1200px)"/>
+	<link href="css/common/upload.css" type="text/css" rel="stylesheet" media="screen and (min-width: 1200px)"/>
+	<link href="css/index/rank.css" type="text/css" rel="stylesheet" media="screen and (min-width: 1200px)"/>
+	<link href="css/index/data.css" type="text/css" rel="stylesheet" media="screen and (min-width: 1200px)"/>
+	<link href="css/index/inf.css" type="text/css" rel="stylesheet" media="screen and (min-width: 1200px)"/>
+
+	<link href="css/common/head-m.css" type="text/css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
+	<link href="css/common/user-m.css" type="text/css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
+	<link href="css/common/upload-m.css" type="text/css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
+	<link href="css/index/rank-m.css" type="text/css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
+	<link href="css/index/data-m.css" type="text/css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
+	<link href="css/index/inf-m.css" type="text/css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1200px)"/>
+
+	<link href="css/common/head-s.css" type="text/css" rel="stylesheet" media="screen and (max-width: 768px)"/>
+	<link href="css/common/user-s.css" type="text/css" rel="stylesheet" media="screen and (max-width: 768px)"/>
+	<link href="css/common/upload-s.css" type="text/css" rel="stylesheet" media="screen and (max-width: 768px)"/>
+	<link href="css/index/rank-s.css" type="text/css" rel="stylesheet" media="screen and (max-width: 768px)"/>
+	<link href="css/index/data-s.css" type="text/css" rel="stylesheet" media="screen and (max-width: 768px)"/>
+	<link href="css/index/inf-s.css" type="text/css" rel="stylesheet" media="screen and (max-width: 768px)"/>
+
+	<script src="js/angular.js"></script>
+	<script src="js/angular-sanitize.js"></script>
+	<script src="js/jquery-2.2.3.js"></script>
+	<script src="js/jquery.rotate.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/echarts.min.js"></script>
+	<script src="js/index/index.js"></script>
+	
+</head>
+
+<body>
+<div id="" data-ng-app="ds" data-ng-controller="fun" data-ng-init="site='DocSearcher';">
+	<!-- head start -->
+	<div id="head" class="head bordertest">
+		<div class="headDiv bordertest">
+			<img src="images/logo.png" class="logo">
+			<span class="title">{{site}}</span>
+		</div>
+		<div class="user bordertest">
+			<span class="help"></span>
+			<img src="images/user_logo/user_logo.png" class="userLogo">
+			<div class="userInf bordertest">
+				<span class="span1">{{person.name}}</span>
+				<span class="span2">等级：{{person.level}}</span>
+			</div>
+		</div>
+		<div class="button bordertest">
+			<span class="help"></span>
+			<img src="images/head/button1.png" class="buttonImg">
+		</div>
+	</div>
+	<!-- head end -->
+	<div id="overlay" onclick="hideOverlay();"></div>
+	<!-- search start -->
+	<div id="search" class="search bordertest">
+		<div class="blank"></div>
+		<div class="content">
+			<div class="searchBar">
+				<div class="list">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+						<div class="arrow bordertest"><img src="images/head/arrow.png" class="img1"></div>
+						<!-- <span class="caret"></span> -->
+					</a>
+	                <ul class="dropdown-menu ul" role="menu">
+						<li data-ng-repeat="item in searchKind" ng-click="changeSearch(item,$index)"><a href="#">{{item.name}}</a></li>
+						<!-- <li class="divider"></li> -->
+						<!-- <li class="dropdown-header">List</li> -->
+	                </ul>
+                </div>
+				<form class="navbar-form" ng-keydown="submitByEnter();">
+					<input type="text" class="form-control input" placeholder="Search..." ng-model="search">
+				</form>
+				<a href="result.html?search={{search}}" target="_blank"><div class="se bordertest"><img src="images/head/search.png" class="img2"></div></a>
+			</div>
+		</div>
+
+	</div>
+	<!-- search end -->
+
+	<!-- usercenter start -->
+	<div id="userCenter">
+		<div class="userLogo"><div><img src="{{user.logo}}"></div></div>
+		<div class="div1">
+			<div class="name" data-ng-bind="user.name"></div>
+			<div class="coin">
+				<div class="num">{{user.coin}}x</div>
+				<img src="images/result/coin.png">
+			</div>
+		</div>
+		<div class="discript">
+			<div class="start">卍</div>
+			<div class="body" data-ng-bind="user.inf"></div>
+       		<div class="end">卍</div>
+		</div>
+		<button type="button" class="btn btn-lg btn-warning" onclick="showOverlayUpload();"><img src="images/result/upload.png">&nbsp;&nbsp;上传我的文档</button>
+
+		<div class="nav nav-sidebar" id="menu2">
+			<ul class="nav nav-sidebar ul">
+				<li><a href="">我的贡献</a><span class="badge tag">{{user.myDoc}} / {{user.allDoc}}</span></li>
+				<li><a href="">我的收藏</a><span class="badge tag" data-ng-bind="user.fav"></span></li>
+				<li><a href="">我的下载</a><span class="badge tag" data-ng-bind="user.download"></span></li>
+				<li><a href="">个人中心</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- usercenter end -->
+	<!-- upload start -->
+	<div id="upload">
+		<div class="button">上传文件夹</div>
+		<div class="close" onclick="hideOverlay();"><img src="images/result/close.png"></div>
+		<div class="rect" onclick="OpenFileDialog();">
+			<img src="images/result/add.png">
+		</div>
+		<form action="user/upload" method="post" enctype="multipart/form-data" id="fileUploadForm">
+			<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
+		</form>
+
+		<form action="user/upload" method="post"  enctype="multipart/form-data">
+			<input type="file" name="upload">
+			<input type="submit"/>
+		</form>
+
+		<div class="inf">
+			<div id="fileName"></div>
+			<div id="fileSize"></div>
+			<div id="fileType"></div>
+			<div id="progressNumber"></div>
+		</div>
+	</div>
+	<!-- upload end -->
+	<!-- rank start -->
+	<div id="rank" class="bordertest">
+		<div class="div1 bordertest" data-ng-repeat="item in rank_top5">
+			<img src="{{item.pic}}">
+			<div class="div_1 bordertest">{{item.name}}</div>
+			<div class="div_2 bordertest" data-ng-repeat="items in item.data">
+				<div class="pic bordertest"><img src="{{items.pic}}"></div>
+				<div class="text bordertest">{{items.name}}</div>
+			</div>
+			<div class="div_3 bordertest">
+				<div class="more bordertest">More…</div>
+			</div>
+		</div>
+	</div>
+	<!-- rank end -->
+	<!-- data start -->
+	<div id="data" class="bordertest">
+		<div id="chart1" class="bordertest"></div>
+		<div class="blank"></div>
+		<div id="chart2" class="bordertest"></div>
+	</div>
+	<!-- data end -->
+	<!-- inf start -->
+	<div id="inf" class="bordertest">
+		<div class="div1 bordertest">{{site}}</div>
+		<div class="blank"></div>
+		<div class="div2 bordertest" data-ng-repeat="item in inf">
+			<div class="div2_1 bordertest">{{item.name}}</div>
+			<div class="div2_2 bordertest">{{item.inf}}</div>
+		</div>
+	</div>
+	<!-- inf end -->
+</div>
+<script src="js/index/charts.js"></script>
+</body>
+</html>

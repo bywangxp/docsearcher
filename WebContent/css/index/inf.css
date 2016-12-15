@@ -1,0 +1,61 @@
+#inf
+{
+    height:400px;
+    background-color: #0097ff;
+}
+#inf .blank
+{
+    height:90px;
+}
+#inf .div1
+{
+    margin-top: 20px;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 700;
+    font-size: 26px;
+    color: white;
+    position: absolute;
+    left: 40px;
+}
+#inf .div2
+{
+    height: 100px;
+}
+#inf .div2_1
+{
+    width: 100px;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left: 40px;
+}
+#inf .div2_2
+{
+    display: inline-block;
+    width: 80%;
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+    text-align: left;
+    left: 158px;
+    position: absolute;
+}
+#overlay 
+{
+    background: #000;
+    filter: alpha(opacity=50); /* IE的透明度 */
+    opacity: 0.5; /* 透明度 */
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9977; /* 此处的图层要大于页面 */
+    display:none;
+    _background-color:#a0a0a0; /* 解决IE6的不透明问题 */
+}

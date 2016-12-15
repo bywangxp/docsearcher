@@ -1,0 +1,25 @@
+#data
+{
+    /*padding: 20px;*/
+}
+#data #chart1
+{
+    width: 80%;
+    height: 420px;
+    display: inline-block;
+    margin-top: 50px;
+    text-align: center;
+}
+#data #chart2
+{
+    width: 80%;
+    height: 350px;
+    display: inline-block;
+    margin-top: 50px;
+    text-align: center;
+}
+#data .blank
+{
+    width: 50px;
+    display: inline-block;
+}

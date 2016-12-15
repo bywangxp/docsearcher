@@ -1,0 +1,277 @@
+<!DOCTYPE>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>result</title>
+
+	<link rel="icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
+    <meta name="author" content="孙剑峰" />
+    <meta name="Copyright" content="ustc" />
+    <meta name="keywords" content="DocSearcher,404" />
+    <meta name="description" content="DocSearcher" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+	<link href="css/common.css" type="text/css" rel="stylesheet"/>
+	<link href="css/common/scroll.css" type="text/css" rel="stylesheet"/>
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+	<link href="css/common/head.css" type="text/css" rel="stylesheet"/>
+	<link href="css/result/resultBar.css" type="text/css" rel="stylesheet"/>
+	<link href="css/result/menu.css" type="text/css" rel="stylesheet"/>
+	<link href="css/result/slide.css" type="text/css" rel="stylesheet"/>
+	<link href="css/common/user.css" type="text/css" rel="stylesheet"/>
+	<link href="css/common/upload.css" type="text/css" rel="stylesheet"/>
+	<style type="text/css">
+		html
+		{
+			overflow-x:hidden;
+		}
+	</style>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-sanitize.js"></script>
+	<script src="js/jquery-2.2.3.js"></script>
+	<script src="js/jquery.rotate.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/result/result.js"></script>
+	<script src="js/common/userCenter.js"></script>
+
+</head>
+
+<body>
+<div id="" data-ng-app="ds" data-ng-controller="fun" data-ng-init="site='DocSearcher';">
+	<!-- head start -->
+	<div id="head" class="head bordertest">
+		<div class="headDiv bordertest">
+			<img src="images/logo.png" class="logo">
+			<span class="title">{{site}}</span>
+		</div>
+		<div class="user bordertest">
+			<span class="help"></span>
+			<img src="images/user_logo/user_logo.png" class="userLogo">
+			<div class="userInf bordertest">
+				<span class="span1">{{person.name}}</span>
+				<span class="span2">等级：{{person.level}}</span>
+			</div>
+		</div>
+		<div class="button bordertest">
+			<span class="help"></span>
+			<img src="images/head/button1.png" class="buttonImg">
+		</div>
+	</div>
+	<!-- head end -->
+	<!-- search start -->
+	<div id="search" class="search bordertest">
+		<div class="blank"></div>
+		<div class="content">
+			<div class="searchBar">
+				<div class="list">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+						<div class="arrow bordertest"><img src="images/head/arrow.png" class="img1"></div>
+						<!-- <span class="caret"></span> -->
+					</a>
+	                <ul class="dropdown-menu ul" role="menu">
+						<li data-ng-repeat="item in searchKind" ng-click="changeSearch(item,$index)"><a href="#">{{item.name}}</a></li>
+						<!-- <li class="divider"></li> -->
+						<!-- <li class="dropdown-header">List</li> -->
+	                </ul>
+                </div>
+				<form class="navbar-form">
+					<input type="text" class="form-control input" placeholder="Search..." ng-model="search">
+				</form>
+				<div class="se bordertest" ng-click="search_commit();"><img src="images/head/search.png" class="img2"></div>
+			</div>
+		</div>
+
+	</div>
+	<!-- search end -->
+	<!-- fun start -->
+	<div id="fun" class="bordertest">
+		<div class="text">
+			<span>对关键词“{{search}}”的搜索结果：</span>
+		</div>
+		<div class="div1">
+			<div class="my" ng-click="chooseMy();">只显示我的文库
+				<!-- <div class="chooseMy" ng-class="{'selected':chooseM}" ></div> -->
+				<div class='toggle' id='switch'>
+					<div class='toggle-text-off'></div>
+					<div class='glow-comp'></div>
+					<div class='toggle-button'></div>
+					<div class='toggle-text-on'></div>
+				</div>
+			</div>
+			<button type="button" class="btn btn-lg btn-primary button"><img src="images/result/download.png">&nbsp;下载&nbsp;</button>
+			<button type="button" class="btn btn-lg btn-primary button" onclick="showOverlay();"><img src="images/result/list.png">&nbsp;&nbsp;清单&nbsp;&nbsp;<span class="badge" ng-bind="listNum"></span></button>
+  		</div>
+  		<div class="div2 bordertest">
+  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+  				<span class="sort">{{sortKind[kind_sort].name}}</span>
+  			</a>
+  			<img ng-if="sort0==true" src="images/result/arrowup.png" ng-click="sort_0()">
+  			<img ng-if="sort0==false" src="images/result/arrowdown.png" ng-click="sort_0()">
+  			<ul class="dropdown-menu ul" role="menu">
+				<li data-ng-repeat="item in sortKind" ng-click="changeSort(item,$index)"><a href="#">{{item.name}}</a></li>
+	        </ul>
+		</div>
+  		<div class="div3 bordertest"><img src="images/result/listfile.png" id="result_pic1"></div>
+  		<div class="div4 bordertest"><img src="images/result/pic.png" id="result_pic2"></div>
+  		<div id="overlay" onclick="hideOverlay();"></div>
+	</div>
+	<!-- 清单 -->
+	<div id="list">
+		<div class="item" data-ng-repeat="item in downloadList">
+			<img src="{{item.pic}}" class="pic">
+			<div class="name">{{item.name}}</div>
+			<div class="page">{{item.pageNow}}/{{item.pageAll}}&nbsp;&nbsp;&nbsp;</div>
+			<div class="date">{{item.date}}</div>
+			<img src="images/result/delete.png" class="delete" ng-click="removeDownloadList($index,item);">
+		</div>
+	</div>
+	<!-- fun end -->
+	<!-- fun2 start -->
+	<div id="fun2" class="bordertest">
+		<div class="text">
+			<span>对关键词“{{search}}”的搜索结果：</span>
+		</div>
+		<div class="div1">
+			<button type="button" class="btn btn-lg btn-primary button"><img src="images/result/download.png">&nbsp;下载&nbsp;</button>
+			<button type="button" class="btn btn-lg btn-primary button" onclick="showOverlay();"><img src="images/result/list.png">&nbsp;&nbsp;清单&nbsp;&nbsp;<span class="badge">{{listNum}}</span></button>
+  		</div>
+	</div>
+	<!-- fun2 end -->
+	<!-- sidebar start -->
+	<div class="cover"></div>
+	<div class="nav nav-sidebar" id="menu">
+		<ul class="nav nav-sidebar ul">
+			<li data-ng-repeat="item in menu" ng-click="menuActive(item);"><a href="" ng-class="{'active':item.active}">{{item.name}}</a><span class="badge tag">{{item.num}}</span></li>
+		</ul>
+	</div>
+	<!-- sidebar end -->
+	<!-- slideshow start -->
+	<div id="slideShow" class="bordertest">
+		<!-- PPT页面 start-->
+		<div class="slide bordertest" data-ng-repeat="item in slide">
+			<div class="seg1">
+				<div class="title" data-ng-bind="item.name"></div>
+				<div class="coin"><div class="num">{{item.coin}}x</div><img src="images/result/coin.png"></div>
+				<div class="grade"><span data-ng-bind="item.grade"></span>分</div>
+			</div>
+			<div class="page">
+				<a href="slide.html?slide={{item.id}}" target="_blank"><img src="{{item.pic}}"></a>
+			</div>
+			<div class="select" ng-click="choose($index,item);"><img src="{{item.ifChoose}}"></div>
+			<div class="fav" ng-click="fav(item)"><img src="{{item.ifaddFav}}"></div>
+			<div class="seg2">
+				<div class="div1">{{item.pageNow}}/{{item.pageAll}}</div>
+				<div class="div2">{{item.date}}</div>
+				<div class="div3">贡献者：{{item.author}}</div>
+			</div>
+			<div class="div4"><p data-ng-bind-html="item.inf"></p></div>
+		</div>
+		<!-- PPT页面 end-->
+		<div class="more"><img src="images/result/more.png"></div>
+	</div>
+	<!-- slideshow end -->
+
+	<!-- slideshowlist start -->
+	<div id="slideShowList" class="bordertest">
+		<div class="top">
+			<div class="help"></div>
+			<div class="div1" ng-click="chooseAll();"><div class="choose1" ng-class="{'selected':chooseAllFlag}"></div></div>
+			<div class="div2 bordertest" ng-click="sort_1();">文件名
+			<!-- <img ng-if="sort1==true" src="images/result/arrowup.png"><img ng-if="sort1==false" src="images/result/arrowdown.png"> -->
+			</div>
+			<div class="blank"></div>
+			<div class="div3 bordertest" ng-click="sort_2();">贡献者
+			<!-- <img ng-if="sort2==true" src="images/result/arrowup.png"><img ng-if="sort2==false" src="images/result/arrowdown.png"> -->
+			</div>
+			<div class="blank"></div>
+			<div class="div4 bordertest" ng-click="sort_3();">下载次数<img ng-if="sort3==true" src="images/result/arrowup.png"><img ng-if="sort3==false" src="images/result/arrowdown.png"></div>
+			<div class="blank"></div>
+			<div class="div5 bordertest" ng-click="sort_4();">收藏次数<img ng-if="sort4==true" src="images/result/arrowup.png"><img ng-if="sort4==false" src="images/result/arrowdown.png"></div>
+			<div class="blank"></div>
+			<div class="div6 bordertest" ng-click="sort_5();">评分<img ng-if="sort5==true" src="images/result/arrowup.png"><img ng-if="sort5==false" src="images/result/arrowdown.png"></div>
+			<div class="blank"></div>
+			<div class="div7 bordertest" ng-click="sort_6();">上传时间<img ng-if="sort6==true" src="images/result/arrowup.png"><img ng-if="sort6==false" src="images/result/arrowdown.png"></div>
+			<div class="blank"></div>
+		</div>
+		<!-- PPT条目 start-->
+		<div class="slide" data-ng-repeat="item in slide" ng-mouseover="hover=true" ng-mouseleave="hover=false">
+			<div class="help"></div>
+			<div class="div1" ng-click="choose($index,item);"><div class="choose2" ng-class="{'selected':item.choose}" ></div></div>
+			<div class="div2 bordertest">
+				<a href="slide.html?slide={{item.id}}" target="_blank"><div class="text"><span data-ng-bind="item.name"></span></div></a>
+				<div class="div_1"><span class="num">{{item.coin}}x</span></div>
+				<div class="div_2"><img src="images/result/coin.png" class="img1"></div>
+				<div class="div_4"><img src="{{item.ifaddFav}}" class="img3" ng-click="fav(item)"></div>
+				<div class="div_3" ng-if="hover"><a href="{{item.downloadUrl}}"><img src="images/result/download2.png" class="img2"></a></div>
+			</div>
+			<div class="blank"></div>
+			<div class="div3 bordertest"><img src="{{item.logo}}">{{item.author}}</div>
+			<div class="blank"></div>
+			<div class="div4 bordertest" data-ng-bind="item.downloadNum"></div>
+			<div class="blank"></div>
+			<div class="div5 bordertest" data-ng-bind="item.addFavNum"></div>
+			<div class="blank"></div>
+			<div class="div6 bordertest"><span data-ng-bind="item.grade"></span>分</div>
+			<div class="blank"></div>
+			<div class="div7 bordertest" data-ng-bind="item.date"></div>
+			<div class="blank"></div>
+		</div>
+		<!-- PPT条目 end-->
+		<div class="more"><img src="images/result/more.png"></div>
+	</div>
+	<!-- slideshow end -->
+
+	<!-- usercenter start -->
+	<div id="userCenter">
+		<div class="userLogo"><div><img src="{{user.logo}}"></div></div>
+		<div class="div1">
+			<div class="name" data-ng-bind="user.name"></div>
+			<div class="coin">
+				<div class="num">{{user.coin}}x</div>
+				<img src="images/result/coin.png">
+			</div>
+		</div>
+		<div class="discript">
+			<div class="start">卍</div>
+			<div class="body" data-ng-bind="user.inf"></div>
+       		<div class="end">卍</div>
+		</div>
+		<button type="button" class="btn btn-lg btn-warning" onclick="showOverlayUpload();"><img src="images/result/upload.png">&nbsp;&nbsp;上传我的文档</button>
+
+		<div class="nav nav-sidebar" id="menu2">
+			<ul class="nav nav-sidebar ul">
+				<li><a href="">我的贡献</a><span class="badge tag">{{user.myDoc}} / {{user.allDoc}}</span></li>
+				<li><a href="">我的收藏</a><span class="badge tag" data-ng-bind="user.fav"></span></li>
+				<li><a href="">我的下载</a><span class="badge tag" data-ng-bind="user.download"></span></li>
+				<li><a href="">个人中心</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- usercenter end -->
+	<!-- upload start -->
+	<div id="upload">
+		<div class="button">上传文件夹</div>
+		<div class="close" onclick="hideOverlay();"><img src="images/result/close.png"></div>
+		<div class="rect" onclick="OpenFileDialog();">
+			<img src="images/result/add.png">
+		</div>
+		<form action="user/upload" method="post" enctype="multipart/form-data" id="fileUploadForm">
+			<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
+		</form>
+		<div class="inf">
+			<div id="fileName"></div>
+			<div id="fileSize"></div>
+			<div id="fileType"></div>
+			<div id="progressNumber"></div>
+		</div>
+	</div>
+	<!-- upload end -->
+	<div id="back"><img src="images/result/back.png"></div>
+
+</div>
+</body>

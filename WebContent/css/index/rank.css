@@ -1,0 +1,59 @@
+#rank
+{
+	width: 100%;
+	height: 400px;
+	background-color: rgba(236, 236, 236, 0.5);
+}
+#rank .div1
+{
+	width: 300px;
+    margin-top: 35px;
+    display: inline-block;
+}
+#rank .div_1
+{
+    font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+#rank .div_2
+{
+    text-align: left;
+    margin-top: 13px;
+}
+#rank .div_2 .pic
+{
+	width: 40px;
+    display: inline-block;
+    margin-left: 40px;
+}
+#rank .div_2 .pic img
+{
+	width: 30px;
+}
+#rank .div_2 .text
+{
+    display: inline-block;
+    width: 150px;
+    margin-left: 12px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: -8px;
+    text-align: center;
+}
+#rank .div_3
+{
+    height: 35px;
+}
+#rank .div_3 .more
+{
+	width: 80px;
+    float: right;
+    margin-top: 10px;
+    color: #0097ff;
+    font-size: 16px;
+    cursor: pointer;
+}

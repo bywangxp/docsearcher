@@ -1,0 +1,2157 @@
+<!DOCTYPE>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DocSearcher</title>
+
+	<link rel="icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
+    <meta name="author" content="孙剑峰" />
+    <meta name="Copyright" content="ustc" />
+    <meta name="keywords" content="DocSearcher,404" />
+    <meta name="description" content="DocSearcher" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+	<link href="css/common.css" type="text/css" rel="stylesheet"/>
+	<link href="css/slide/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+	<link href="css/slide/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+	<link href="css/slide/slide.css" type="text/css" rel="stylesheet"/>
+
+	<script src="js/slide/jquery.min.js"></script>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-sanitize.js"></script>
+	<script src="js/jquery-2.2.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/slide/star-rating.js" type="text/javascript"></script>
+	<script src="js/slide/slide.js" type="text/javascript"></script>
+
+
+</head>
+<body>
+<div data-ng-app="ds" data-ng-controller="fun" data-ng-init="site='DocSearcher';">
+	<div id="title" class="bordertest">
+		<div class="div0"><img src="images/logo.png"></div>
+		<div class="div1">页数：{{slide.pageNow}}/{{slide.pageAll}}</div>
+		<div class="div2">评价：</div>
+		<div class="div3">
+			<input id="star" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+		</div>
+		<div class="div4">{{slide.name}}</div>
+		<div class="div5">{{slide.grade}}<span>分</span></div>
+		<div class="div6">{{slide.coin}}x</div>
+		<div class="div7"><img src="images/result/coin.png"></div>
+		<a href="{{slide.downloadUrl}}"><button class="btn">下载</button></a>
+
+	</div>
+	<div id="slide">
+		<div class="left bordertest">
+			<div class="div" data-ng-repeat="item in pages" ng-click="change($index);">
+        <div class="num">{{item.num}}</div><img src="{{item.pic}}">
+      </div>
+		</div>
+		<div class="blank"></div>
+		<div class="h5slide bordertest">
+    {{h5slide.data}}
+
+
+
+<div ng-if="show[1]">
+
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s3074" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s3075" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:line id="_x0000_s3076" style='position:absolute;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' from="18pt,3in" to="696pt,3in"
+  strokecolor="#339 [3]" strokeweight="6pt">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:line><v:shape id="_x0000_s3077" type="#_x0000_t202" style='position:absolute;
+  left:102pt;top:21.5pt;width:156.875pt;height:45.625pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:top' o:gfxdata="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
+" filled="f" fillcolor="#00e4a8 [4]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s3078" style='position:absolute;left:18pt;top:221.875pt;
+  width:606pt;height:84.125pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#00e4a8 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:rect id="_x0000_s3079" style='position:absolute;left:18pt;top:269pt;
+  width:672pt;height:36pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#00e4a8 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:shape id="_x0000_s3080" type="#_x0000_t202" style='position:absolute;
+  left:161.75pt;top:60pt;width:426.25pt;height:122.5pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:top' o:gfxdata="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
+" filled="f" fillcolor="#00e4a8 [4]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s3081" type="#_x0000_t202" style='position:absolute;
+  left:633pt;top:7in;width:14.5pt;height:28.875pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:top' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s3076"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0344_image001.png" style='position:absolute;top:39.39%;left:2.11%;
+ width:95.23%;height:1.41%'><![endif]>
+ <div v:shape="_x0000_s3074">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s3075">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>1</span></div>
+ </div>
+ <div v:shape="_x0000_s3077">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:4.94%;left:15.23%;width:23.84%;
+ height:6.89%'><span lang=EN-US style='font-family:"Baskerville Old Face";
+ mso-ascii-font-family:"Baskerville Old Face";mso-fareast-font-family:宋体;
+ mso-hansi-font-family:"Baskerville Old Face";font-size:178%;text-shadow:auto;
+ color:#3366FF;mso-fareast-language:ZH-CN'>Chapter<span
+ style='mso-spacerun:yes'>&nbsp;&nbsp; </span>5</span></div>
+ </div>
+ <div v:shape="_x0000_s3078">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:42.22%;left:3.44%;width:82.25%;
+ height:7.59%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:200%;color:red;mso-color-index:6;mso-fareast-language:
+ ZH-CN'>Objectives </span><span lang=EN-US style='font-family:宋体;mso-ascii-font-family:
+ "Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";
+ font-size:156%;color:red;mso-color-index:6;mso-fareast-language:ZH-CN'><br>
+  </span></span><span style='position:absolute;top:50.7%;left:3.44%;width:82.25%;
+ height:5.3%'><span lang=EN-US style='font-family:宋体;mso-ascii-font-family:
+ "Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";
+ font-size:156%;mso-fareast-language:ZH-CN;mso-special-format:lastCR;
+ display:none'>&#13;</span></span></div>
+ </div>
+ <div v:shape="_x0000_s3079">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-margin-left-alt:288;position:absolute;top:50.88%;
+ left:3.44%;width:91.39%;height:5.12%'><span lang=EN-US style='font-family:
+ "Times New Roman";mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:"Times New Roman";font-size:133%;color:red;
+ mso-color-index:6;mso-fareast-language:ZH-CN'><b><i>Upon completion you will
+ be able to:</i></b></span><span lang=EN-US style='font-family:宋体;mso-ascii-font-family:
+ "Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";
+ font-size:133%;color:red;mso-color-index:6;mso-fareast-language:ZH-CN;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s3080">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center'><span style='position:absolute;
+ top:12.36%;left:27.28%;width:49.66%;height:10.07%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 267%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>IP Addresses:<span
+ style='mso-spacerun:yes'>&nbsp; </span><br>
+  </i></b></span></span><span style='position:absolute;top:23.14%;left:17.74%;
+ width:68.74%;height:10.07%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:267%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>Classless
+ Addressing</i></b></span></span></div>
+ </div>
+ <div v:shape="_x0000_s3081">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:94.52%;left:88.87%;width:.13%;
+ height:3.53%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ "Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";
+ mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="Picture_x0020_8" o:spid="_x0000_s3082" type="#_x0000_t75"
+  style='position:absolute;left:12pt;top:12pt;width:78pt;height:68.375pt;
+  visibility:visible;mso-wrap-style:square' fillcolor="#00e4a8 [4]"
+  strokecolor="black [1]">
+  <v:imagedata src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0344_image002.png" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="Picture_x0020_8"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0344_image003.png" style='position:absolute;top:2.29%;left:1.72%;
+ width:10.86%;height:12.72%'><![endif]><v:rect id="_x0000_s3083" style='position:absolute;
+  left:12pt;top:306pt;width:672pt;height:151pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect>
+ <div v:shape="_x0000_s3083">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:57.59%;left:2.64%;width:91.39%;
+ height:5.12%'><span style='position:absolute;top:0%;left:1.3%;width:98.84%;
+ height:100.0%'><span style='font-family:"Times New Roman";font-size:133%;
+ font-weight:normal'><span style='mso-special-format:bullet;position:absolute;
+ left:-1.31%'>&#8226;</span></span><span lang=ZH-CN style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:133%;mso-ansi-language:EN-US'><b><i><span
+ style='mso-spacerun:yes'>&nbsp;</span>Understand the concept of classless
+ addressing&#13;</i></b></span></span></div>
+ <div class=O style='position:absolute;top:63.07%;left:2.64%;width:101.19%;
+ height:5.12%'><span style='position:absolute;top:0%;left:1.17%;width:98.82%;
+ height:100.0%'><span style='font-family:"Times New Roman";font-size:133%;
+ font-weight:normal'><span style='mso-special-format:bullet;position:absolute;
+ left:-1.19%'>&#8226;</span></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:133%;mso-fareast-language:ZH-CN'><b><i><span
+ style='mso-spacerun:yes'>&nbsp;</span>Be able to find the first and last
+ address given an IP address &#13;</i></b></span></span></div>
+ <div class=O style='position:absolute;top:68.37%;left:2.64%;width:106.62%;
+ height:5.12%'><span style='position:absolute;top:0%;left:1.11%;width:98.88%;
+ height:100.0%'><span style='font-family:"Times New Roman";font-size:133%;
+ font-weight:normal'><span style='mso-special-format:bullet;position:absolute;
+ left:-1.13%'>&#8226;</span></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:133%;mso-fareast-language:ZH-CN'><b><i><span
+ style='mso-spacerun:yes'>&nbsp;</span>Be able to find the network address
+ given a classless IP address&#13;</i></b></span></span></div>
+ <div class=O style='position:absolute;top:73.67%;left:2.64%;width:106.22%;
+ height:5.12%'><span style='position:absolute;top:0%;left:1.12%;width:98.87%;
+ height:100.0%'><span style='font-family:"Times New Roman";font-size:133%;
+ font-weight:normal'><span style='mso-special-format:bullet;position:absolute;
+ left:-1.13%'>&#8226;</span></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:133%;mso-fareast-language:ZH-CN'><b><i><span
+ style='mso-spacerun:yes'>&nbsp;</span>Be able to create subnets from a block
+ of classless IP addresses&#13;</i></b></span></span></div>
+ <div class=O style='position:absolute;top:78.97%;left:2.64%;width:94.03%;
+ height:5.12%'><span style='position:absolute;top:0%;left:1.26%;width:98.73%;
+ height:100.0%'><span style='font-family:"Times New Roman";font-size:133%;
+ font-weight:normal'><span style='mso-special-format:bullet;position:absolute;
+ left:-1.28%'>&#8226;</span></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:133%;mso-fareast-language:ZH-CN'><b><i><span
+ style='mso-spacerun:yes'>&nbsp;</span>Understand address allocation and
+ address aggregation</i></b></span></span></div>
+ </div>
+</p:slide></div>
+</div>
+
+
+
+<div ng-if="show[2]">
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s9218" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s9219" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s9220" type="#_x0000_t202" style='position:absolute;
+  left:78pt;top:7.125pt;width:450pt;height:28.875pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#0c0"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s9221" style='position:absolute;left:28.875pt;
+  top:8.5pt;width:34.5pt;height:37.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="lightGrayScale" fillcolor="#ffcf01 [5]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s9221"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0276_image015.png" style='position:absolute;top:1.59%;left:3.97%;
+ width:5.03%;height:7.24%'><![endif]>
+ <div v:shape="_x0000_s9218">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s9219">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>7</span></div>
+ </div>
+ <div v:shape="_x0000_s9220">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:2.29%;left:11.78%;width:64.1%;
+ height:3.88%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ color:blue;mso-ansi-language:EN-US'>Figure 5.2</span><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-hansi-font-family:"Times New Roman";color:#FFCF01;mso-color-index:5;
+ mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+ </span></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ mso-ansi-language:EN-US'><b><i>Format of classless addressing address</i></b></span></div>
+ </div>
+ <div v:shape="_x0000_s9221">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:3.18%;left:5.03%;width:2.91%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s9222" style='position:absolute;left:59pt;top:8.5pt;
+  width:25.875pt;height:37.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="lightGrayScale" fillcolor="#ffcf01 [5]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" angle="90" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><v:rect id="_x0000_s9223" style='position:absolute;left:38.625pt;
+  top:41.75pt;width:33.25pt;height:37.375pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' o:bwmode="lightGrayScale"
+  fillcolor="#33c [7]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><v:rect id="_x0000_s9224" style='position:absolute;left:67.75pt;
+  top:41.75pt;width:29pt;height:37.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="lightGrayScale" fillcolor="#33c [7]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" angle="90" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0
+ v:shapes="_x0000_s9222,_x0000_s9223,_x0000_s9224" src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0276_image016.png"
+ style='position:absolute;top:1.59%;left:5.43%;width:8.34%;height:13.42%'><![endif]>
+ <div v:shape="_x0000_s9222">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:3.18%;left:9.13%;width:1.72%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <div v:shape="_x0000_s9223">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:9.36%;left:6.35%;width:2.78%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <div v:shape="_x0000_s9224">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:9.36%;left:10.46%;width:2.11%;
+ height:4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:
+ EN-US;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s9225" style='position:absolute;left:6pt;top:36pt;width:44.125pt;
+  height:33.25pt;visibility:visible;mso-wrap-style:none;v-text-anchor:middle'
+  o:bwmode="lightGrayScale" fillcolor="white [0]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="red [6]" angle="135" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s9225"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0276_image017.png" style='position:absolute;top:6.71%;left:.79%;
+ width:6.35%;height:6.53%'><![endif]>
+ <div v:shape="_x0000_s9225">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:7.77%;left:1.85%;width:4.23%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s9226" style='position:absolute;left:56pt;top:0;width:2.5pt;
+  height:82.875pt;visibility:visible;mso-wrap-style:none;v-text-anchor:middle'
+  o:bwmode="grayScale" fillcolor="#1c1c1c [2]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s9226"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0276_image018.png" style='position:absolute;top:0%;left:7.81%;
+ width:.66%;height:15.72%'><![endif]>
+ <div v:shape="_x0000_s9226">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:5.83%;left:7.94%;width:.13%;height:4.59%'><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:133%;
+ font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s9227" style='position:absolute;left:34.875pt;top:42pt;
+  width:647.75pt;height:2.5pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="grayScale" fillcolor="#1c1c1c [2]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]" angle="90" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s9227"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0276_image019.png" style='position:absolute;top:7.77%;left:4.9%;
+ width:90.19%;height:.88%'><![endif]>
+ <div v:shape="_x0000_s9227">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:6.18%;left:5.82%;width:88.07%;
+ height:4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:
+ EN-US;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="Picture_x0020_11" o:spid="_x0000_s9228" type="#_x0000_t75"
+  style='position:absolute;left:69.25pt;top:132pt;width:596.75pt;height:204.25pt;
+  visibility:visible;mso-wrap-style:square' fillcolor="#00e4a8 [4]"
+  strokecolor="black [1]">
+  <v:imagedata src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0276_image020.png" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="Picture_x0020_11"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0276_image021.png" style='position:absolute;top:24.38%;left:9.66%;
+ width:82.91%;height:37.8%'><![endif]><v:shape id="_x0000_s9229" type="#_x0000_t202"
+  style='position:absolute;left:60pt;top:341pt;width:572.625pt;height:151pt;
+  visibility:visible;mso-wrap-style:square;v-text-anchor:top' filled="f"
+  fillcolor="#00e4a8 [4]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s9229">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-line-spacing:"100 50 0";mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:64.13%;left:9.4%;width:90.06%;
+ height:5.12%'><span lang=EN-US style='font-family:Arial;mso-ascii-font-family:
+ Arial;mso-fareast-font-family:宋体;mso-hansi-font-family:Arial;font-size:133%;
+ mso-fareast-language:ZH-CN'>n </span><span lang=ZH-CN style='font-family:宋体;
+ mso-ascii-font-family:Arial;mso-fareast-font-family:宋体;mso-hansi-font-family:
+ Arial;font-size:133%;mso-ansi-language:EN-US'>的意义：</span><span lang=ZH-CN
+ style='font-family:宋体;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;font-size:133%;font-weight:normal;mso-ansi-language:
+ EN-US'>表示该地址块中的每一个地址都有</span><span lang=EN-US style='font-family:Arial;
+ mso-ascii-font-family:Arial;mso-fareast-font-family:宋体;mso-hansi-font-family:
+ Arial;font-size:133%;font-weight:normal;mso-fareast-language:ZH-CN'>n</span><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;font-size:133%;font-weight:normal;mso-ansi-language:
+ EN-US'>个比</span></span><span style='position:absolute;top:69.96%;left:9.4%;
+ width:77.61%;height:4.59%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ Arial;mso-fareast-font-family:宋体;mso-hansi-font-family:Arial;font-size:133%;
+ font-weight:normal;mso-ansi-language:EN-US'>特是相同的（从左至右，称地址前缀）&#13;</span></span></div>
+ <div class=O style='mso-line-spacing:"100 50 0";mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:77.91%;left:9.4%;width:77.61%;height:4.59%'><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;font-size:133%;font-weight:normal;mso-ansi-language:
+ EN-US;display:none'>&#13;</span></div>
+ <div class=O style='mso-line-spacing:"100 50 0";mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:85.33%;left:9.4%;width:77.61%;height:5.12%'><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;mso-ansi-language:EN-US'>斜线记法也叫</span><span
+ lang=ZH-CN style='font-family:Arial;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;mso-ansi-language:EN-US'> </span><span
+ lang=EN-US style='font-family:Arial;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;font-size:133%;mso-fareast-language:ZH-CN'>CIDR</span><span
+ lang=EN-US style='font-family:Arial;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;mso-fareast-language:ZH-CN'> </span><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:Arial;mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:Arial;mso-ansi-language:EN-US'>记法</span></div>
+ </div>
+</p:slide></div>
+</div>
+
+
+<div ng-if="show[3]">
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <v:background id="_x0000_s11265" o:bwmode="white" o:targetscreensize="1024,768">
+  <v:fill color2="#36f" focusposition=".5,.5" focussize="" focus="100%" type="gradientRadial"/>
+ </v:background><![if !vml]><img src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0300_background.png"
+ v:shapes="_x0000_s11265" style='position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><![endif]><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s11266" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s11267" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:rect id="_x0000_s11268" style='position:absolute;left:66pt;top:207.75pt;
+  width:594pt;height:98.25pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' fillcolor="white [0]" strokecolor="#f06" strokeweight="4.5pt">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:shape id="_x0000_s11269" style='position:absolute;left:66pt;top:112.875pt;
+  width:3in;height:90pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' coordsize="21600,21600" path="m532,c238,,,238,,532l,16745v,294,238,532,532,532l2623,17277r5984,4323l6515,17277r14501,c21339,17277,21600,17039,21600,16745r,-16213c21600,238,21339,,21016,l532,xe"
+  fillcolor="yellow">
+  <v:stroke joinstyle="miter"/>
+  <v:shadow on="t" offset="6pt,6pt"/>
+  <v:path o:connecttype="custom" o:connectlocs="1371600,0;0,457094;1093089,1143000;1371600,914241;2743200,457094"
+   o:connectangles="270,180,90,90,0" textboxrect="145,145,21409,17106"/>
+  <o:lock v:ext="edit" verticies="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s11268,_x0000_s11269"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0300_image023.png" style='position:absolute;top:20.84%;left:8.87%;
+ width:83.44%;height:36.57%'><![endif]>
+ <div v:shape="_x0000_s11266">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s11267">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>9</span></div>
+ </div>
+ <div v:shape="_x0000_s11268">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-line-spacing:"100 -96 -80";
+ mso-char-wrap:1;mso-kinsoku-overflow:1'><span style='position:absolute;
+ top:40.1%;left:2.51%;width:95.76%;height:7.59%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 200%;mso-fareast-language:ZH-CN'><b><i>Classful addressing is a special case
+ of </i></b></span></span><span style='position:absolute;top:48.05%;left:10.46%;
+ width:80.0%;height:7.59%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:200%;mso-fareast-language:ZH-CN'><b><i>classless
+ addressing.</i></b></span></span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="Picture_x0020_4" o:spid="_x0000_s11270" type="#_x0000_t75"
+  style='position:absolute;left:1in;top:112.875pt;width:61.625pt;height:1in;
+  visibility:visible;mso-wrap-style:square' fillcolor="#00e4a8 [4]"
+  strokecolor="black [1]">
+  <v:imagedata src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0300_image024.wmz" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="Picture_x0020_4"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0300_image025.png" style='position:absolute;top:20.84%;left:10.06%;
+ width:8.6%;height:13.25%'><![endif]><v:shape id="_x0000_s11271" type="#_x0000_t202"
+  style='position:absolute;left:168pt;top:124.875pt;width:94.5pt;height:50.5pt;
+  visibility:visible;mso-wrap-style:none;v-text-anchor:top' o:gfxdata="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
+eG1sUEsFBgAAAAAEAAQA9QAAAPYHAAAAAA==
+" filled="f" fillcolor="#00e4a8 [4]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s11271">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:24.38%;left:24.37%;width:13.5%;height:7.59%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 200%;font-weight:normal;text-shadow:auto;mso-fareast-language:ZH-CN'>Note:</span></div>
+ </div>
+</p:slide></div>
+</div>
+
+
+<div ng-if="show[4]">
+
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <v:background id="_x0000_s26625" o:bwmode="white" o:targetscreensize="1024,768">
+  <v:fill color2="#36f" focusposition=".5,.5" focussize="" focus="100%" type="gradientRadial"/>
+ </v:background><![if !vml]><img src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0306_background.png"
+ v:shapes="_x0000_s26625" style='position:absolute;top:0%;left:0%;width:100.0%;
+ height:100.0%'><![endif]><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s26626" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s26627" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:rect id="_x0000_s26628" style='position:absolute;left:66pt;top:206.5pt;
+  width:594pt;height:141.5pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' fillcolor="white [0]" strokecolor="#f06" strokeweight="4.5pt">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:shape id="_x0000_s26629" style='position:absolute;left:66pt;top:111.625pt;
+  width:3in;height:90pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' coordsize="21600,21600" path="m532,c238,,,238,,532l,16745v,294,238,532,532,532l2623,17277r5984,4323l6515,17277r14501,c21339,17277,21600,17039,21600,16745r,-16213c21600,238,21339,,21016,l532,xe"
+  fillcolor="yellow">
+  <v:stroke joinstyle="miter"/>
+  <v:shadow on="t" offset="6pt,6pt"/>
+  <v:path o:connecttype="custom" o:connectlocs="1371600,0;0,457094;1093089,1143000;1371600,914241;2743200,457094"
+   o:connectangles="270,180,90,90,0" textboxrect="145,145,21409,17106"/>
+  <o:lock v:ext="edit" verticies="t"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="_x0000_s26628,_x0000_s26629"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0306_image067.png" style='position:absolute;top:20.67%;left:8.87%;
+ width:83.44%;height:44.52%'><![endif]>
+ <div v:shape="_x0000_s26626">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s26627">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>24</span></div>
+ </div>
+ <div v:shape="_x0000_s26628">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-line-spacing:"100 -96 -80";
+ mso-char-wrap:1;mso-kinsoku-overflow:1'><span style='position:absolute;
+ top:39.75%;left:10.46%;width:80.0%;height:7.59%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 200%;mso-fareast-language:ZH-CN'><b><i>In classless addressing, the last </i></b></span></span><span
+ style='position:absolute;top:47.87%;left:10.46%;width:80.0%;height:7.59%'><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 200%;mso-fareast-language:ZH-CN'><b><i>address in the block does not </i></b></span></span><span
+ style='position:absolute;top:55.83%;left:10.46%;width:80.0%;height:7.59%'><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 200%;mso-fareast-language:ZH-CN'><b><i>necessarily end in 255.</i></b></span></span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="Picture_x0020_4" o:spid="_x0000_s26630" type="#_x0000_t75"
+  style='position:absolute;left:1in;top:111.625pt;width:61.625pt;height:1in;
+  visibility:visible;mso-wrap-style:square' fillcolor="#00e4a8 [4]"
+  strokecolor="black [1]">
+  <v:imagedata src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0300_image024.wmz" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="Picture_x0020_4"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0306_image068.png" style='position:absolute;top:20.67%;left:10.06%;
+ width:8.6%;height:13.25%'><![endif]><v:shape id="_x0000_s26631" type="#_x0000_t202"
+  style='position:absolute;left:168pt;top:123.625pt;width:94.5pt;height:50.5pt;
+  visibility:visible;mso-wrap-style:none;v-text-anchor:top' o:gfxdata="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
+UEsFBgAAAAAEAAQA9QAAAPMHAAAAAA==
+" filled="f" fillcolor="#00e4a8 [4]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s26631">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:24.02%;left:24.37%;width:13.5%;height:7.59%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 200%;font-weight:normal;text-shadow:auto;mso-fareast-language:ZH-CN'>Note:</span></div>
+ </div>
+</p:slide></div>
+</div>
+
+<div ng-if="show[5]">
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s6146" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s6147" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:rect id="_x0000_s6148" style='position:absolute;left:30.875pt;
+  top:114pt;width:642pt;height:158.625pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#00e4a8 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:shape id="_x0000_s6149" type="#_x0000_t202" style='position:absolute;
+  left:90pt;top:30pt;width:174pt;height:40.875pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#0c0"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s6150" style='position:absolute;left:36pt;top:12pt;
+  width:48pt;height:84pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="red [6]" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s6150"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0312_image012.png" style='position:absolute;top:2.12%;left:4.9%;
+ width:7.01%;height:16.07%'><![endif]>
+ <div v:shape="_x0000_s6146">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s6147">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>4</span></div>
+ </div>
+ <div v:shape="_x0000_s6148">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:justify;mso-line-spacing:"100 50 0";position:
+ absolute;top:22.26%;left:5.29%;width:87.28%;height:12.19%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i>Which of the following can be the
+ beginning address of a block that contains 16 addresses?&#13;</i></b></span></div>
+ <div class=O style='text-align:justify;mso-line-spacing:"100 50 0";position:
+ absolute;top:37.8%;left:5.29%;width:63.44%;height:12.19%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;color:red;mso-color-index:6;mso-fareast-language:ZH-CN'><b><i>a.</i></b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i> 205.16.37.32<span style='mso-tab-count:
+ 2;width:24.74%'> </span></i></b></span><span lang=EN-US style='font-family:
+ "Times New Roman";mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:"Times New Roman";font-size:156%;color:red;
+ mso-color-index:6;mso-fareast-language:ZH-CN'><b><i>b</i></b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i>.190.16.42.44<br>
+  </i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:156%;color:red;mso-color-index:6;mso-fareast-language:
+ ZH-CN'><b><i>c</i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:156%;mso-fareast-language:ZH-CN'><b><i>.
+ 17.17.33.80<span style='mso-tab-count:2;width:28.16%'> </span></i></b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;color:red;mso-color-index:6;mso-fareast-language:ZH-CN'><b><i>d</i></b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i>.123.45.24.52</i></b></span></div>
+ </div>
+ <div v:shape="_x0000_s6149">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:6.53%;left:13.5%;width:22.38%;
+ height:6.0%'><span lang=EN-US style='font-family:Algerian;mso-ascii-font-family:
+ Algerian;mso-hansi-font-family:Algerian;font-size:133%;color:#3333CC;
+ mso-color-index:7;mso-ansi-language:EN-US'><b><i>Example</i></b></span><span
+ lang=EN-US style='font-family:Algerian;mso-ascii-font-family:Algerian;
+ mso-hansi-font-family:Algerian;font-size:156%;color:#3333CC;mso-color-index:
+ 7;mso-ansi-language:EN-US'><b><i> 1</i></b></span></div>
+ </div>
+ <div v:shape="_x0000_s6150">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:7.95%;left:6.09%;width:4.63%;
+ height:4.24%'><span lang=ZH-CN style='mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s6151" style='position:absolute;left:30pt;top:312pt;
+  width:642pt;height:175.375pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' o:gfxdata="UEsDBBQABgAIAAAAIQDb4fbL7gAAAIUBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbHyQz07DMAyH
+70i8Q+QralM4IITa7kDhCAiNB7ASt43WOlEcyvb2pNu4IODoPz9/n1xv9vOkForiPDdwXVagiI23
+jocG3rdPxR0oScgWJ8/UwIEENu3lRb09BBKV0ywNjCmFe63FjDSjlD4Q50nv44wpl3HQAc0OB9I3
+VXWrjedEnIq03oC27qjHjympx31un0wiTQLq4bS4shrAECZnMGVTvbD9QSnOhDInjzsyuiBXWQP0
+r4R18jfgnHvJr4nOknrFmJ5xzhraRtHWf3Kkpfz/yGo5S+H73hkquyhdjr3R8m2lj09svwAAAP//
+AwBQSwMEFAAGAAgAAAAhAFr0LFu/AAAAFQEAAAsAAABfcmVscy8ucmVsc2zPwWrDMAwG4Ptg72B0
+X5TuUMaI01uh19I+gLGVxCy2jGSy9e1nemrHjpL4P0nD4SetZiPRyNnCruvBUPYcYp4tXC/Htw8w
+Wl0ObuVMFm6kcBhfX4Yzra62kC6xqGlKVgtLreUTUf1CyWnHhXKbTCzJ1VbKjMX5LzcTvvf9HuXR
+gPHJNKdgQU5hB+ZyK23zHztFL6w81c5zQp6m6P9TMfB3PtPWFCczVQtB9N4U2rp2HOA44NMz4y8A
+AAD//wMAUEsDBBQABgAIAAAAIQCbxWHF3AAAAP4AAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9RT8Iw
+FIXfSfwPzSXxDbotAc2kECSoJPIyVKJvl/XSLa7tbCvb/r2ND/p4ck6+k2+x6nXDLuR8bY2AdJoA
+I1NaWRsl4PXlYXILzAc0EhtrSMBAHlbLq9ECc2k7U9DlEBSLEONzFFCF0Oac+7IijX5qWzKxO1un
+McToFJcOuwjXDc+SZM411iY+VNjSpqLy8/CtBWw3w8cs+9o92u37fbvX6+PxGbUQ1+N+fQcsUB/+
+x0q9uaL7K39ROylglt6k2RzY+Wk4uVoW6AM5AVEw6kZV4MsfAAAA//8DAFBLAQItABQABgAIAAAA
+IQDb4fbL7gAAAIUBAAATAAAAAAAAAAAAAAAAAAAAAABbQ29udGVudF9UeXBlc10ueG1sUEsBAi0A
+FAAGAAgAAAAhAFr0LFu/AAAAFQEAAAsAAAAAAAAAAAAAAAAAHwEAAF9yZWxzLy5yZWxzUEsBAi0A
+FAAGAAgAAAAhAJvFYcXcAAAA/gAAAA8AAAAAAAAAAAAAAAAABwIAAGRycy9kb3ducmV2LnhtbFBL
+BQYAAAAAAwADALcAAAAQAwAAAAA=
+" filled="f" fillcolor="#b2b2b2" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:animation number="2" delay="0" type="object" effect="fly" direction="down"/></v:rect>
+ <div id="_x0000_s6151_AllText" v:shape="_x0000_s6151" style='position:absolute;
+ top:58.83%;left:5.16%;width:87.28%;height:30.74%'>
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:justify;mso-line-spacing:"100 50 0";position:
+ absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;color:#3333CC;mso-color-index:7;mso-fareast-language:ZH-CN'><b><i>Solution</i></b></span><span
+ lang=EN-US style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i><br>
+  </i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:156%;mso-fareast-language:ZH-CN'><b><i>Only two
+ are eligible (a and c). The address 205.16.37.32 is eligible because 32 is
+ divisible by 16. The address 17.17.33.80 is eligible because 80 is divisible
+ by 16.</i></b></span></div>
+ </div>
+</p:slide></div>
+</div>
+
+<div ng-if="show[6]">
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s12290" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s12291" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:rect id="_x0000_s12292" style='position:absolute;left:24pt;top:125.75pt;
+  width:642pt;height:74.5pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' filled="f" fillcolor="#00e4a8 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:shape id="_x0000_s12293" type="#_x0000_t202" style='position:absolute;
+  left:90pt;top:30pt;width:174pt;height:40.875pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#0c0"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s12294" style='position:absolute;left:36pt;top:12pt;
+  width:48pt;height:84pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' fillcolor="red [6]" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s12294"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0315_image026.png" style='position:absolute;top:2.12%;left:4.9%;
+ width:7.01%;height:16.07%'><![endif]>
+ <div v:shape="_x0000_s12290">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s12291">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>10</span></div>
+ </div>
+ <div v:shape="_x0000_s12292">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:justify;mso-line-spacing:"100 50 0";position:
+ absolute;top:24.38%;left:4.37%;width:87.28%;height:12.19%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i>What is the first address in the block
+ if one of the addresses is </i></b></span><span lang=EN-US style='font-family:
+ "Times New Roman";mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:
+ 宋体;mso-hansi-font-family:"Times New Roman";font-size:156%;color:red;
+ mso-color-index:6;mso-fareast-language:ZH-CN'><b><i>167.199.170.82/27</i></b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i>?</i></b></span></div>
+ </div>
+ <div v:shape="_x0000_s12293">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:6.53%;left:13.5%;width:22.38%;
+ height:6.0%'><span lang=EN-US style='font-family:Algerian;mso-ascii-font-family:
+ Algerian;mso-hansi-font-family:Algerian;font-size:133%;color:#3333CC;
+ mso-color-index:7;mso-ansi-language:EN-US'><b><i>Example</i></b></span><span
+ lang=EN-US style='font-family:Algerian;mso-ascii-font-family:Algerian;
+ mso-hansi-font-family:Algerian;font-size:156%;color:#3333CC;mso-color-index:
+ 7;mso-ansi-language:EN-US'><b><i> 4</i></b></span></div>
+ </div>
+ <div v:shape="_x0000_s12294">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:7.95%;left:6.09%;width:4.63%;
+ height:4.24%'><span lang=ZH-CN style='mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s12295" style='position:absolute;left:30pt;top:377.875pt;
+  width:642pt;height:108.125pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' o:gfxdata="UEsDBBQABgAIAAAAIQDb4fbL7gAAAIUBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbHyQz07DMAyH
+70i8Q+QralM4IITa7kDhCAiNB7ASt43WOlEcyvb2pNu4IODoPz9/n1xv9vOkForiPDdwXVagiI23
+jocG3rdPxR0oScgWJ8/UwIEENu3lRb09BBKV0ywNjCmFe63FjDSjlD4Q50nv44wpl3HQAc0OB9I3
+VXWrjedEnIq03oC27qjHjympx31un0wiTQLq4bS4shrAECZnMGVTvbD9QSnOhDInjzsyuiBXWQP0
+r4R18jfgnHvJr4nOknrFmJ5xzhraRtHWf3Kkpfz/yGo5S+H73hkquyhdjr3R8m2lj09svwAAAP//
+AwBQSwMEFAAGAAgAAAAhAFr0LFu/AAAAFQEAAAsAAABfcmVscy8ucmVsc2zPwWrDMAwG4Ptg72B0
+X5TuUMaI01uh19I+gLGVxCy2jGSy9e1nemrHjpL4P0nD4SetZiPRyNnCruvBUPYcYp4tXC/Htw8w
+Wl0ObuVMFm6kcBhfX4Yzra62kC6xqGlKVgtLreUTUf1CyWnHhXKbTCzJ1VbKjMX5LzcTvvf9HuXR
+gPHJNKdgQU5hB+ZyK23zHztFL6w81c5zQp6m6P9TMfB3PtPWFCczVQtB9N4U2rp2HOA44NMz4y8A
+AAD//wMAUEsDBBQABgAIAAAAIQASrLQp2wAAAP4AAAAPAAAAZHJzL2Rvd25yZXYueG1sTI9BS8NA
+EIXvgv8hjOBF7G6KFhu7LVIQhYDQWuh1mp1mQ7K7cXdsE3+9i4ficXjD9963WA22y04UYuOdgnwi
+ISNXed24WsHu8/X+CbLI6DR23pGCkSKsltdXCyy0P7sNnbZcZwniYoEKDHNfCBErQxbjxPfkUnb0
+wSKnM9RCBzwnuO3EVMqZsNi41GCwp7Whqt1+WwVc5ubusG+/1m35gH42yo+6bJW6vRleniFjGvjf
+s+ThZ3cJ/1DvWsHjVObztP74Nh5CozcYmYKCJJh0kyqI5S8AAAD//wMAUEsBAi0AFAAGAAgAAAAh
+ANvh9svuAAAAhQEAABMAAAAAAAAAAAAAAAAAAAAAAFtDb250ZW50X1R5cGVzXS54bWxQSwECLQAU
+AAYACAAAACEAWvQsW78AAAAVAQAACwAAAAAAAAAAAAAAAAAfAQAAX3JlbHMvLnJlbHNQSwECLQAU
+AAYACAAAACEAEqy0KdsAAAD+AAAADwAAAAAAAAAAAAAAAAAHAgAAZHJzL2Rvd25yZXYueG1sUEsF
+BgAAAAADAAMAtwAAAA8DAAAAAA==
+" fillcolor="#b2b2b2" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:animation number="3" delay="0" type="object" effect="fly" direction="down"
+   flag="17412"/></v:rect><![if !vml]><img border=0 v:shapes="_x0000_s12295"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0315_image027.png" style='position:absolute;top:69.96%;left:4.1%;
+ width:89.4%;height:20.31%'><![endif]>
+ <div id="_x0000_s12295_AllText" v:shape="_x0000_s12295" style='position:absolute;
+ top:71.02%;left:5.16%;width:87.28%;height:18.37%'>
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:justify;mso-line-spacing:"100 50 0";position:
+ absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i>Address in binary:<span
+ style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></i></b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;mso-fareast-language:ZH-CN'><b><i>10100111 11000111 10101010
+ 01010010<br>
+  </i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:156%;mso-fareast-language:ZH-CN'><b><i>Keep the
+ left 27 bits: </i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:111%;color:red;mso-color-index:6;mso-fareast-language:
+ ZH-CN'><b><i>10100111 11000111 10101010</i></b></span><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;mso-fareast-language:ZH-CN'><b><i> </i></b></span><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;color:red;mso-color-index:6;mso-fareast-language:ZH-CN'><b><i>010</i></b></span><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;mso-fareast-language:ZH-CN'><b><i>00000<br>
+  </i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:156%;mso-fareast-language:ZH-CN'><b><i>Result in
+ CIDR notation: </i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:133%;mso-fareast-language:ZH-CN'><b><i>167.199.170.64/27</i></b></span></div>
+ </div>
+ <v:rect id="_x0000_s12296" style='position:absolute;left:30pt;top:224.25pt;
+  width:642pt;height:141.75pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' o:gfxdata="UEsDBBQABgAIAAAAIQDb4fbL7gAAAIUBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbHyQz07DMAyH
+70i8Q+QralM4IITa7kDhCAiNB7ASt43WOlEcyvb2pNu4IODoPz9/n1xv9vOkForiPDdwXVagiI23
+jocG3rdPxR0oScgWJ8/UwIEENu3lRb09BBKV0ywNjCmFe63FjDSjlD4Q50nv44wpl3HQAc0OB9I3
+VXWrjedEnIq03oC27qjHjympx31un0wiTQLq4bS4shrAECZnMGVTvbD9QSnOhDInjzsyuiBXWQP0
+r4R18jfgnHvJr4nOknrFmJ5xzhraRtHWf3Kkpfz/yGo5S+H73hkquyhdjr3R8m2lj09svwAAAP//
+AwBQSwMEFAAGAAgAAAAhAFr0LFu/AAAAFQEAAAsAAABfcmVscy8ucmVsc2zPwWrDMAwG4Ptg72B0
+X5TuUMaI01uh19I+gLGVxCy2jGSy9e1nemrHjpL4P0nD4SetZiPRyNnCruvBUPYcYp4tXC/Htw8w
+Wl0ObuVMFm6kcBhfX4Yzra62kC6xqGlKVgtLreUTUf1CyWnHhXKbTCzJ1VbKjMX5LzcTvvf9HuXR
+gPHJNKdgQU5hB+ZyK23zHztFL6w81c5zQp6m6P9TMfB3PtPWFCczVQtB9N4U2rp2HOA44NMz4y8A
+AAD//wMAUEsDBBQABgAIAAAAIQDN/Cj03QAAAP4AAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9NTwIx
+FEX3Jv6H5pG4kw6TYGSkECSoGFjwYYjuHtM304nTdmwrzPx7GheyvLk35+aMp62u2Ymcr6wRMOgn
+wMjkVlamFPCxf7l/BOYDGom1NSSgIw/Tye3NGDNpz2ZLp10oWYQYn6EAFUKTce5zRRp93zZkYldY
+pzHE6EouHZ4jXNc8TZIHrrEy8UFhQ3NF+ffuVwtYzLuvYfqzfLWLz+dmrWeHwwq1EHe9dvYELFAb
+rmO1eS+LzX/5h1pKAcM0GYxGwIq37ugquUUfyAmIglE3qgKfXAAAAP//AwBQSwECLQAUAAYACAAA
+ACEA2+H2y+4AAACFAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnhtbFBLAQIt
+ABQABgAIAAAAIQBa9CxbvwAAABUBAAALAAAAAAAAAAAAAAAAAB8BAABfcmVscy8ucmVsc1BLAQIt
+ABQABgAIAAAAIQDN/Cj03QAAAP4AAAAPAAAAAAAAAAAAAAAAAAcCAABkcnMvZG93bnJldi54bWxQ
+SwUGAAAAAAMAAwC3AAAAEQMAAAAA
+" filled="f" fillcolor="#b2b2b2" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+  <p:animation number="2" delay="0" type="object" effect="fly" direction="down"
+   flag="0"/></v:rect>
+ <div id="_x0000_s12296_AllText" v:shape="_x0000_s12296" style='position:absolute;
+ top:42.57%;left:5.16%;width:87.28%;height:24.55%'>
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:justify;mso-line-spacing:"100 50 0";position:
+ absolute;top:0%;left:0%;width:100.0%;height:100.0%'><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;color:#3333CC;mso-color-index:7;mso-fareast-language:ZH-CN'><b><i>Solution</i></b></span><span
+ lang=EN-US style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 156%;mso-fareast-language:ZH-CN'><b><i><br>
+  </i></b></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:156%;mso-fareast-language:ZH-CN'><b><i>The prefix
+ length is 27, which means that we must keep the first 27 bits as is and change
+ the remaining bits (5) to 0s. The following shows the process:</i></b></span><span
+ lang=EN-US style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 133%;mso-fareast-language:ZH-CN;mso-special-format:lastCR;display:none'><b><i>&#13;</i></b></span></div>
+ </div>
+</p:slide></div>
+</div>
+
+<div ng-if="show[7]">
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s4098" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s4099" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:group id="_x0000_s4100" style='position:absolute;left:0;top:0;
+  width:684pt;height:7in' coordorigin=",96" coordsize="5472,3840">
+  <v:roundrect id="_x0000_s4105" style='position:absolute;left:240;top:336;
+   width:5232;height:3600;visibility:visible;mso-wrap-style:none;
+   v-text-anchor:middle' arcsize="8996f" filled="f" fillcolor="#00e4a8 [4]"
+   strokecolor="#1c1c1c [2]" strokeweight="4pt">
+   <v:shadow color="#1c1c1c [2]"/>
+  </v:roundrect><v:shape id="_x0000_s4106" style='position:absolute;top:96;
+   width:5376;height:768;visibility:visible;mso-wrap-style:square;
+   v-text-anchor:top' coordsize="7000" o:bwmode="highContrast" path="m,l6169,v277,,501,223,501,500c6670,776,6446,999,6170,1000l,1000,,xe"
+   fillcolor="#33c [7]" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:path o:connecttype="custom" o:connectlocs="0,0;33165,0;35858,384;33170,768;0,768"
+    o:connectangles="0,0,0,0,0" textboxrect="0,0,3500,1000"/>
+  </v:shape><v:line id="_x0000_s4107" style='position:absolute;visibility:visible;
+   mso-wrap-style:square;v-text-anchor:top' from="0,768" to="5088,768"
+   strokecolor="white [0]" strokeweight="3pt">
+   <v:shadow color="#1c1c1c [2]"/>
+  </v:line></v:group><v:shape id="_x0000_s4101" type="#_x0000_t202" style='position:absolute;
+  left:18pt;top:27.875pt;width:600.5pt;height:50.5pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:top' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s4102" style='position:absolute;left:42pt;top:108pt;
+  width:618pt;height:79.25pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' o:gfxdata="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
+AB0IAAAAAA==
+" filled="f" fillcolor="#00e4a8 [4]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:rect id="_x0000_s4103" style='position:absolute;left:54pt;top:252pt;
+  width:618pt;height:31.25pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' o:gfxdata="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
+" filled="f" fillcolor="#00e4a8 [4]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><v:rect id="_x0000_s4104" style='position:absolute;left:54pt;top:306pt;
+  width:8in;height:79.25pt;visibility:visible;mso-wrap-style:square;
+  v-text-anchor:top' o:gfxdata="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
+" filled="f" fillcolor="yellow" stroked="f" strokecolor="#33c [7]"
+  strokeweight="6pt">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:rect><![if !vml]><img border=0
+ v:shapes="_x0000_s4100,_x0000_s4105,_x0000_s4106,_x0000_s4107"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0263_image004.png" style='position:absolute;top:0%;left:-.26%;
+ width:95.76%;height:93.99%'><![endif]>
+ <div v:shape="_x0000_s4098">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s4099">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>2</span></div>
+ </div>
+ <div v:shape="_x0000_s4105">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:47.7%;left:8.07%;width:83.17%;
+ height:4.59%'><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ "Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";
+ font-size:133%;mso-ansi-language:EN-US;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <div v:shape="_x0000_s4101">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:6.36%;left:3.44%;width:97.74%;
+ height:7.59%'><span lang=EN-US style='font-family:Arial;mso-ascii-font-family:
+ Arial;mso-fareast-font-family:宋体;mso-hansi-font-family:Arial;font-size:200%;
+ color:white;mso-color-index:0;mso-fareast-language:ZH-CN'>5.1<span
+ style='mso-spacerun:yes'>&nbsp;&nbsp; </span>VARIABLE-LENGTH BLOCKS</span></div>
+ </div>
+ <div v:shape="_x0000_s4102">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O><span style='position:absolute;top:20.84%;left:6.88%;width:100.26%;
+ height:4.24%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:111%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>In
+ classless addressing variable-length blocks are assigned that belong to </i></b></span></span><span
+ style='position:absolute;top:25.44%;left:6.88%;width:100.52%;height:4.24%'><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>no class. In this
+ architecture, the entire address space (2^32 addresses) is </i></b></span></span><span
+ style='position:absolute;top:29.85%;left:6.88%;width:83.97%;height:4.24%'><span
+ lang=EN-US style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>divided into blocks of
+ different sizes.</i></b></span></span></div>
+ </div>
+ <div v:shape="_x0000_s4103">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:47.52%;left:8.47%;width:83.97%;
+ height:4.24%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:111%;text-shadow:auto;color:red;mso-color-index:
+ 6;mso-fareast-language:ZH-CN'><b><i>The topics discussed in this section
+ include:</i></b></span></div>
+ </div>
+ <div v:shape="_x0000_s4104">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:57.59%;left:8.47%;width:90.99%;
+ height:4.24%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:111%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>Restrictions
+ </i></b></span><span lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:
+ "Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";
+ font-size:111%;text-shadow:auto;mso-ansi-language:EN-US'><b><i>可以解决很多问题，整个体系能够工作得有些限制&#13;</i></b></span></div>
+ <div class=O style='position:absolute;top:62.01%;left:8.47%;width:78.14%;
+ height:4.24%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:111%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>Finding
+ the Block<span style='mso-spacerun:yes'>&nbsp; </span></i></b></span><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;text-shadow:auto;mso-ansi-language:EN-US'><b><i>寻找地址块&#13;</i></b></span></div>
+ <div class=O style='position:absolute;top:66.43%;left:8.47%;width:78.14%;
+ height:4.24%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-fareast-font-family:宋体;mso-hansi-font-family:
+ "Times New Roman";font-size:111%;text-shadow:auto;mso-fareast-language:ZH-CN'><b><i>Granted
+ Block<span style='mso-spacerun:yes'>&nbsp; </span></i></b></span><span
+ lang=ZH-CN style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;text-shadow:auto;mso-ansi-language:EN-US'><b><i>分配到的地址块</i></b></span><span
+ lang=ZH-CN style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-fareast-font-family:宋体;mso-hansi-font-family:"Times New Roman";font-size:
+ 111%;text-shadow:auto;mso-ansi-language:EN-US'><b><i> </i></b></span></div>
+ </div>
+</p:slide></div>
+</div>
+
+
+<div ng-if="show[8]">
+
+<link rel=Stylesheet href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04_stylesheet.css"><div id="SlideObj" class="sld sunjianfeng_analyse_css"><p:slide coordsize="720,540"
+ colors="#ffffff,#000000,#1c1c1c,#333399,#00e4a8,#ffcf01,#ff0000,#3333cc"
+ masterhref ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml">
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1026"/>
+ <div v:shape="_x0000_s1026">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <p:shaperange href ="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/master04.xml#_x0000_s1027"/>
+ <div v:shape="_x0000_s1027">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8249;</span><span lang=ZH-CN style='mso-fareast-font-family:
+ 宋体;font-size:78%;font-weight:normal;mso-ansi-language:EN-US'>#</span><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>&#8250;</span><span lang=EN-US style='font-family:宋体;
+ mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;mso-fareast-language:
+ ZH-CN;mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <![endif]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+  path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s32770" type="#_x0000_t202" style='position:absolute;
+  left:6pt;top:492pt;width:228pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s32771" type="#_x0000_t202" style='position:absolute;
+  left:554.5pt;top:491.625pt;width:150pt;height:36pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:bottom' filled="f" fillcolor="#00e4a8 [4]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:path arrowok="t"/>
+  <o:lock v:ext="edit" grouping="t"/>
+ </v:shape><v:shape id="_x0000_s32772" type="#_x0000_t202" style='position:absolute;
+  left:78pt;top:7.125pt;width:450pt;height:28.875pt;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:top' filled="f" fillcolor="#0c0"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:rect id="_x0000_s32773" style='position:absolute;left:28.875pt;
+  top:8.5pt;width:34.5pt;height:37.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="lightGrayScale" fillcolor="#ffcf01 [5]"
+  stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s32773"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0310_image077.png" style='position:absolute;top:1.59%;left:3.97%;
+ width:5.03%;height:7.24%'><![endif]>
+ <div v:shape="_x0000_s32770">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='mso-char-wrap:1;mso-kinsoku-overflow:1;position:absolute;
+ top:94.34%;left:1.85%;width:29.8%;height:2.82%'><span lang=ZH-CN
+ style='mso-fareast-font-family:宋体;font-size:67%;mso-ansi-language:EN-US'>TCP/IP
+ Protocol Suite</span></div>
+ </div>
+ <div v:shape="_x0000_s32771">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:right;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1;position:absolute;top:93.99%;left:78.01%;width:18.94%;height:3.35%'><span
+ lang=ZH-CN style='mso-fareast-font-family:宋体;font-size:78%;font-weight:normal;
+ mso-ansi-language:EN-US'>30</span></div>
+ </div>
+ <div v:shape="_x0000_s32772">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='position:absolute;top:2.29%;left:11.78%;width:60.66%;
+ height:3.88%'><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ color:blue;mso-ansi-language:EN-US'>Figure 5.6</span><span lang=EN-US
+ style='font-family:"Times New Roman";mso-ascii-font-family:"Times New Roman";
+ mso-hansi-font-family:"Times New Roman";color:#FFCF01;mso-color-index:5;
+ mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+ </span></span><span lang=EN-US style='font-family:"Times New Roman";
+ mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+ mso-ansi-language:EN-US'><b><i>Example 13</i></b></span></div>
+ </div>
+ <div v:shape="_x0000_s32773">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:3.18%;left:5.03%;width:2.91%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s32774" style='position:absolute;left:59pt;top:8.5pt;
+  width:25.875pt;height:37.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="lightGrayScale" fillcolor="#ffcf01 [5]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" angle="90" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><v:rect id="_x0000_s32775" style='position:absolute;left:38.625pt;
+  top:41.75pt;width:33.25pt;height:37.375pt;visibility:visible;
+  mso-wrap-style:none;v-text-anchor:middle' o:bwmode="lightGrayScale"
+  fillcolor="#33c [7]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><v:rect id="_x0000_s32776" style='position:absolute;left:67.75pt;
+  top:41.75pt;width:29pt;height:37.375pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="lightGrayScale" fillcolor="#33c [7]"
+  stroked="f" strokecolor="black [1]">
+  <v:fill color2="white [0]" angle="90" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0
+ v:shapes="_x0000_s32774,_x0000_s32775,_x0000_s32776"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0310_image078.png" style='position:absolute;top:1.59%;left:5.43%;
+ width:8.34%;height:13.42%'><![endif]>
+ <div v:shape="_x0000_s32774">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:3.18%;left:9.13%;width:1.72%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <div v:shape="_x0000_s32775">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:9.36%;left:6.35%;width:2.78%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <div v:shape="_x0000_s32776">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:9.36%;left:10.46%;width:2.11%;
+ height:4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:
+ EN-US;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s32777" style='position:absolute;left:6pt;top:36pt;width:44.125pt;
+  height:33.25pt;visibility:visible;mso-wrap-style:none;v-text-anchor:middle'
+  o:bwmode="lightGrayScale" fillcolor="white [0]" stroked="f" strokecolor="black [1]">
+  <v:fill color2="red [6]" angle="135" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s32777"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0310_image079.png" style='position:absolute;top:6.71%;left:.79%;
+ width:6.35%;height:6.53%'><![endif]>
+ <div v:shape="_x0000_s32777">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:7.77%;left:1.85%;width:4.23%;height:
+ 4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;
+ font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;
+ mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s32778" style='position:absolute;left:56pt;top:0;width:2.5pt;
+  height:82.875pt;visibility:visible;mso-wrap-style:none;v-text-anchor:middle'
+  o:bwmode="grayScale" fillcolor="#1c1c1c [2]" stroked="f" strokecolor="black [1]">
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s32778"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0310_image080.png" style='position:absolute;top:0%;left:7.81%;
+ width:.66%;height:15.72%'><![endif]>
+ <div v:shape="_x0000_s32778">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:5.83%;left:7.94%;width:.13%;height:4.59%'><span
+ lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:宋体;font-size:133%;
+ font-weight:normal;layout-flow:vertical;mso-ansi-language:EN-US;mso-special-format:
+ lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:rect id="_x0000_s32779" style='position:absolute;left:34.875pt;top:42pt;
+  width:647.75pt;height:2.5pt;visibility:visible;mso-wrap-style:none;
+  v-text-anchor:middle' o:bwmode="grayScale" fillcolor="#1c1c1c [2]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]" angle="90" focus="100%" type="gradient"/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:rect><![if !vml]><img border=0 v:shapes="_x0000_s32779"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0310_image081.png" style='position:absolute;top:7.77%;left:4.9%;
+ width:90.19%;height:.88%'><![endif]>
+ <div v:shape="_x0000_s32779">
+ <div class=O1 style='mso-margin-left-alt:468'></div>
+ <div class=O2 style='mso-margin-left-alt:720'></div>
+ <div class=O3 style='mso-margin-left-alt:1008'></div>
+ <div class=O4 style='mso-margin-left-alt:1296'></div>
+ <div class=O style='text-align:center;mso-char-wrap:1;mso-kinsoku-overflow:
+ 1'><span style='position:absolute;top:6.18%;left:5.82%;width:88.07%;
+ height:4.59%'><span lang=ZH-CN style='font-family:宋体;mso-fareast-font-family:
+ 宋体;font-size:133%;font-weight:normal;layout-flow:vertical;mso-ansi-language:
+ EN-US;mso-special-format:lastCR;display:none'>&#13;</span></span></div>
+ </div>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="Picture_x0020_10" o:spid="_x0000_s32780" type="#_x0000_t75"
+  style='position:absolute;left:66pt;top:77.25pt;width:621.125pt;height:420.75pt;
+  visibility:visible;mso-wrap-style:square' fillcolor="#00e4a8 [4]"
+  strokecolor="black [1]">
+  <v:imagedata src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0310_image082.png" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><![if !vml]><img border=0 v:shapes="Picture_x0020_10"
+ src="http://web.csxiaoyao.cn/show/ppt_201610290111415703_Chapter05.files/slide0310_image083.png" style='position:absolute;top:14.31%;left:9.13%;
+ width:86.22%;height:77.91%'><![endif]></p:slide></div>
+ </div>
+
+
+
+
+
+
+
+
+    </div>
+	</div>
+</div>
+</body>
+</html>
