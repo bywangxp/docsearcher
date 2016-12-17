@@ -7,11 +7,9 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import ustc.sse.water.docsearcher.dao.dao.UserDao;
-import ustc.sse.water.docsearcher.model.DocumentModel;
-import ustc.sse.water.docsearcher.model.PageModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 
 /**
@@ -30,7 +28,7 @@ import ustc.sse.water.docsearcher.model.UserModel;
  * @author 王训谱 bywangxp@mail.ustc.edu.cn
  * @version 版本号
  */
-@Service("userDao")
+@Repository("userDao")
 public class UserDaoImpl implements UserDao {
 
 	@Resource(name = "sessionFactory")
@@ -41,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public UserModel find(UserModel userModel) {
+	public UserModel findUser(UserModel userModel) {
 		Session session = getCurrentSession();
 		// Transaction tx = session.beginTransaction();
 		String hql = "select u from UserModel u where u.userName = ? and u.userPassword=?";
@@ -77,31 +75,6 @@ public class UserDaoImpl implements UserDao {
 
 			return null;
 		}
-	}
-
-	// 该方法与DocmentModel方法冗余，后期要做调整
-	@Override
-	public DocumentModel getDocument(Long id) {
-		// TODO Auto-generated method stub
-		Session session = getCurrentSession();
-		String hql = "select d from DocumentModel d where d.docId=?";
-		Query query = session.createQuery(hql);
-		query.setParameter(0, id);
-		List<DocumentModel> list = query.list();
-		int size = list.size();
-		return list.get(0);
-	}
-
-	@Override
-	public List<PageModel> getPage(Long docId) {
-		// TODO Auto-generated method stub
-		Session session = getCurrentSession();
-		String hql = "select p from PageModel p where p.docId=?";
-		Query query = session.createQuery(hql);
-		query.setParameter(0, docId);
-		List<PageModel> list = query.list();
-		int size = list.size();
-		return list;
 	}
 
 	@Override

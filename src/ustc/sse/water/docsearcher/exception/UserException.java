@@ -1,4 +1,4 @@
-package ustc.see.water.docsearcher.exception;
+package ustc.sse.water.docsearcher.exception;
 
 /**
  * 

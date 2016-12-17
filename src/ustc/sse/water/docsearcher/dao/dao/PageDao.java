@@ -1,5 +1,7 @@
 package ustc.sse.water.docsearcher.dao.dao;
 
+import java.util.List;
+
 import ustc.sse.water.docsearcher.model.PageModel;
 
 /**
@@ -20,8 +22,12 @@ import ustc.sse.water.docsearcher.model.PageModel;
  */
 public interface PageDao {
 
-	void save(PageModel pageModel);
+	void savePageModel(PageModel pageModel);
 
-	PageModel getPageByPageId(Integer pageid);
+	PageModel getPageByPageId(long pageid);
+
+	List<PageModel> getPageListByDocId(Long docId);
+
+	// List<PageModel> getPageByUserId(Long userId);
 
 }

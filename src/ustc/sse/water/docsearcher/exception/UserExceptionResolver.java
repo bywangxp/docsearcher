@@ -1,4 +1,4 @@
-package ustc.see.water.docsearcher.exception;
+package ustc.sse.water.docsearcher.exception;
 
 import java.io.IOException;
 
@@ -45,8 +45,9 @@ public class UserExceptionResolver implements HandlerExceptionResolver {
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
-
-		return new ModelAndView();
+		return null;
+		// 上线时务必开启
+		// return new ModelAndView();
 	}
 
 }

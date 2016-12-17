@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import ustc.sse.water.docsearcher.dao.dao.TagDao;
 import ustc.sse.water.docsearcher.model.TagModel;
@@ -28,7 +28,7 @@ import ustc.sse.water.docsearcher.model.TagModel;
  * @author 王训谱 bywangxp@mail.ustc.edu.cn
  * @version 版本号
  */
-@Service("tagDao")
+@Repository("tagDao")
 public class TagDaoImpl implements TagDao {
 	@Resource(name = "sessionFactory")
 	private SessionFactory sessionFactory;
@@ -46,6 +46,16 @@ public class TagDaoImpl implements TagDao {
 		Query query = session.createQuery(hql);
 		List<TagModel> list = query.list();
 		return list;
+	}
+
+	@Override
+	public TagModel getTagByTagId(Long tagId) {
+		Session session = getCurrentSession();
+		String hql = "select t from TagModel t where t.tagId=?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, tagId);
+		List<TagModel> list = query.list();
+		return list.get(0);
 	}
 
 }

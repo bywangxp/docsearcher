@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import ustc.sse.water.docsearcher.dao.dao.PageDao;
 import ustc.sse.water.docsearcher.model.PageModel;
@@ -28,7 +28,7 @@ import ustc.sse.water.docsearcher.model.PageModel;
  * @author 王训谱 bywangxp@mail.ustc.edu.cn
  * @version 版本号
  */
-@Service("pageDao")
+@Repository("pageDao")
 public class PageDaoImpl implements PageDao {
 	@Resource(name = "sessionFactory")
 	private SessionFactory sessionFactory;
@@ -38,7 +38,7 @@ public class PageDaoImpl implements PageDao {
 	}
 
 	@Override
-	public void save(PageModel pageModel) {
+	public void savePageModel(PageModel pageModel) {
 		Session session = getCurrentSession();
 		long save = (Long) session.save(pageModel);
 		session.flush();
@@ -46,15 +46,27 @@ public class PageDaoImpl implements PageDao {
 	}
 
 	@Override
-	public PageModel getPageByPageId(Integer pageid) {
+	public PageModel getPageByPageId(long pageid) {
 		// TODO Auto-generated method stub
 		Session session = getCurrentSession();
 		String hql = "select p from PageModel p where p.pageId=?";
 		Query query = session.createQuery(hql);
-		query.setParameter(0, (long) pageid);// Integer需要转为Model实际的；类型
+		query.setParameter(0, pageid);// Integer需要转为Model实际的；类型
 		List<PageModel> list = query.list();
 		PageModel pageModel = list.get(0);
 		return pageModel;
+	}
+
+	@Override
+	public List<PageModel> getPageListByDocId(Long docId) {
+		// TODO Auto-generated method stub
+		Session session = getCurrentSession();
+		String hql = "select p from PageModel p where p.docId=?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, docId);
+		List<PageModel> list = query.list();
+		int size = list.size();
+		return list;
 	}
 
 }

@@ -1,4 +1,4 @@
-package ustc.sse.water.docsearcher.service.ebo;
+package ustc.sse.water.docsearcher.service.solve;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -40,6 +40,22 @@ import ustc.sse.water.docsearcher.dao.dao.PageDao;
 import ustc.sse.water.docsearcher.model.DocumentModel;
 import ustc.sse.water.docsearcher.model.PageModel;
 
+/**
+ * 
+ * 类型名 <br>
+ * 功能描述
+ * <p>
+ * 修改历史 2016年12月18日 上午1:09:41 修改人 <br>
+ * 修改说明 <br>
+ * <p>
+ * Copyright: Copyright (c) 2016年12月18日 上午1:09:41
+ * <p>
+ * Company: 中科大软件学院
+ * <p>
+ * 
+ * @author 王训谱 bywangxp@mail.ustc.edu.cn
+ * @version 版本号
+ */
 public class ExtractPPT {
 	public static int get_Images_PPT(String name_no_suffix, String absolutePath, Long documentId,
 			DocumentDao documentDao, PageDao pageDao) throws IOException {
@@ -48,14 +64,13 @@ public class ExtractPPT {
 		String filepath = absolutePath + "UserFiles\\" + name_no_suffix + ".ppt";
 		HSLFSlideShow ppt = new HSLFSlideShow(new HSLFSlideShowImpl(filepath));
 		Dimension pgsize = ppt.getPageSize();
-
 		int size = ppt.getSlides().size();
 		// 此处根据返回的documentId往数据库插入文档的页数
 		// 先查询文档，然后修改该文档部分信息
-		DocumentModel documentModel = documentDao.find(documentId);
+		DocumentModel documentModel = documentDao.getDocumentByDocId(documentId);
 		// documentDao.update();
 		documentModel.setSumPage(size);// 此处设置ppt的页数
-		documentDao.update(documentModel);
+		documentDao.updateDocument(documentModel);
 
 		System.out.println("ppt:" + size);
 		for (int i = 0; i < size; i++) {
@@ -94,7 +109,7 @@ public class ExtractPPT {
 			// TODO 此处两个位置冲突，填入的位置信息，是文件名，路径需要拼出来
 			pageModel.setPagePreview(name_no_suffix + "_" + (i + 1) + ".png");
 			pageModel.setPageSaveKey(name_no_suffix);
-			pageDao.save(pageModel);
+			pageDao.savePageModel(pageModel);
 		}
 		System.out.println("ppt转缩列图结束");
 		return size;
@@ -128,11 +143,11 @@ public class ExtractPPT {
 
 		// 此处根据返回的documentId往数据库插入文档的页数
 		// 先查询文档，然后修改该文档部分信息
-		DocumentModel documentModel = documentDao.find(documentId);
+		DocumentModel documentModel = documentDao.getDocumentByDocId(documentId);
 		// documentDao.update();
 		documentModel.setSumPage(size);// 此处设置ppt的页数
 
-		documentDao.update(documentModel);
+		documentDao.updateDocument(documentModel);
 
 		for (int i = 0; i < slides.size(); i++) {
 			/* 设置字体为宋体，解决中文乱码问题 */
@@ -205,7 +220,7 @@ public class ExtractPPT {
 			// TODO 此处两个位置冲突，填入的位置信息，是文件名，路径需要拼出来
 			pageModel.setPagePreview(name_no_suffix + "_" + (i + 1) + ".png");
 			pageModel.setPageSaveKey(name_no_suffix);
-			pageDao.save(pageModel);
+			pageDao.savePageModel(pageModel);
 
 		}
 		System.out.println("pptx转缩列图结束");

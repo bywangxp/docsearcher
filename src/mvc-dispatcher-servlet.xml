@@ -39,12 +39,12 @@
 	<!-- 日志拦截器 -->
 	 <mvc:interceptor>
 	      <mvc:mapping path="/**"/>
-	      <bean class="ustc.see.water.docsearcher.interceptor.LogWriterInterceptor"></bean>
+	      <bean class="ustc.sse.water.docsearcher.interceptor.LogWriterInterceptor"></bean>
 	   </mvc:interceptor>
 	   <!-- 用户权限拦截器 -->
 	   <mvc:interceptor>
 	      <mvc:mapping path="/*/*"/>
-	      <bean class="ustc.see.water.docsearcher.interceptor.LoginInterceptor">
+	      <bean class="ustc.sse.water.docsearcher.interceptor.LoginInterceptor">
 	            <property name="allowUrls">  
 		            <list>  
 		             <!--  如果请求中包含以下路径，则不进行拦截   -->
@@ -63,7 +63,7 @@
 	
 	</mvc:interceptors>
     <!-- 统一异常处理器 -->
-    <bean class="ustc.see.water.docsearcher.exception.UserExceptionResolver"/>
+    <bean class="ustc.sse.water.docsearcher.exception.UserExceptionResolver"/>
 	<bean id="stringConverter"
 		class="org.springframework.http.converter.StringHttpMessageConverter">
 		<property name="supportedMediaTypes">

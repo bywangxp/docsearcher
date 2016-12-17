@@ -23,16 +23,14 @@ import ustc.sse.water.docsearcher.model.DocumentModel;
 
 public interface DocumentDao {
 
-	Long save(DocumentModel documentModel);
+	Long saveDocument(DocumentModel documentModel);
 
-	DocumentModel find(Long documentId);
+	void updateDocument(DocumentModel documentModel);
 
-	void update(DocumentModel documentModel);
+	Long getDocumentNumberByTag(Long tagId);
 
-	Long getDocumentsByTags(Long tagId);
+	DocumentModel getDocumentByDocId(Long docId);
 
-	DocumentModel getDocumentsByDocId(Long docId);
-
-	List<DocumentModel> searchSlides(String keyword);
+	List<DocumentModel> searchDocumentListByKeyword(String keyword);
 
 }

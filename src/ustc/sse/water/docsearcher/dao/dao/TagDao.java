@@ -24,4 +24,5 @@ public interface TagDao {
 
 	List<TagModel> getAllTags();
 
+	TagModel getTagByTagId(Long tagId);
 }

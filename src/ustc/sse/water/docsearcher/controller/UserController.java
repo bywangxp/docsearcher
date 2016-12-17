@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import ustc.sse.water.docsearcher.model.UserModel;
+import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
 import ustc.sse.water.docsearcher.service.ebi.UserEbi;
 
 /**
@@ -32,20 +33,12 @@ import ustc.sse.water.docsearcher.service.ebi.UserEbi;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	/**
-	 * 
-	 * 方法说明 <br>
-	 * <p>
-	 * 修改历史: 2016年10月30日 下午7:50:08 修改人 修改说明 <br>
-	 * 
-	 * @param 参数名
-	 *            参数说明
-	 * @return 返回结果说明
-	 * @throws Exception
-	 *             异常说明
-	 */
+
 	@Resource
 	private UserEbi userEbi;
+
+	@Resource
+	private DocumentEbi documentEbi;
 
 	@RequestMapping(value = "/login", method = { RequestMethod.POST })
 	public String login(HttpServletRequest request) {
@@ -56,7 +49,7 @@ public class UserController {
 		UserModel userModel = new UserModel();
 		userModel.setUserName(userName);
 		userModel.setUserPassword(password);
-		userModel = userEbi.find(userModel);
+		userModel = userEbi.findUser(userModel);
 		HttpSession session = request.getSession();
 		// 登录成功，返回主页
 		if (userModel != null) {
@@ -104,7 +97,7 @@ public class UserController {
 
 		// 通过session获取当前用户的用户名信息，用于创建文件夹
 		UserModel userModel = (UserModel) session.getAttribute("user");
-		Boolean flag = userEbi.upload(myfiles, absolutePath, userModel);
+		Boolean flag = documentEbi.uploadFiles(myfiles, absolutePath, userModel);
 
 		long end = System.currentTimeMillis();
 		System.out.println("整个解析流程用时:" + (end - start) / 1000 + "s");

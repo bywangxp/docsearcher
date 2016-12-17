@@ -19,6 +19,9 @@ import ustc.sse.water.docsearcher.model.DocumentModel;
 import ustc.sse.water.docsearcher.model.PageModel;
 import ustc.sse.water.docsearcher.model.TagModel;
 import ustc.sse.water.docsearcher.model.UserModel;
+import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
+import ustc.sse.water.docsearcher.service.ebi.PageEbi;
+import ustc.sse.water.docsearcher.service.ebi.TagEbi;
 import ustc.sse.water.docsearcher.service.ebi.UserEbi;
 
 /**
@@ -43,6 +46,14 @@ public class SlidesController {
 
 	@Resource
 	private UserEbi userEbi;
+	@Resource
+	private TagEbi tagEbi;
+
+	@Resource
+	private PageEbi pageEbi;
+
+	@Resource
+	private DocumentEbi documentEbi;
 
 	// 以下接口为ppt展示页
 	// 获取指定PPT的所有页面的缩略图
@@ -65,15 +76,15 @@ public class SlidesController {
 		Integer pageid = Integer.parseInt(request.getParameter("pageid"));
 		// pageid是单页ppt的id好，在page表中全局唯一，可以获取到对应的文档id
 		System.out.println("传递的参数pageid" + pageid);
-		PageModel pageModel = userEbi.getPageByPageId(pageid);
+		PageModel pageModel = pageEbi.getPageByPageId(pageid);
 		Long docId = pageModel.getDocId();
 		System.out.println("查询得到docuemntId：" + docId);
 		System.out.println("传递的参数pageid" + pageid);
 		// 获取到对应的文档
-		DocumentModel documentModel = userEbi.getDocumentsByDocId(docId);
+		DocumentModel documentModel = documentEbi.getDocumentByDocId(docId);
 
 		// 获取该文档下面的全部页面数量
-		List<PageModel> page = userEbi.getPage(docId);
+		List<PageModel> page = pageEbi.getPageListByDocId(docId);
 		// 组装json
 		Map<String, Object> totalmap = new HashMap<String, Object>();
 
@@ -188,7 +199,7 @@ public class SlidesController {
 		System.out.println("检索条件的tagid是：" + tagId);
 		// 根据关键字检索
 		// 根据关键字搜索到相关的文档list集合
-		List<DocumentModel> list = userEbi.searchSlides(keyword);
+		List<DocumentModel> list = documentEbi.searchDocumentListByKeyword(keyword);
 		for (DocumentModel documentModel : list) {
 			System.out.println("根据关键字检索到的：" + documentModel.getDocTitle());
 		}
@@ -222,7 +233,7 @@ public class SlidesController {
 				String date = simpleDateFormat.format(documentModel.getCreateTime());
 				Long docId = documentModel.getDocId();
 				// 获取文档下面的全部页面数量
-				List<PageModel> page = userEbi.getPage(docId);
+				List<PageModel> page = pageEbi.getPageListByDocId(docId);
 				System.out.println("文档页数" + page.size());
 				String info = null;
 				for (int i = 0; i < 3; ++i) {
@@ -341,7 +352,7 @@ public class SlidesController {
 	@ResponseBody
 	@RequestMapping(value = "/get_all_kinds", method = { RequestMethod.POST })
 	public Map<String, Object> GetAllTags(HttpSession session, Integer kid) {
-		List<TagModel> list = userEbi.getAllTags();
+		List<TagModel> list = tagEbi.getAllTags();
 		// 组装json
 		Map<String, Object> totalmap = new HashMap<String, Object>();
 		totalmap.put("errcode", Integer.toString(0));
@@ -352,18 +363,18 @@ public class SlidesController {
 		List<Map<String, Object>> kingList = new ArrayList<Map<String, Object>>();
 
 		// 查询数据库，此tag下有多少数量的文档
-		Long documentbyTag[] = new Long[list.size()];
-		documentbyTag[0] = (long) 0;
+		Long documentNumber[] = new Long[list.size()];
+		documentNumber[0] = (long) 0;
 		// TODO 查询所有对应分类的文件数，tagid=1不查询，后期对应没有分类的文件可能会放置放在。
 		for (int i = 1; i < list.size(); ++i) {
 
 			Long tagId = list.get(i).getTagId();
-			documentbyTag[i] = userEbi.getDocumentsByTags(tagId);
-			System.out.println(i + ":" + documentbyTag[i]);
+			documentNumber[i] = documentEbi.getDocumentNumberByTag(tagId);
+			System.out.println(i + ":" + documentNumber[i]);
 		}
 		// tagid=1 就i=0为其他分类的和
 		for (int i = 1; i < list.size(); ++i) {
-			documentbyTag[0] += documentbyTag[i];
+			documentNumber[0] += documentNumber[i];
 
 		}
 
@@ -374,7 +385,7 @@ public class SlidesController {
 			Long tagId = tagModel.getTagId();
 			System.out.println(tagId + "+" + tagModel.getTagName());
 			map.put("id", Long.toString(tagId));
-			map.put("num", Long.toString(documentbyTag[i]));
+			map.put("num", Long.toString(documentNumber[i]));
 			map.put("name", tagModel.getTagName());
 			Boolean flag = false;
 			if (tagId == 1) {

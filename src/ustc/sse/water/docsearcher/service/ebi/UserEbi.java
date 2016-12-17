@@ -1,49 +1,28 @@
 package ustc.sse.water.docsearcher.service.ebi;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import ustc.sse.water.docsearcher.model.DocumentModel;
-import ustc.sse.water.docsearcher.model.PageModel;
-import ustc.sse.water.docsearcher.model.TagModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 
+/**
+ * 
+ * 类型名 <br>
+ * 功能描述
+ * <p>
+ * 修改历史 2016年12月18日 上午1:09:01 修改人 <br>
+ * 修改说明 <br>
+ * <p>
+ * Copyright: Copyright (c) 2016年12月18日 上午1:09:01
+ * <p>
+ * Company: 中科大软件学院
+ * <p>
+ * 
+ * @author 王训谱 bywangxp@mail.ustc.edu.cn
+ * @version 版本号
+ */
 @Transactional
 public interface UserEbi {
-	/**
-	 * 方法说明 <br>
-	 * <p>
-	 * 修改历史: 2016年10月30日 下午10:59:44 修改人 修改说明 <br>
-	 * 
-	 * @param 参数名
-	 *            参数说明
-	 * @return 返回结果说明
-	 * @throws Exception
-	 *             异常说明
-	 */
-
-	public UserModel find(UserModel userQueryModel);
-
-	public Boolean upload(MultipartFile[] myfiles, String absolutePath, UserModel userModel)
-			throws IOException, Exception;
-
-	public DocumentModel getDocument(Long id);
-
-	public List<PageModel> getPage(Long docId);
-
-	public List<TagModel> getAllTags();
-
-	public Long getDocumentsByTags(Long tagId);
-
-	PageModel getPageByPageId(Integer pageid);
-
-	public DocumentModel getDocumentsByDocId(Long docId);
+	public UserModel findUser(UserModel userQueryModel);
 
 	public UserModel getUserById(Long userId);
-
-	public List<DocumentModel> searchSlides(String keyword);
-
 }

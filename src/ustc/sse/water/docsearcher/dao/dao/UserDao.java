@@ -1,9 +1,5 @@
 package ustc.sse.water.docsearcher.dao.dao;
 
-import java.util.List;
-
-import ustc.sse.water.docsearcher.model.DocumentModel;
-import ustc.sse.water.docsearcher.model.PageModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 
 /**
@@ -23,12 +19,7 @@ import ustc.sse.water.docsearcher.model.UserModel;
  */
 public interface UserDao {
 
-	UserModel find(UserModel userModel);
-
-	// 下面两个方法后期调整，本该是放在Documentdao
-	DocumentModel getDocument(Long id);
-
-	List<PageModel> getPage(Long userId);
+	UserModel findUser(UserModel userModel);
 
 	UserModel getUserById(Long userId);
 

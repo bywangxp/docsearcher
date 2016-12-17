@@ -57,7 +57,7 @@ public class TagRecordModel {
 		return sumDocToday;
 	}
 
-	@Column(name = ")sum_doc_total")
+	@Column(name = "sum_doc_total")
 	public Integer getSumDocTotal() {
 		return sumDocTotal;
 	}
