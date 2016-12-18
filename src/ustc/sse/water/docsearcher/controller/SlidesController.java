@@ -3,6 +3,7 @@ package ustc.sse.water.docsearcher.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -13,16 +14,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import ustc.sse.water.docsearcher.model.DocumentModel;
 import ustc.sse.water.docsearcher.model.PageModel;
-import ustc.sse.water.docsearcher.model.TagModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
+import ustc.sse.water.docsearcher.service.ebi.GlobalEbi;
 import ustc.sse.water.docsearcher.service.ebi.PageEbi;
 import ustc.sse.water.docsearcher.service.ebi.TagEbi;
 import ustc.sse.water.docsearcher.service.ebi.UserEbi;
+import ustc.sse.water.docsearcher.util.constant.PublicConstants;
 
 /**
  * 
@@ -54,6 +58,40 @@ public class SlidesController {
 
 	@Resource
 	private DocumentEbi documentEbi;
+	@Resource
+	private GlobalEbi globalEbi;
+
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	public String uploadPPT(@RequestParam MultipartFile[] myfiles, HttpServletRequest request) throws Exception {
+		// 如果只是上传一个文件，则只需要MultipartFile类型接收文件即可，而且无需显式指定@RequestParam注解
+		// 如果想上传多个文件，那么这里就要用MultipartFile[]类型来接收文件，并且还要指定@RequestParam注解
+		// 并且上传多个文件时，前台表单中的所有<input
+		// type="file"/>的name都应该是myfiles，否则参数里的myfiles无法获取到所有上传的文件
+		long start = System.currentTimeMillis();
+		System.out.println("正在执行上传操作");
+		// 设置转换成功与否的标志
+		// 获取项目的绝对路径，用来存储用户的资源
+		HttpSession session = request.getSession();
+		String absolutePath = session.getServletContext().getRealPath("/");
+		System.out.println(absolutePath);
+
+		// 通过session获取当前用户的用户名信息，用于创建文件夹
+		UserModel userModel = (UserModel) session.getAttribute("user");
+		Boolean flag = documentEbi.uploadFiles(myfiles, absolutePath, userModel);
+
+		long end = System.currentTimeMillis();
+		System.out.println("整个解析流程用时:" + (end - start) / 1000 + "s");
+		if (flag) {
+			// 上传成功，获取文件信息，存储进
+
+			session.setAttribute("uploadInfo", "上传成功");
+			return "redirect:/jsps/success.jsp";
+		} else {
+			session.setAttribute("uploaderror", "上传失败");
+			return "redirect:/jsps/upload.jsp";
+		}
+
+	}
 
 	// 以下接口为ppt展示页
 	// 获取指定PPT的所有页面的缩略图
@@ -73,13 +111,13 @@ public class SlidesController {
 	@ResponseBody
 	@RequestMapping(value = "/get_all_slides_img", method = { RequestMethod.POST })
 	public Map<String, Object> getAllSlidesImg(HttpSession session, HttpServletRequest request) throws Exception {
-		Integer pageid = Integer.parseInt(request.getParameter("pageid"));
+		// TODO 因为之前测试阶段，删除了一些乱码的document导致，通过一些page 找document报空指针异常，需要对数据进行一次处理
+		Long pageId = Long.parseLong(request.getParameter("pageid"));
 		// pageid是单页ppt的id好，在page表中全局唯一，可以获取到对应的文档id
-		System.out.println("传递的参数pageid" + pageid);
-		PageModel pageModel = pageEbi.getPageByPageId(pageid);
+		System.out.println("传递的参数pageid" + pageId);
+		PageModel pageModel = pageEbi.getPageByPageId(pageId);
 		Long docId = pageModel.getDocId();
 		System.out.println("查询得到docuemntId：" + docId);
-		System.out.println("传递的参数pageid" + pageid);
 		// 获取到对应的文档
 		DocumentModel documentModel = documentEbi.getDocumentByDocId(docId);
 
@@ -135,7 +173,7 @@ public class SlidesController {
 		temp.put("coin", documentModel.getDocValue());
 		temp.put("grade", documentModel.getDocRating());
 		// pageNow 先以pageid代替
-		temp.put("pageNow", pageid);
+		temp.put("pageNow", pageId);
 		temp.put("pageAll", documentModel.getSumPage());
 		temp.put("author", userModel.getUserName());
 		temp.put("logo", documentModel.getDocLogo());
@@ -144,25 +182,17 @@ public class SlidesController {
 		temp.put("downloadUrl", downloadPath);
 		temp.put("downloadNum", documentModel.getSumDownload());
 		temp.put("addFavNum", documentModel.getSumCollection()); // System.out.println(temp);
-		temp.put("ifaddFav", "images/result/star1.png"); // System.out.println(temp);
+		// 判断是否收藏
+		int flag = pageEbi.whetherAddFav(request, pageId);
+		String fav = PublicConstants.IF_ADD_FAV;
+		if (flag == 0) {
+			fav = PublicConstants.IF_NO_ADD_FAV;
+		}
+		temp.put("ifaddFav", fav);
 		totalmap.put("slide", temp);
 		return totalmap;
 
 	}
-
-	/**
-	 * 
-	 * 方法说明 <br>
-	 * <p>
-	 * 修改历史: 2016年11月5日 下午8:37:48 修改人 修改说明 <br>
-	 * 
-	 * @param 参数名
-	 *            参数说明
-	 * @return 返回结果说明
-	 * @throws Exception
-	 *             异常说明
-	 */
-	// 以下是搜素结果页
 
 	/**
 	 * 
@@ -191,18 +221,42 @@ public class SlidesController {
 		if (keyword == null) {
 			keyword = "";
 		}
+		globalEbi.saveSearchRecord(request, keyword);
+
 		System.out.println("检索的关键字是：" + keyword);
+		// 处理异常，此处可能收到未空的数据
+
 		long sort = Long.parseLong(request.getParameter("sort"));
-		long mine = Long.parseLong(request.getParameter("mine"));
+		int mine = Integer.parseInt(request.getParameter("mine"));// 是否只显示我的文库数据：0否，1是
 		long sortId = Long.parseLong(request.getParameter("sort_id"));
 		long tagId = Long.parseLong(request.getParameter("kid"));
 		System.out.println("检索条件的tagid是：" + tagId);
 		// 根据关键字检索
 		// 根据关键字搜索到相关的文档list集合
 		List<DocumentModel> list = documentEbi.searchDocumentListByKeyword(keyword);
-		for (DocumentModel documentModel : list) {
-			System.out.println("根据关键字检索到的：" + documentModel.getDocTitle());
+		// mine,只显示用户自身的ppt
+		HttpSession session = request.getSession();
+		UserModel user = (UserModel) session.getAttribute("user");
+		Long userId = user.getUserId();//
+		System.out.println("userID:" + userId);
+		System.out.println("mine:" + mine);
+		System.out.println("检查之前的" + list.size());
+		if (mine == 1) {// 只显示我的文库
+
+			Iterator<DocumentModel> iterator = list.iterator();
+			while (iterator.hasNext()) {
+				DocumentModel documentModel = iterator.next();
+				Long authorId = documentModel.getUserId();
+				System.out.println("authoID:" + authorId);
+				if (userId == authorId) {
+					iterator.remove();
+					System.out.println("删除不是我的文档");
+				}
+
+			}
+
 		}
+		System.out.println("检查之后的" + list.size());
 		// 组装json
 		Map<String, Object> totalmap = new HashMap<String, Object>();
 
@@ -211,6 +265,7 @@ public class SlidesController {
 		totalmap.put("errmsg", "");
 
 		for (DocumentModel documentModel : list) {
+			System.out.println("根据关键字检索到的：" + documentModel.getDocTitle());
 			/*
 			 * System.out.println("搜索的tagid" + documentModel.getTagId());
 			 * System.out.println("当前tagid" + tagId);
@@ -270,9 +325,11 @@ public class SlidesController {
 					temp.put("downloadNum", documentModel.getSumDownload());
 					temp.put("addFavNum", documentModel.getSumCollection());
 					// 一张表中两个显示收藏
-					String fav = "images/result/star1.png";
-					if (i == 0) {
-						fav = "images/result/star2.png";
+					// 查询针对当前用户，页面是否被收藏
+					int flag = pageEbi.whetherAddFav(request, pageModel.getPageId());
+					String fav = PublicConstants.IF_ADD_FAV;
+					if (flag == 0) {
+						fav = PublicConstants.IF_NO_ADD_FAV;
 					}
 					temp.put("ifaddFav", fav);
 					temp.put("ifChoose", "images/result/choose1.png");
@@ -289,112 +346,30 @@ public class SlidesController {
 
 	}
 
-	// 获取用户详细信息
 	@ResponseBody
-	@RequestMapping(value = "/get_user_detail", method = { RequestMethod.POST })
-
-	public Map<String, Object> getUserDetail(HttpSession session) {
-		// 组装json
-		Map<String, Object> totalmap = new HashMap<String, Object>();
-		Map<String, Object> map = new HashMap<String, Object>();
-		totalmap.put("errcode", Integer.toString(0));
-		totalmap.put("errmsg", "");
-		UserModel userModel = (UserModel) session.getAttribute("user");
-		// 获取用户详细信息
-		Long userId = userModel.getUserId();
-		map.put("id", Long.toString(userId));
-		String userPhoto = userModel.getUserPhoto();
-		System.out.println(userPhoto + ":" + userPhoto);
-		map.put("logo", userPhoto);
-		// 在用户注册时 创建文件夹
-		Integer userCredit = userModel.getUserCredit();
-		map.put("coin", Integer.toString(userCredit));
-		String userName = userModel.getUserName();
-		map.put("name", userName);
-		String userDescription = userModel.getUserDescription();
-		map.put("info", userDescription);
-		System.out.println("info:" + userDescription);
-		Integer sumPublicDoc = userModel.getSumPublicDoc();
-		Integer sumPrivateDoc = userModel.getSumPrivateDoc();// 用户私有文档
-		map.put("myDoc", Integer.toString(sumPrivateDoc));
-		Integer sumDoc = sumPublicDoc + sumPrivateDoc;// 用户总文档
-		map.put("allDoc", Integer.toString(sumDoc));
-		// TODO 用户收藏文档数
-		Integer sumCollection = 16;
-		map.put("fav", Integer.toString(16));
-		// TODO 用户下载文档数
-		Integer sumDownload = 0;
-		map.put("download", Integer.toString(0));
-		totalmap.put("user", map);
-		return totalmap;
-	}
-
-	// 获取用户基本信息
-	@ResponseBody
-	@RequestMapping(value = "/get_user", method = { RequestMethod.POST })
-	public Map<String, Object> getUser(HttpSession session) {
-		Map<String, Object> totalmap = new HashMap<String, Object>();
-		Map<String, Object> map = new HashMap<String, Object>();
-		totalmap.put("errcode", Integer.toString(0));
-		totalmap.put("errmsg", "");
-		UserModel userModel = (UserModel) session.getAttribute("user");
-		String userName = userModel.getUserName();
-		// TODO 用户等级后期添加
-		String userLevel = "LV10";
-		map.put("name", userName);
-		map.put("level", userLevel);
-		totalmap.put("person", map);
-		return totalmap;
+	@RequestMapping(value = "/compose_pdf", method = { RequestMethod.POST })
+	public Map<String, Object> composePDF(HttpServletRequest request) {
+		// 获取合成的pdf文件名称filename
+		String filename = "myfile";// 需要对文件名称进行检查，此名称作为文件名
+		// 需要打印的页面pid
+		// 考虑数组为空，的情况，前台需要判断
+		long[] pagesId = { 898, 876, 803, 805, 753, 758 };
+		String path = pageEbi.composePDF(request, pagesId, filename);
+		globalEbi.saveDownLoadRecord(request, pagesId);
+		System.out.println("success");
+		return null;
 
 	}
 
-	// 获取用户分类标签
+	// 添加与取消收藏
 	@ResponseBody
-	@RequestMapping(value = "/get_all_kinds", method = { RequestMethod.POST })
-	public Map<String, Object> GetAllTags(HttpSession session, Integer kid) {
-		List<TagModel> list = tagEbi.getAllTags();
-		// 组装json
-		Map<String, Object> totalmap = new HashMap<String, Object>();
-		totalmap.put("errcode", Integer.toString(0));
-		totalmap.put("errmsg", "");
-		int size = list.size();
-		int index = 0;
-		// 分类
-		List<Map<String, Object>> kingList = new ArrayList<Map<String, Object>>();
+	@RequestMapping(value = "/collection", method = { RequestMethod.POST })
+	public Map<String, Object> SaveCollection(HttpServletRequest request) {
+		Long pageId = Long.parseLong(request.getParameter("pageId"));
+		int flag = Integer.parseInt(request.getParameter("flag"));// 1.添加0.取消
+		pageEbi.saveCollection(flag, pageId, request);
+		return null;
 
-		// 查询数据库，此tag下有多少数量的文档
-		Long documentNumber[] = new Long[list.size()];
-		documentNumber[0] = (long) 0;
-		// TODO 查询所有对应分类的文件数，tagid=1不查询，后期对应没有分类的文件可能会放置放在。
-		for (int i = 1; i < list.size(); ++i) {
-
-			Long tagId = list.get(i).getTagId();
-			documentNumber[i] = documentEbi.getDocumentNumberByTag(tagId);
-			System.out.println(i + ":" + documentNumber[i]);
-		}
-		// tagid=1 就i=0为其他分类的和
-		for (int i = 1; i < list.size(); ++i) {
-			documentNumber[0] += documentNumber[i];
-
-		}
-
-		// 获取到按照id号排序的tag时
-		for (int i = 0; i < list.size(); ++i) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			TagModel tagModel = list.get(i);
-			Long tagId = tagModel.getTagId();
-			System.out.println(tagId + "+" + tagModel.getTagName());
-			map.put("id", Long.toString(tagId));
-			map.put("num", Long.toString(documentNumber[i]));
-			map.put("name", tagModel.getTagName());
-			Boolean flag = false;
-			if (tagId == 1) {
-				flag = true;
-			}
-			map.put("active", flag);
-			kingList.add(map);
-		}
-		totalmap.put("kind", kingList);
-		return totalmap;
 	}
+
 }

@@ -1,6 +1,9 @@
 package ustc.sse.water.docsearcher.util;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * 
@@ -98,6 +101,37 @@ public class PPTUtils {
 			filename = "nameEmpity";
 		}
 		return filename;
+	}
+
+	public static void main(String[] args) {
+		String path = "c:/test2/34/2.txt";
+		File file = new File(path);
+		System.out.println(file.getParent());
+		System.out.println("dd" + file.exists());
+		if (file.getParent() != null && !new File(file.getParent()).exists()) {
+			System.out.println("mkdirs");
+			new File(file.getParent()).mkdirs();
+		}
+
+		boolean createNewFile;
+		try {
+			createNewFile = file.createNewFile();
+			System.out.println("createNewFile" + createNewFile);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		System.out.println("dd1" + file.exists());
+		if (!file.isFile()) {
+			System.out.println("文检创建失败");
+		}
+		try {
+			new FileOutputStream(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

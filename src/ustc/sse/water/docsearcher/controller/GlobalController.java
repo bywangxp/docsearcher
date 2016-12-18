@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ import ustc.sse.water.docsearcher.model.TagRecordModel;
 import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
 import ustc.sse.water.docsearcher.service.ebi.GlobalEbi;
 import ustc.sse.water.docsearcher.service.ebi.TagEbi;
-import ustc.sse.water.docsearcher.util.Constant;
+import ustc.sse.water.docsearcher.util.constant.PublicConstants;
 
 /**
  * 
@@ -73,7 +74,7 @@ public class GlobalController {
 		totalmap.put("errcode", Integer.toString(0));
 		totalmap.put("errmsg", "");
 		Map<String, Object> map2 = new HashMap<String, Object>();
-		map2.put("pic", Constant.DEFAULT_RANK_PNG);
+		map2.put("pic", PublicConstants.DEFAULT_RANK_PNG);
 		map2.put("name", "下载排行");
 		List<Map<String, Object>> list2 = new ArrayList<Map<String, Object>>();
 
@@ -85,7 +86,7 @@ public class GlobalController {
 			// 根据id，获取文件名
 			DocumentModel documentModel = documentEbi.getDocumentByDocId(downloadRankModel.getDocId());
 			temp.put("name", documentModel.getDocTitle());
-			temp.put("pic", Constant.DEFAULT_PPT_PNG);
+			temp.put("pic", PublicConstants.DEFAULT_PPT_PNG);
 			list2.add(temp);
 		}
 		map2.put("data", list2);
@@ -187,6 +188,55 @@ public class GlobalController {
 
 		return null;
 
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/get_all_kinds", method = { RequestMethod.POST })
+	public Map<String, Object> GetAllTags(HttpSession session, Integer kid) {
+		List<TagModel> list = tagEbi.getAllTags();
+		// 组装json
+		Map<String, Object> totalmap = new HashMap<String, Object>();
+		totalmap.put("errcode", Integer.toString(0));
+		totalmap.put("errmsg", "");
+		int size = list.size();
+		int index = 0;
+		// 分类
+		List<Map<String, Object>> kingList = new ArrayList<Map<String, Object>>();
+
+		// 查询数据库，此tag下有多少数量的文档
+		Long documentNumber[] = new Long[list.size()];
+		documentNumber[0] = (long) 0;
+		// TODO 查询所有对应分类的文件数，tagid=1不查询，后期对应没有分类的文件可能会放置放在。
+		for (int i = 1; i < list.size(); ++i) {
+
+			Long tagId = list.get(i).getTagId();
+			documentNumber[i] = documentEbi.getDocumentNumberByTag(tagId);
+			System.out.println(i + ":" + documentNumber[i]);
+		}
+		// tagid=1 就i=0为其他分类的和
+		for (int i = 1; i < list.size(); ++i) {
+			documentNumber[0] += documentNumber[i];
+
+		}
+
+		// 获取到按照id号排序的tag时
+		for (int i = 0; i < list.size(); ++i) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			TagModel tagModel = list.get(i);
+			Long tagId = tagModel.getTagId();
+			System.out.println(tagId + "+" + tagModel.getTagName());
+			map.put("id", Long.toString(tagId));
+			map.put("num", Long.toString(documentNumber[i]));
+			map.put("name", tagModel.getTagName());
+			Boolean flag = false;
+			if (tagId == 1) {
+				flag = true;
+			}
+			map.put("active", flag);
+			kingList.add(map);
+		}
+		totalmap.put("kind", kingList);
+		return totalmap;
 	}
 
 }

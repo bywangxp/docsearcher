@@ -31,7 +31,8 @@ import javax.persistence.Table;
 public class CollectionModel {
 	private Long collectId;// 收藏ID
 	private Long userId;// 收藏者
-	private Long docId; // 收藏文档
+
+	private Long pageId; // 收藏页面
 	private Date collectTime;// 收藏时间
 
 	@Id
@@ -46,14 +47,18 @@ public class CollectionModel {
 		return userId;
 	}
 
-	@Column(name = "doc_id", nullable = false)
-	public Long getDocId() {
-		return docId;
+	@Column(name = "page_id", nullable = false)
+	public Long getPageId() {
+		return pageId;
 	}
 
 	@Column(name = "collect_time")
 	public Date getCollectTime() {
 		return collectTime;
+	}
+
+	public void setPageId(Long pageId) {
+		this.pageId = pageId;
 	}
 
 	public void setCollectId(Long collectId) {
@@ -62,10 +67,6 @@ public class CollectionModel {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
-	}
-
-	public void setDocId(Long docId) {
-		this.docId = docId;
 	}
 
 	public void setCollectTime(Date collectTime) {

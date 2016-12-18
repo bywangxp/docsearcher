@@ -1,4 +1,4 @@
-package ustc.sse.water.docsearcher.util;
+package ustc.sse.water.docsearcher.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

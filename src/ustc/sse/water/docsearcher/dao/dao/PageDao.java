@@ -28,6 +28,10 @@ public interface PageDao {
 
 	List<PageModel> getPageListByDocId(Long docId);
 
+	int whetherAddFav(Long userId, Long pageId);
+
+	void saveCollection(int fav, Long pageId, Long userId);
+
 	// List<PageModel> getPageByUserId(Long userId);
 
 }

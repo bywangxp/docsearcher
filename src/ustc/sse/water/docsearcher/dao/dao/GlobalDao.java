@@ -3,7 +3,9 @@ package ustc.sse.water.docsearcher.dao.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import ustc.sse.water.docsearcher.model.DownloadModel;
 import ustc.sse.water.docsearcher.model.DownloadRankModel;
+import ustc.sse.water.docsearcher.model.SearchRecordModel;
 import ustc.sse.water.docsearcher.model.TagRecordModel;
 
 /**
@@ -27,5 +29,9 @@ public interface GlobalDao {
 	ArrayList<DownloadRankModel> getDownloadRankModel();
 
 	List<TagRecordModel> getTagRecordModel();
+
+	void saveDocumentRecord(DownloadModel downloadModel);
+
+	void saveSearcherRecord(SearchRecordModel searchRecord);
 
 }

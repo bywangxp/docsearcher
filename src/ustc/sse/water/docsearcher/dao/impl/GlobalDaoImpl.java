@@ -13,7 +13,9 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import ustc.sse.water.docsearcher.dao.dao.GlobalDao;
+import ustc.sse.water.docsearcher.model.DownloadModel;
 import ustc.sse.water.docsearcher.model.DownloadRankModel;
+import ustc.sse.water.docsearcher.model.SearchRecordModel;
 import ustc.sse.water.docsearcher.model.TagRecordModel;
 
 @Repository("globalDao")
@@ -44,5 +46,22 @@ public class GlobalDaoImpl implements GlobalDao {
 		query.setMaxResults(8);
 		List<TagRecordModel> list = query.list();
 		return list;
+	}
+
+	@Override
+	public void saveDocumentRecord(DownloadModel downloadModel) {
+		Session session = getCurrentSession();
+		long downloadModelId = (Long) session.save(downloadModel);
+		System.out.println("下载记录保存的id" + downloadModelId);
+		session.flush();
+
+	}
+
+	@Override
+	public void saveSearcherRecord(SearchRecordModel searchRecord) {
+		Session session = getCurrentSession();
+		long searchRecordId = (Long) session.save(searchRecord);
+		System.out.println("搜素记录保存的id" + searchRecordId);
+		session.flush();
 	}
 }

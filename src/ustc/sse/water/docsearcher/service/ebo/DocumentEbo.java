@@ -1,4 +1,4 @@
-package ustc.sse.water.docsearcher.service.solve;
+package ustc.sse.water.docsearcher.service.ebo;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -17,6 +17,8 @@ import ustc.sse.water.docsearcher.dao.dao.UserDao;
 import ustc.sse.water.docsearcher.model.DocumentModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
+import ustc.sse.water.docsearcher.service.solve.ConvertToPdf;
+import ustc.sse.water.docsearcher.service.solve.ExtractPPT;
 import ustc.sse.water.docsearcher.util.PPTUtils;
 
 /**
@@ -191,6 +193,8 @@ public class DocumentEbo implements DocumentEbi {
 		documentModel.setDocPreview(name_no_suffix + "_1.png");
 		documentModel.setDocSaveKey(name_no_suffix);
 		documentDao.updateDocument(documentModel);
+
+		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\images");
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\images");
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\pictures");
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\texts");
@@ -234,13 +238,11 @@ public class DocumentEbo implements DocumentEbi {
 
 	@Override
 	public DocumentModel getDocumentByDocId(Long docId) {
-		// TODO Auto-generated method stub
 		return documentDao.getDocumentByDocId(docId);
 	}
 
 	@Override
 	public List<DocumentModel> searchDocumentListByKeyword(String keyword) {
-		// TODO Auto-generated method stub
 		return documentDao.searchDocumentListByKeyword(keyword);
 	}
 

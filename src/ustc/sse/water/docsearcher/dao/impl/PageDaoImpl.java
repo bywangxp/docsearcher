@@ -1,5 +1,6 @@
 package ustc.sse.water.docsearcher.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import ustc.sse.water.docsearcher.dao.dao.PageDao;
+import ustc.sse.water.docsearcher.model.CollectionModel;
 import ustc.sse.water.docsearcher.model.PageModel;
 
 /**
@@ -59,7 +61,6 @@ public class PageDaoImpl implements PageDao {
 
 	@Override
 	public List<PageModel> getPageListByDocId(Long docId) {
-		// TODO Auto-generated method stub
 		Session session = getCurrentSession();
 		String hql = "select p from PageModel p where p.docId=?";
 		Query query = session.createQuery(hql);
@@ -67,6 +68,44 @@ public class PageDaoImpl implements PageDao {
 		List<PageModel> list = query.list();
 		int size = list.size();
 		return list;
+	}
+
+	@Override
+	public int whetherAddFav(Long userId, Long pageId) {
+		Session session = getCurrentSession();
+		String hql = "select c from CollectionModel c where c.pageId=? and c.userId=?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, pageId);
+		query.setParameter(1, userId);
+		List<PageModel> list = query.list();
+		int size = list.size();
+		if (size > 0) {
+			return 1;// 改页面被该用户收藏了
+		}
+		return 0;
+	}
+
+	@Override
+	public void saveCollection(int fav, Long pageId, Long userId) {
+		CollectionModel collectionModel = new CollectionModel();
+		collectionModel.setPageId(pageId);
+		collectionModel.setUserId(userId);
+		Session session = getCurrentSession();
+		if (fav == 0) {// 收藏
+			collectionModel.setCollectTime(new Date());
+			session.save(collectionModel);
+			session.flush();
+		} else {// 取消收藏
+			System.out.println("取消收藏");
+			String hql = "select c from CollectionModel c where c.pageId=? and c.userId=?";
+			Query query = session.createQuery(hql);
+			query.setParameter(0, pageId);
+			query.setParameter(1, userId);
+			CollectionModel delete = (CollectionModel) query.list().get(0);
+			session.delete(delete);
+			session.flush();
+		}
+
 	}
 
 }
