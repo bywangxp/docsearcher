@@ -19,6 +19,7 @@ import ustc.sse.water.docsearcher.model.UserModel;
 import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
 import ustc.sse.water.docsearcher.service.solve.ConvertToPdf;
 import ustc.sse.water.docsearcher.service.solve.ExtractPPT;
+import ustc.sse.water.docsearcher.service.solve.search.CreateIndex;
 import ustc.sse.water.docsearcher.util.PPTUtils;
 
 /**
@@ -199,6 +200,7 @@ public class DocumentEbo implements DocumentEbi {
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\pictures");
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\texts");
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\pdf");
+		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\index");
 		System.out.println("文件录入，创建文件夹成功");
 		// 用同一个输入流操作
 		int size = 0;
@@ -220,6 +222,9 @@ public class DocumentEbo implements DocumentEbi {
 		ptf.convetToPdf(absolutePath, name_no_suffix, size);
 		// ptf.t("1477383417932_PPTX_test1",50);
 		System.out.println("缩列图转pdf成功");
+		String dirpath = absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\texts";
+		CreateIndex.createDocumentIndex(dirpath, absolutePath + "UserFiles\\" + "\\index");
+		System.out.println("生成索引文件" + absolutePath + "UserFiles\\" + "\\index");
 	}
 
 	@Override

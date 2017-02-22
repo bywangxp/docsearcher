@@ -32,6 +32,8 @@ public interface PageDao {
 
 	void saveCollection(int fav, Long pageId, Long userId);
 
+	PageModel getpageModelBySaveKey(String pageSaveKey);
+
 	// List<PageModel> getPageByUserId(Long userId);
 
 }

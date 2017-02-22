@@ -1,5 +1,6 @@
 package ustc.sse.water.docsearcher.service.ebo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import ustc.sse.water.docsearcher.model.PageModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 import ustc.sse.water.docsearcher.service.ebi.PageEbi;
 import ustc.sse.water.docsearcher.service.solve.ConvertToPdf;
+import ustc.sse.water.docsearcher.service.solve.search.ExcuteQuery;
 import ustc.sse.water.docsearcher.util.PPTUtils;
 
 /**
@@ -112,6 +114,23 @@ public class PageEbo implements PageEbi {
 			}
 
 		}
+	}
+
+	@Override
+	public List<PageModel> getPageByKeyWord(String keyword) {
+		ArrayList<String> list = ExcuteQuery.query(keyword);// 获得到pageModel的saveKey
+		ArrayList<PageModel> pages = new ArrayList<PageModel>();
+		for (int i = 0; i < list.size(); ++i) {
+			PageModel pageModelBySaveKey = getPageModelBySaveKey(list.get(i));
+			pages.add(pageModelBySaveKey);
+		}
+		return pages;
+	}
+
+	@Override
+	public PageModel getPageModelBySaveKey(String pageSaveKey) {
+		PageModel pageModel = pageDao.getpageModelBySaveKey(pageSaveKey);
+		return pageModel;
 	}
 
 }

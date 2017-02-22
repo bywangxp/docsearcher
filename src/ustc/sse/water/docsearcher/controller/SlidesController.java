@@ -224,6 +224,7 @@ public class SlidesController {
 		globalEbi.saveSearchRecord(request, keyword);
 
 		System.out.println("检索的关键字是：" + keyword);
+
 		// 处理异常，此处可能收到未空的数据
 
 		long sort = Long.parseLong(request.getParameter("sort"));
@@ -232,6 +233,10 @@ public class SlidesController {
 		long tagId = Long.parseLong(request.getParameter("kid"));
 		System.out.println("检索条件的tagid是：" + tagId);
 		// 根据关键字检索
+		List<PageModel> pages = pageEbi.getPageByKeyWord(keyword);
+		for (PageModel pageModel : pages) {
+			System.out.println("最终查询到的：" + pageModel.getPageId());
+		}
 		// 根据关键字搜索到相关的文档list集合
 		List<DocumentModel> list = documentEbi.searchDocumentListByKeyword(keyword);
 		// mine,只显示用户自身的ppt

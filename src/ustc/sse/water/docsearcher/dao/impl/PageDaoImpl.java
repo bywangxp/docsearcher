@@ -108,4 +108,14 @@ public class PageDaoImpl implements PageDao {
 
 	}
 
+	@Override
+	public PageModel getpageModelBySaveKey(String pageSaveKey) {
+		Session session = getCurrentSession();
+		String hql = "select p from PageModel p where p.pageSaveKey=?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, pageSaveKey);
+		List<PageModel> list = query.list();
+		return list.get(0);
+	}
+
 }

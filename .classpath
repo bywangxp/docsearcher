@@ -8,5 +8,10 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-analyzers-common-4.10.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-core-4.10.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-highlighter-4.10.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-memory-4.10.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-queryparser-4.10.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

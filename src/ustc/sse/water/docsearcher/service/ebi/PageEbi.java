@@ -21,4 +21,8 @@ public interface PageEbi {
 	int whetherAddFav(HttpServletRequest request, Long pageId);
 
 	void saveCollection(int flag, Long pageId, HttpServletRequest request);
+
+	List<PageModel> getPageByKeyWord(String keyword);
+
+	PageModel getPageModelBySaveKey(String string);
 }
