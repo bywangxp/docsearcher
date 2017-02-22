@@ -274,7 +274,7 @@ app.controller('fun', function($scope,$http) {
     //重新请求数据
     $http({
       method: "POST", 
-      url: "./user/get_all_slides",
+      url: "./slides/get_all_slides",
       headers: {
         'contentType': 'application/json'
       },
@@ -445,7 +445,7 @@ app.controller('fun', function($scope,$http) {
   $scope.search_commit = function(){
     $http({
       method: "POST", 
-      url: "./user/get_all_slides",
+      url: "./slides/get_all_slides",
       headers: {
         'contentType': 'application/json'
       },
@@ -546,7 +546,7 @@ app.controller('fun', function($scope,$http) {
 
   $http({
     method: "POST", 
-    url: "./user/get_all_kinds",
+    url: "./slides/get_all_kinds",
     headers: {
       'contentType': 'application/json'
     },

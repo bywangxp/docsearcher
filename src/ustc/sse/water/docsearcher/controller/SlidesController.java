@@ -3,7 +3,6 @@ package ustc.sse.water.docsearcher.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -120,7 +119,6 @@ public class SlidesController {
 		System.out.println("查询得到docuemntId：" + docId);
 		// 获取到对应的文档
 		DocumentModel documentModel = documentEbi.getDocumentByDocId(docId);
-
 		// 获取该文档下面的全部页面数量
 		List<PageModel> page = pageEbi.getPageListByDocId(docId);
 		// 组装json
@@ -222,61 +220,49 @@ public class SlidesController {
 			keyword = "";
 		}
 		globalEbi.saveSearchRecord(request, keyword);
-
-		System.out.println("检索的关键字是：" + keyword);
-
 		// 处理异常，此处可能收到未空的数据
-
 		long sort = Long.parseLong(request.getParameter("sort"));
 		int mine = Integer.parseInt(request.getParameter("mine"));// 是否只显示我的文库数据：0否，1是
 		long sortId = Long.parseLong(request.getParameter("sort_id"));
 		long tagId = Long.parseLong(request.getParameter("kid"));
-		System.out.println("检索条件的tagid是：" + tagId);
-		// 根据关键字检索
-		List<PageModel> pages = pageEbi.getPageByKeyWord(keyword);
-		for (PageModel pageModel : pages) {
-			System.out.println("最终查询到的：" + pageModel.getPageId());
+		System.out.println("发起一次get_all_slides:keyword" + keyword + " ;sort" + sort + ";mine" + mine + " ;sortId"
+				+ sortId + " ;tagId" + tagId);
+		// 组装json
+		Map<String, Object> totalmap = new HashMap<String, Object>();
+		totalmap.put("errcode", Integer.toString(0));
+		totalmap.put("errmsg", "");
+		List<PageModel> pages = null;
+		if (keyword == "") {
+			// 默认搜索显示全部信息
+			ArrayList<DocumentModel> allDoc = documentEbi.getAllDocumentModel();
+			System.out.println("总共有：" + allDoc.size());
+			pages = new ArrayList<PageModel>();
+			List<PageModel> pageListByDocId = null;
+			for (DocumentModel documentModel : allDoc) {
+				pageListByDocId = pageEbi.getPageListByDocId(documentModel.getDocId());
+				if (pageListByDocId.size() > 0) {
+					pages.add(pageListByDocId.get(0));
+				}
+			}
+		} else {
+			pages = pageEbi.getPageByKeyWord(keyword, request);
 		}
-		// 根据关键字搜索到相关的文档list集合
-		List<DocumentModel> list = documentEbi.searchDocumentListByKeyword(keyword);
+		// 根据关键字检索
 		// mine,只显示用户自身的ppt
 		HttpSession session = request.getSession();
 		UserModel user = (UserModel) session.getAttribute("user");
-		Long userId = user.getUserId();//
+		Long userId = user.getUserId();
 		System.out.println("userID:" + userId);
-		System.out.println("mine:" + mine);
-		System.out.println("检查之前的" + list.size());
-		if (mine == 1) {// 只显示我的文库
-
-			Iterator<DocumentModel> iterator = list.iterator();
-			while (iterator.hasNext()) {
-				DocumentModel documentModel = iterator.next();
-				Long authorId = documentModel.getUserId();
-				System.out.println("authoID:" + authorId);
-				if (userId == authorId) {
-					iterator.remove();
-					System.out.println("删除不是我的文档");
-				}
-
-			}
-
+		for (PageModel pageModel : pages) {
+			System.out.println("未过滤之前查询到的结果pageid：" + pageModel.getPageId());
 		}
-		System.out.println("检查之后的" + list.size());
-		// 组装json
-		Map<String, Object> totalmap = new HashMap<String, Object>();
-
 		List<Map<String, Object>> pagesList = new ArrayList<Map<String, Object>>();
-		totalmap.put("errcode", Integer.toString(0));
-		totalmap.put("errmsg", "");
-
-		for (DocumentModel documentModel : list) {
-			System.out.println("根据关键字检索到的：" + documentModel.getDocTitle());
-			/*
-			 * System.out.println("搜索的tagid" + documentModel.getTagId());
-			 * System.out.println("当前tagid" + tagId);
-			 * System.out.println("当前文档的名称" + documentModel.getDocTitle());
-			 * System.out.println("当前文档的id" + documentModel.getDocId());
-			 */
+		for (PageModel pageModel : pages) {
+			// 根据pageid找到所属的文档
+			DocumentModel documentModel = documentEbi.getDocumentByDocId(pageModel.getDocId());
+			if (mine == 1 && userId != documentModel.getUserId()) {// 当mine=1.则过滤不属于自己的文档
+				continue;
+			}
 			// 若有分类编号，则不在分类中的文档不显示
 			// 遍历检索结果，resultTagId为搜索结果的tagid
 			Long resultTagId = documentModel.getTagId();
@@ -292,63 +278,51 @@ public class SlidesController {
 				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
 				String date = simpleDateFormat.format(documentModel.getCreateTime());
 				Long docId = documentModel.getDocId();
-				// 获取文档下面的全部页面数量
-				List<PageModel> page = pageEbi.getPageListByDocId(docId);
-				System.out.println("文档页数" + page.size());
 				String info = null;
-				for (int i = 0; i < 3; ++i) {
-					System.out.println("查找的页面数：" + page.get(i).getPageNo());
-					System.out.println("保存页面信息");
-					PageModel pageModel = page.get(i);
-					Map<String, Object> temp = new HashMap<String, Object>();
-					temp.put("id", pageModel.getPageNo());
-					temp.put("pic", "UserFiles/" + documentModel.getDocSaveKey() + "/images/"
-							+ documentModel.getDocSaveKey() + "_" + (i + 1) + ".png");
-					temp.put("name", documentModel.getDocTitle());
-					temp.put("coin", documentModel.getDocValue());
-					temp.put("grade", documentModel.getDocRating());
-					// pageNow 先以pageid代替
-					temp.put("pageNow", pageModel.getPageNo());
-					temp.put("pageAll", documentModel.getSumPage());
-					// 获取用户名
-					UserModel userModel = userEbi.getUserById(documentModel.getUserId());
-					temp.put("author", userModel.getUserName());
-					documentModel.getDocLogo();
-					String docLogo = documentModel.getDocLogo();
-					// 后期修改，若用户上传则是用户上传的头像
-					temp.put("logo", docLogo);
-					temp.put("date", date);
-					String docTitle = documentModel.getDocTitle();
-					System.out.println(docTitle);
-					if (i == 0) {
-						info = docTitle.replace(keyword, "<span>" + keyword + "</span>");
-						System.out.println("info" + info);
-
-					}
-					temp.put("inf", info);
-					temp.put("downloadUrl", downloadPath);
-					temp.put("downloadNum", documentModel.getSumDownload());
-					temp.put("addFavNum", documentModel.getSumCollection());
-					// 一张表中两个显示收藏
-					// 查询针对当前用户，页面是否被收藏
-					int flag = pageEbi.whetherAddFav(request, pageModel.getPageId());
-					String fav = PublicConstants.IF_ADD_FAV;
-					if (flag == 0) {
-						fav = PublicConstants.IF_NO_ADD_FAV;
-					}
-					temp.put("ifaddFav", fav);
-					temp.put("ifChoose", "images/result/choose1.png");
-					temp.put("choose", false);
-					pagesList.add(temp);
+				Map<String, Object> temp = new HashMap<String, Object>();
+				temp.put("id", pageModel.getPageNo());
+				temp.put("pic", "UserFiles/" + documentModel.getDocSaveKey() + "/images/" + pageModel.getPagePreview());
+				temp.put("name", documentModel.getDocTitle());
+				temp.put("coin", documentModel.getDocValue());
+				temp.put("grade", documentModel.getDocRating());
+				// pageNow 先以pageid代替
+				temp.put("pageNow", pageModel.getPageNo());
+				temp.put("pageAll", documentModel.getSumPage());
+				// 获取用户名
+				UserModel userModel = userEbi.getUserById(documentModel.getUserId());
+				temp.put("author", userModel.getUserName());
+				documentModel.getDocLogo();
+				String docLogo = documentModel.getDocLogo();
+				// 后期修改，若用户上传则是用户上传的头像
+				temp.put("logo", docLogo);
+				temp.put("date", date);
+				String docTitle = documentModel.getDocTitle();
+				System.out.println(docTitle);
+				info = docTitle.replace(keyword, "<span>" + keyword + "</span>");
+				System.out.println("info" + info);
+				temp.put("inf", info);
+				temp.put("downloadUrl", downloadPath);
+				temp.put("downloadNum", documentModel.getSumDownload());
+				temp.put("addFavNum", documentModel.getSumCollection());
+				// 为了记录收藏，取消收藏设定的
+				temp.put("doc_id", documentModel.getDocId());
+				temp.put("page_id", pageModel.getPageId());
+				// 一张表中两个显示收藏
+				// 查询针对当前用户，页面是否被收藏
+				int flag = pageEbi.whetherAddFav(request, pageModel.getPageId());
+				String fav = PublicConstants.IF_ADD_FAV;
+				if (flag == 0) {
+					fav = PublicConstants.IF_NO_ADD_FAV;
 				}
-
+				temp.put("ifaddFav", fav);
+				temp.put("ifChoose", "images/result/choose1.png");
+				temp.put("choose", false);
+				pagesList.add(temp);
 			}
+			// 搜索结束
+			totalmap.put("slide", pagesList);
 		}
-		// 搜索结束
-		totalmap.put("slide", pagesList);
-
 		return totalmap;
-
 	}
 
 	@ResponseBody
@@ -367,13 +341,12 @@ public class SlidesController {
 	}
 
 	// 添加与取消收藏
-	@ResponseBody
-	@RequestMapping(value = "/collection", method = { RequestMethod.POST })
-	public Map<String, Object> SaveCollection(HttpServletRequest request) {
-		Long pageId = Long.parseLong(request.getParameter("pageId"));
-		int flag = Integer.parseInt(request.getParameter("flag"));// 1.添加0.取消
-		pageEbi.saveCollection(flag, pageId, request);
-		return null;
+
+	@RequestMapping(value = "/addfav", method = { RequestMethod.POST })
+	public void SaveCollection(HttpServletRequest request) {
+		Long pageId = Long.parseLong(request.getParameter("page_id"));
+		Long docId = Long.parseLong(request.getParameter("doc_id"));
+		pageEbi.saveCollection(docId, pageId, request);
 
 	}
 

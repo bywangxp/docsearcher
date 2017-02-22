@@ -110,9 +110,7 @@ public class GlobalController {
 	@ResponseBody
 	@RequestMapping(value = "/get_inf", method = { RequestMethod.POST })
 	public Map<String, Object> getInf(HttpServletRequest request, HttpServletResponse response) {
-
 		return null;
-
 	}
 
 	/**

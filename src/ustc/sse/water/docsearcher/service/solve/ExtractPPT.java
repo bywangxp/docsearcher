@@ -108,7 +108,7 @@ public class ExtractPPT {
 			pageModel.setPageNo(i + 1);
 			// TODO 此处两个位置冲突，填入的位置信息，是文件名，路径需要拼出来
 			pageModel.setPagePreview(name_no_suffix + "_" + (i + 1) + ".png");
-			pageModel.setPageSaveKey(name_no_suffix);
+			pageModel.setPageSaveKey(name_no_suffix + "_" + (i + 1));
 			pageDao.savePageModel(pageModel);
 		}
 		System.out.println("ppt转缩列图结束");
@@ -219,7 +219,7 @@ public class ExtractPPT {
 			pageModel.setPageNo(i + 1);
 			// TODO 此处两个位置冲突，填入的位置信息，是文件名，路径需要拼出来
 			pageModel.setPagePreview(name_no_suffix + "_" + (i + 1) + ".png");
-			pageModel.setPageSaveKey(name_no_suffix);
+			pageModel.setPageSaveKey(name_no_suffix + "_" + (i + 1));
 			pageDao.savePageModel(pageModel);
 
 		}

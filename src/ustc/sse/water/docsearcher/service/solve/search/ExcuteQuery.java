@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -19,8 +19,7 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
 public class ExcuteQuery {
-	public static ArrayList<String> query(String keyword) {
-		String index = "c:\\index";// 搜索的索引路径
+	public static ArrayList<String> query(String keyword, String index) {
 		IndexReader reader = null;
 		try {
 			reader = DirectoryReader.open(FSDirectory.open(new File(index)));
@@ -30,9 +29,8 @@ public class ExcuteQuery {
 		}
 		IndexSearcher searcher = new IndexSearcher(reader);// 检索工具
 		ScoreDoc[] hits = null;
-		String queryString = "吃饭"; // 搜索的索引名称
 		Query query = null;
-		Analyzer luceneAnalyzer = new StandardAnalyzer();
+		Analyzer luceneAnalyzer = new SmartChineseAnalyzer();
 		// QueryParser qp=new
 		// QueryParser(Version.LUCENE_3_6_0,"body",analyzer);//用于解析用户输入的工具
 		// v3.6.0
@@ -40,7 +38,6 @@ public class ExcuteQuery {
 		try {
 			query = qp.parse(keyword);
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		System.out.println("分词情况:" + query.toString());
@@ -49,7 +46,6 @@ public class ExcuteQuery {
 			try {
 				results = searcher.search(query, null, 10);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} // 只取排名前十的搜索结果
 			hits = results.scoreDocs;
@@ -60,7 +56,6 @@ public class ExcuteQuery {
 				try {
 					document = searcher.doc(hits[i].doc);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				String body = document.get("content");
@@ -72,7 +67,7 @@ public class ExcuteQuery {
 				System.out.println("modifiedtime--" + modifiedtime);
 			}
 			if (hits.length > 0) {
-				System.out.println("输入关键字为：" + queryString + "，" + "找到" + hits.length + "条结果!");
+				System.out.println("输入关键字为：" + keyword + "，" + "找到" + hits.length + "条结果!");
 			}
 			// searcher.close();
 			try {

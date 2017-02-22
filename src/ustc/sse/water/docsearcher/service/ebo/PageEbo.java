@@ -97,32 +97,31 @@ public class PageEbo implements PageEbi {
 	}
 
 	@Override
-	public void saveCollection(int flag, Long pageId, HttpServletRequest request) {
+	public void saveCollection(Long docId, Long pageId, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		UserModel user = (UserModel) session.getAttribute("user");
-		int fav = whetherAddFav(request, pageId);
-		if (flag == 1) {// 收藏页面
-			if (fav == 0) {
-				System.out.println("fav==0");
-				// 收藏
-				pageDao.saveCollection(fav, pageId, user.getUserId());
-			}
-		} else {// 取消收藏
-			if (fav == 1) {// 已收藏，取消收藏
-				System.out.println("fav==1");
-				pageDao.saveCollection(fav, pageId, user.getUserId());
-			}
+		int flag = whetherAddFav(request, pageId);// 1.表示已经收藏过，2.表示没收藏过
+		pageDao.saveCollection(flag, pageId, user.getUserId());
 
-		}
 	}
 
 	@Override
-	public List<PageModel> getPageByKeyWord(String keyword) {
-		ArrayList<String> list = ExcuteQuery.query(keyword);// 获得到pageModel的saveKey
+	public List<PageModel> getPageByKeyWord(String keyword, HttpServletRequest request) {
+		// 获取项目的绝对路径，用来存储用户的资源
+		HttpSession session = request.getSession();
+		String absolutePath = session.getServletContext().getRealPath("/");
+		String indexPath = absolutePath + "/UserFiles/index";
+		ArrayList<String> list = ExcuteQuery.query(keyword, indexPath);// 获得到pageModel的saveKey
 		ArrayList<PageModel> pages = new ArrayList<PageModel>();
 		for (int i = 0; i < list.size(); ++i) {
+			System.out.println("返回的第" + i + "个：" + list.get(i));
 			PageModel pageModelBySaveKey = getPageModelBySaveKey(list.get(i));
-			pages.add(pageModelBySaveKey);
+			if (pageModelBySaveKey != null) {
+				pages.add(pageModelBySaveKey);
+			} else {
+				System.out.println("pages.add(pageModelBySaveKey);为null");
+			}
+
 		}
 		return pages;
 	}

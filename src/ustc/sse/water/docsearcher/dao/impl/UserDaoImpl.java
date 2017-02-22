@@ -79,7 +79,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public UserModel getUserById(Long userId) {
-		// TODO Auto-generated method stub
 		Session session = getCurrentSession();
 		String hql = "select u from UserModel u where u.userId=?";
 		Query query = session.createQuery(hql);

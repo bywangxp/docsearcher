@@ -42,12 +42,11 @@ public class UserController {
 	@Resource
 	private DocumentEbi documentEbi;
 
-	@RequestMapping(value = "/login", method = { RequestMethod.POST })
+	@RequestMapping(value = "/login", method = { RequestMethod.GET }) // 后期改为post
 	public String login(HttpServletRequest request) {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		System.out.println(userName + "" + password);
-
 		UserModel userModel = new UserModel();
 		userModel.setUserName(userName);
 		userModel.setUserPassword(password);

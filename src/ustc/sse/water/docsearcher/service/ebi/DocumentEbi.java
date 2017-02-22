@@ -1,6 +1,7 @@
 package ustc.sse.water.docsearcher.service.ebi;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -22,5 +23,7 @@ public interface DocumentEbi {
 	public DocumentModel getDocumentByDocId(Long docId);
 
 	public List<DocumentModel> searchDocumentListByKeyword(String keyword);
+
+	public ArrayList<DocumentModel> getAllDocumentModel();
 
 }

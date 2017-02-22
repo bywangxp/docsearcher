@@ -9,8 +9,8 @@
 <body>
 ${errorinfo}
 <form action="${pageContext.request.contextPath }/user/login.action" method='post'>
-用户账号：<input type="text" name="userName" /><br/>
-用户密码 ：<input type="password" name="password" /><br/>
+用户账号：<input type="text" name="userName" value='wangxp'/><br/>
+用户密码 ：<input type="password" name="password" value='bywangxp'/><br/>
 <input type="submit" value="登陆"/>
 
 

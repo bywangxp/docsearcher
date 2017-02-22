@@ -1,5 +1,6 @@
 package ustc.sse.water.docsearcher.dao.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ustc.sse.water.docsearcher.model.DocumentModel;
@@ -32,5 +33,7 @@ public interface DocumentDao {
 	DocumentModel getDocumentByDocId(Long docId);
 
 	List<DocumentModel> searchDocumentListByKeyword(String keyword);
+
+	ArrayList<DocumentModel> getAllDocumentModel();
 
 }

@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.Date;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexWriter;
@@ -31,7 +31,7 @@ public class CreateIndex {
 
 			}
 			// 创建分词器
-			Analyzer analyzer = new StandardAnalyzer();
+			Analyzer analyzer = new SmartChineseAnalyzer();
 			Directory dir = FSDirectory.open(indexpath);
 			IndexWriterConfig iwc = new IndexWriterConfig(Version.LUCENE_CURRENT, analyzer);
 			IndexWriter indexWriter = new IndexWriter(dir, iwc);

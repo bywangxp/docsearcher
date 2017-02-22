@@ -2,6 +2,7 @@ package ustc.sse.water.docsearcher.service.ebo;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -249,6 +250,12 @@ public class DocumentEbo implements DocumentEbi {
 	@Override
 	public List<DocumentModel> searchDocumentListByKeyword(String keyword) {
 		return documentDao.searchDocumentListByKeyword(keyword);
+	}
+
+	@Override
+	public ArrayList<DocumentModel> getAllDocumentModel() {
+		ArrayList<DocumentModel> list = documentDao.getAllDocumentModel();
+		return list;
 	}
 
 }

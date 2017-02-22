@@ -42,7 +42,9 @@ public class PageDaoImpl implements PageDao {
 	@Override
 	public void savePageModel(PageModel pageModel) {
 		Session session = getCurrentSession();
+		System.out.println("savePageModel:" + pageModel.getPageSaveKey());
 		long save = (Long) session.save(pageModel);
+		System.out.println("pageModel" + save);
 		session.flush();
 
 	}
@@ -80,18 +82,20 @@ public class PageDaoImpl implements PageDao {
 		List<PageModel> list = query.list();
 		int size = list.size();
 		if (size > 0) {
-			return 1;// 改页面被该用户收藏了
+			System.out.println("已收藏");
+			return 1;// 该页面被该用户收藏了
 		}
 		return 0;
 	}
 
 	@Override
-	public void saveCollection(int fav, Long pageId, Long userId) {
+	public void saveCollection(int flag, Long pageId, Long userId) {
 		CollectionModel collectionModel = new CollectionModel();
 		collectionModel.setPageId(pageId);
 		collectionModel.setUserId(userId);
 		Session session = getCurrentSession();
-		if (fav == 0) {// 收藏
+		if (flag == 0) {// 收藏
+			System.out.println("saveCollection:添加收藏");
 			collectionModel.setCollectTime(new Date());
 			session.save(collectionModel);
 			session.flush();
@@ -105,17 +109,23 @@ public class PageDaoImpl implements PageDao {
 			session.delete(delete);
 			session.flush();
 		}
-
 	}
 
 	@Override
 	public PageModel getpageModelBySaveKey(String pageSaveKey) {
+		System.out.println("测试getPageModelsavekey： " + pageSaveKey);
 		Session session = getCurrentSession();
 		String hql = "select p from PageModel p where p.pageSaveKey=?";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, pageSaveKey);
+		session.flush();
 		List<PageModel> list = query.list();
-		return list.get(0);
+
+		System.out.println("list.size():" + list.size());
+		if (list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 }

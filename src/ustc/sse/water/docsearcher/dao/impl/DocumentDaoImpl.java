@@ -1,5 +1,6 @@
 package ustc.sse.water.docsearcher.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -88,6 +89,15 @@ public class DocumentDaoImpl implements DocumentDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, "%" + keyword.trim() + "%");
 		List<DocumentModel> list = query.list();
+		return list;
+	}
+
+	@Override
+	public ArrayList<DocumentModel> getAllDocumentModel() {
+		Session session = getCurrentSession();
+		String hql = "select d from DocumentModel d ";
+		Query query = session.createQuery(hql);
+		ArrayList<DocumentModel> list = (ArrayList<DocumentModel>) query.list();
 		return list;
 	}
 
