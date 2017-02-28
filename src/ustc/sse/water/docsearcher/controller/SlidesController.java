@@ -60,6 +60,31 @@ public class SlidesController {
 	@Resource
 	private GlobalEbi globalEbi;
 
+	@ResponseBody
+	@RequestMapping(value = "/downslides", method = { RequestMethod.POST })
+	public Map<String, Object> downSlides(HttpServletRequest request) {
+		// 获取项目的绝对路径，用来存储用户的资源
+		HttpSession session = request.getSession();
+		String absolutePath = session.getServletContext().getRealPath("/");
+		// 根据page_id返回下载链接
+		ArrayList<Long> list = new ArrayList<Long>();
+		list.add((long) 3323);
+		list.add((long) 3319);
+		list.add((long) 3322);
+		list.add((long) 3331);
+		list.add((long) 3332);
+		String path = null;
+		if (list.size() > 0) {
+			path = pageEbi.downslides(absolutePath, list);
+		}
+		if (path != null) {
+			System.out.println("下载链接：" + path);
+
+		}
+
+		return null;
+	}
+
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String uploadPPT(@RequestParam MultipartFile[] myfiles, HttpServletRequest request) throws Exception {
 		// 如果只是上传一个文件，则只需要MultipartFile类型接收文件即可，而且无需显式指定@RequestParam注解

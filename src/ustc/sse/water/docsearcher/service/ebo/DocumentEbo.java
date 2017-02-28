@@ -202,6 +202,7 @@ public class DocumentEbo implements DocumentEbi {
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\texts");
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\pdf");
 		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\index");
+		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\download");
 		System.out.println("文件录入，创建文件夹成功");
 		// 用同一个输入流操作
 		int size = 0;
@@ -220,7 +221,7 @@ public class DocumentEbo implements DocumentEbi {
 		}
 		// 转pdf
 		ConvertToPdf ptf = new ConvertToPdf();
-		ptf.convetToPdf(absolutePath, name_no_suffix, size);
+		ptf.convetToPdf(absolutePath, name_no_suffix, null, size);
 		// ptf.t("1477383417932_PPTX_test1",50);
 		System.out.println("缩列图转pdf成功");
 		String dirpath = absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\texts";

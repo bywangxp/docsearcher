@@ -78,7 +78,6 @@ public class PageEbo implements PageEbi {
 		String[] pageSaveKey = new String[size];
 		int[] num = new int[size];
 		for (int i = 1; i <= size; i++) {
-
 			PageModel pageModel = pageDao.getPageByPageId(pagesId[i - 1]);
 			pageSaveKey[i - 1] = pageModel.getPageSaveKey();
 			num[i - 1] = pageModel.getPageNo();// 获取在当前文件中的页码值
@@ -130,6 +129,26 @@ public class PageEbo implements PageEbi {
 	public PageModel getPageModelBySaveKey(String pageSaveKey) {
 		PageModel pageModel = pageDao.getpageModelBySaveKey(pageSaveKey);
 		return pageModel;
+	}
+
+	@Override
+	public String downslides(String absolutePath, ArrayList<Long> list) {
+		ArrayList<PageModel> downlist = new ArrayList<PageModel>();
+		for (int i = 0; i < list.size(); i++) {
+			PageModel model = pageDao.getPageByPageId(list.get(i));
+			if (model != null) {
+				downlist.add(model);
+			}
+		}
+		ConvertToPdf convert = new ConvertToPdf();
+		String name = convert.convetToPdf(absolutePath, null, downlist, list.size());
+		// 合成下载链接
+		String download = absolutePath + "UserFiles\\download\\" + name + ".pdf";
+		if (download != null) {
+			return name;
+		}
+		return null;
+
 	}
 
 }

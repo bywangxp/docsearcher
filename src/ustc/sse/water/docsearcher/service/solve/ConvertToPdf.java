@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.pdf.PdfWriter;
+
+import ustc.sse.water.docsearcher.model.PageModel;
 
 /**
  * 
@@ -29,13 +32,23 @@ import com.lowagie.text.pdf.PdfWriter;
  */
 public class ConvertToPdf {
 
-	public void convetToPdf(String absolutePath, String name_no_suffix, int size) {
+	public String convetToPdf(String absolutePath, String name_no_suffix, ArrayList<PageModel> list, int size) {
+		String name = null;// 下载合成的文件名
 		// 创建一个文档对象
 		Document doc = new Document(PageSize.A4, 50, 50, 80, 0);
 		try {
-			// 定义输出文件的位置
-			PdfWriter.getInstance(doc, new FileOutputStream(
-					absolutePath + "UserFiles\\" + name_no_suffix + "\\pdf\\" + name_no_suffix + ".pdf"));
+			if (name_no_suffix != null) {
+				// 定义输出文件的位置
+				PdfWriter.getInstance(doc, new FileOutputStream(
+						absolutePath + "UserFiles\\" + name_no_suffix + "\\pdf\\" + name_no_suffix + ".pdf"));
+			} else {
+				// 定义输出文件的位置
+				// 给下载的文件起名字
+				name = "download_" + System.currentTimeMillis();
+				PdfWriter.getInstance(doc,
+						new FileOutputStream(absolutePath + "UserFiles\\download\\" + name + ".pdf"));
+			}
+
 			// 开启文档
 			doc.open();
 			// 向文档中加入图片
@@ -43,8 +56,16 @@ public class ConvertToPdf {
 			System.out.println("ppt个数" + size);
 			for (int i = 1; i <= size; i++) {
 				// 获取图片来源：
-				jpg1 = Image.getInstance(absolutePath + "UserFiles\\" + name_no_suffix + "\\images\\" + name_no_suffix
-						+ "_" + i + ".png"); // 原来的图片的路径
+				if (name_no_suffix != null) {
+					jpg1 = Image.getInstance(absolutePath + "UserFiles\\" + name_no_suffix + "\\images\\"
+							+ name_no_suffix + "_" + i + ".png"); // 原来的图片的路径
+				} else {
+					String str = list.get(i - 1).getPageSaveKey();
+					int lastIndexOf = str.lastIndexOf("_");
+					String filename = str.substring(0, lastIndexOf);
+					jpg1 = Image.getInstance(absolutePath + "UserFiles\\" + filename + "\\images\\" + str + ".png"); // 原来的图片的路径
+				}
+
 				// 获得图片的高度
 				float heigth = jpg1.height();
 				float width = jpg1.width();
@@ -75,6 +96,7 @@ public class ConvertToPdf {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return name;
 	}
 
 	/**

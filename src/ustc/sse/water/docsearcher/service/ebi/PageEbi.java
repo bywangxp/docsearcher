@@ -1,5 +1,6 @@
 package ustc.sse.water.docsearcher.service.ebi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +23,10 @@ public interface PageEbi {
 
 	void saveCollection(Long docId, Long pageId, HttpServletRequest request);
 
-	List<PageModel> getPageByKeyWord(String keywor, HttpServletRequest request);
+	List<PageModel> getPageByKeyWord(String keyword, HttpServletRequest request);
 
 	PageModel getPageModelBySaveKey(String string);
+
+	String downslides(String absolutePath, ArrayList<Long> list);
 
 }
