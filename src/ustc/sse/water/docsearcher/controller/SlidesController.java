@@ -61,28 +61,34 @@ public class SlidesController {
 	private GlobalEbi globalEbi;
 
 	@ResponseBody
-	@RequestMapping(value = "/downslides", method = { RequestMethod.POST })
+	@RequestMapping(value = "/download", method = { RequestMethod.POST })
 	public Map<String, Object> downSlides(HttpServletRequest request) {
+		String pageStr = request.getParameter("page_id");
+		System.out.println("下载的page：" + pageStr);
+		String[] page = pageStr.split(",");
+		if (page.length == 0) {
+			return null;
+		}
 		// 获取项目的绝对路径，用来存储用户的资源
 		HttpSession session = request.getSession();
 		String absolutePath = session.getServletContext().getRealPath("/");
 		// 根据page_id返回下载链接
 		ArrayList<Long> list = new ArrayList<Long>();
-		list.add((long) 3323);
-		list.add((long) 3319);
-		list.add((long) 3322);
-		list.add((long) 3331);
-		list.add((long) 3332);
+		for (int i = 0; i < page.length; ++i) {
+			list.add(Long.parseLong(page[i]));
+		}
+		Map<String, Object> totalmap = new HashMap<String, Object>();
 		String path = null;
 		if (list.size() > 0) {
 			path = pageEbi.downslides(absolutePath, list);
 		}
+		String downloadPath = null;
 		if (path != null) {
-			System.out.println("下载链接：" + path);
-
+			downloadPath = "UserFiles\\download\\" + path + ".pdf";
 		}
+		totalmap.put("downloadPath", downloadPath);
+		return totalmap;
 
-		return null;
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
@@ -95,21 +101,16 @@ public class SlidesController {
 		System.out.println("正在执行上传操作");
 		// 设置转换成功与否的标志
 		// 获取项目的绝对路径，用来存储用户的资源
+		Boolean flag = documentEbi.uploadFiles(myfiles, request);
 		HttpSession session = request.getSession();
-		String absolutePath = session.getServletContext().getRealPath("/");
-		System.out.println(absolutePath);
-
-		// 通过session获取当前用户的用户名信息，用于创建文件夹
-		UserModel userModel = (UserModel) session.getAttribute("user");
-		Boolean flag = documentEbi.uploadFiles(myfiles, absolutePath, userModel);
-
 		long end = System.currentTimeMillis();
 		System.out.println("整个解析流程用时:" + (end - start) / 1000 + "s");
 		if (flag) {
 			// 上传成功，获取文件信息，存储进
 
 			session.setAttribute("uploadInfo", "上传成功");
-			return "redirect:/jsps/success.jsp";
+
+			return "/jsps/success.jsp";
 		} else {
 			session.setAttribute("uploaderror", "上传失败");
 			return "redirect:/jsps/upload.jsp";
@@ -362,7 +363,6 @@ public class SlidesController {
 		globalEbi.saveDownLoadRecord(request, pagesId);
 		System.out.println("success");
 		return null;
-
 	}
 
 	// 添加与取消收藏

@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,9 +53,12 @@ public class DocumentEbo implements DocumentEbi {
 	private TagDao tagDao;
 
 	@Override
-	public Boolean uploadFiles(MultipartFile[] myfiles, String absolutePath, UserModel userModel) throws Exception {
+	public Boolean uploadFiles(MultipartFile[] myfiles, HttpServletRequest request) throws Exception {
 		Boolean flag = false;// 文件转换成功的标志，默认是失败的
-
+		HttpSession session = request.getSession();
+		String absolutePath = session.getServletContext().getRealPath("/");
+		// 通过session获取当前用户的用户名信息，用于创建文件夹
+		UserModel userModel = (UserModel) session.getAttribute("user");
 		// PageModel pageModel = new PageModel();
 		int i = 0;
 		for (MultipartFile myfile : myfiles) {

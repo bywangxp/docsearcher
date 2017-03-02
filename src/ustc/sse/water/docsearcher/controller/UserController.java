@@ -1,5 +1,6 @@
 package ustc.sse.water.docsearcher.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,8 +43,9 @@ public class UserController {
 	@Resource
 	private DocumentEbi documentEbi;
 
+	@ResponseBody
 	@RequestMapping(value = "/login", method = { RequestMethod.GET }) // 后期改为post
-	public String login(HttpServletRequest request) {
+	public Map<String, Object> login(HttpServletRequest request) {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		System.out.println(userName + "" + password);
@@ -52,16 +54,25 @@ public class UserController {
 		userModel.setUserPassword(password);
 		userModel = userEbi.findUser(userModel);
 		HttpSession session = request.getSession();
+		Map<String, Object> temp = new HashMap<String, Object>();
+		ArrayList<String> list = new ArrayList<String>();
 		// 登录成功，返回主页
+		Map<String, Object> temp2 = new HashMap<String, Object>();
 		if (userModel != null) {
 			session.setAttribute("user", userModel);
-			return "redirect:/jsps/success.jsp";// 登录成功去的页面，待修改
+			temp2.put("url", "/DocSearcher/index.html");
 		} else {
-			// 失败，返回错误信息，并返回到登录页面
-			session.setAttribute("errorinfo", "登录出错");
-			return "redirect:/login.jsp";
+			temp2.put("url", "/DocSearcher/login.html");
 		}
+		temp.put("data", temp2);
 
+		/*
+		 * // 登录成功，返回主页 if (userModel != null) { session.setAttribute("user",
+		 * userModel); return "redirect:/index.html";// 登录成功去的页面，待修改 } else { //
+		 * 失败，返回错误信息，并返回到登录页面 session.setAttribute("errorinfo", "登录出错"); return
+		 * "redirect:/login.html"; }
+		 */
+		return temp;
 	}
 
 	/**
@@ -85,7 +96,6 @@ public class UserController {
 	// 获取用户详细信息
 	@ResponseBody
 	@RequestMapping(value = "/get_user_detail", method = { RequestMethod.POST })
-
 	public Map<String, Object> getUserDetail(HttpSession session) {
 		// 组装json
 		Map<String, Object> totalmap = new HashMap<String, Object>();
