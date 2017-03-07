@@ -214,7 +214,6 @@ public class GlobalController {
 		// tagid=1 就i=0为其他分类的和
 		for (int i = 1; i < list.size(); ++i) {
 			documentNumber[0] += documentNumber[i];
-
 		}
 
 		// 获取到按照id号排序的tag时
