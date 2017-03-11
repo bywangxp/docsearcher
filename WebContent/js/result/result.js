@@ -1,5 +1,5 @@
+var url = window.document.location.href.toString();
 var $_GET = (function(){
-    var url = window.document.location.href.toString();
     var u = url.split("?");
     if(typeof(u[1]) == "string"){
         u = u[1].split("&");
@@ -174,7 +174,7 @@ app.config(function($httpProvider) {
   });
 });
 app.controller('fun', function($scope,$http) {
-  $scope.search= $_GET['search'];
+  $scope.search= decodeURIComponent($_GET['search']);
   $scope.sortKind=[
                 // {id:'0',name:'文件名'},
                 {id:'1',name:'时间'},
@@ -188,20 +188,11 @@ app.controller('fun', function($scope,$http) {
     * test data start
     * 
     */
-  $scope.person={name:'CS逍遥剑仙',level:'LV1'};
+  $scope.person={name:'bywangxp',level:'LV66'};
   $scope.searchKind=[{id:'1',name:'全文检索'},{id:'2',name:'标题'},{id:'3',name:'作者'}];
   $scope.menu=[{id:'1',name:'全部分类',num:'133',active:true},{id:'2',name:'课件',num:'33',active:false},{id:'3',name:'演示',num:'33',active:false},{id:'4',name:'科技',num:'33',active:false},{id:'5',name:'文学',num:'33',active:false},{id:'6',name:'情感',num:'33',active:false},{id:'7',name:'教程',num:'33',active:false},{id:'8',name:'其他',num:'33',active:false}];
-  $scope.slide=[{id:'11',pic:'images/testpage.png',name:'软件工程课件',coin:'2',grade:'9.8',pageNow:'13',pageAll:'419',author:'孙剑峰',logo:'images/user_logo/user_logo.png',date:'2016-10-10',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'22',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'12',pic:'images/testpage.png',name:'高级软件',coin:'2',grade:'9.8',pageNow:'13',pageAll:'419',author:'孙剑峰',logo:'images/user_logo/user_logo.png',date:'2016-10-10',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'22',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'13',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.7',pageNow:'13',pageAll:'419',author:'孙剑峰',logo:'images/user_logo/user_logo.png',date:'2016-10-10',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'22',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'14',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.1',pageNow:'13',pageAll:'419',author:'孙剑峰1',logo:'images/user_logo/user_logo.png',date:'2016-10-11',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'11',addFavNum:'22',ifaddFav:'images/result/star2.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'15',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.8',pageNow:'13',pageAll:'419',author:'孙剑峰2',logo:'images/user_logo/user_logo.png',date:'2016-10-12',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'21',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'16',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.3',pageNow:'13',pageAll:'419',author:'孙剑峰3',logo:'images/user_logo/user_logo.png',date:'2016-10-13',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'9',addFavNum:'24',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'17',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.8',pageNow:'13',pageAll:'419',author:'孙剑峰',logo:'images/user_logo/user_logo.png',date:'2016-10-14',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'22',ifaddFav:'images/result/star2.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'18',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.4',pageNow:'13',pageAll:'419',author:'孙剑峰',logo:'images/user_logo/user_logo.png',date:'2016-10-15',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'23',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'19',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.8',pageNow:'13',pageAll:'419',author:'孙剑峰',logo:'images/user_logo/user_logo.png',date:'2016-10-16',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'22',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false},
-                {id:'29',pic:'images/testpage.png',name:'高级软件工程课件PPT之第一章',coin:'2',grade:'9.6',pageNow:'13',pageAll:'419',author:'孙剑峰',logo:'images/user_logo/user_logo.png',date:'2016-10-17',inf:'Long long ago, a team named <span>404</span> not found was established. 很久很久以前一个名为“<span>404</span>”的团队成立了。',downloadUrl:'123',downloadNum:'10',addFavNum:'22',ifaddFav:'images/result/star1.png',ifChoose:'images/result/choose1.png',choose:false}];
-  $scope.user={id:'1',logo:'images/user_logo/user_logo.png',coin:'339',name:'CS逍遥剑仙',inf:'孙府藏俊龙，剑出威四方，峰尖笑沧桑，情满散天下',myDoc:'33',allDoc:'133',fav:'13',download:'33'};
+  $scope.slide=[];
+  $scope.user={id:'1',logo:'images/user_logo/user_logo.png',coin:'339',name:'bywangxp',inf:'孙府藏俊龙，剑出威四方，峰尖笑沧桑，情满散天下',myDoc:'33',allDoc:'133',fav:'13',download:'33'};
   /**
     * test data end
     * 
@@ -225,6 +216,33 @@ app.controller('fun', function($scope,$http) {
     }
     $scope.listNum = $scope.downloadList.length;
   }
+  $scope.download = function() { 
+	  var page_id="page_id=";
+	  for(var i=0;i<$scope.downloadList.length;i++){
+		  page_id += $scope.downloadList[i].page_id+",";
+	  }
+	  page_id = page_id.slice(0,-1);
+	  console.log(page_id);
+	  $http({
+	      method: "POST", 
+	      url: "/"+location.pathname.split("/")[1]+"/slides/download",
+	      headers: {
+	        'contentType': 'application/json'
+	      },
+	      data:page_id
+	    }).
+	    success(function(data) {
+	       $scope.slide = data.slide;
+	       window.location.href=data.downloadPath;
+	       
+	    }).
+	    error(function(data, status) {
+	      //$scope.data = data || "Request failed";
+	      //$scope.status = status;
+	    });
+  
+  }
+  
   $scope.choose = function(i,item) {  
     $scope.chooseAllFlag = false;
     if(item.choose == true){
@@ -246,12 +264,71 @@ app.controller('fun', function($scope,$http) {
     //item.index = i;
   };
   $scope.fav = function(item){
+    var data = 'page_id='+item.page_id+'&doc_id='+item.doc_id;
     if(item.ifaddFav == "images/result/star1.png"){
       item.ifaddFav = "images/result/star2.png";
+      data += "&fav=true";
     }else{
       item.ifaddFav = "images/result/star1.png";
+      data += "&fav=false";
     }
+    $http({
+      method: "POST", 
+      url: "/"+location.pathname.split("/")[1]+"/slides/addfav.action",
+      headers: {
+        'contentType': 'application/json'
+      },
+      data:data
+    }).
+    success(function(data) {
+       $scope.slide = data.slide;
+    }).
+    error(function(data, status) {
+      //$scope.data = data || "Request failed";
+      //$scope.status = status;
+    });
   };
+
+  $scope.onlyMineSwitch = 0;
+  $scope.onlyMine = function(item){
+    if($scope.onlyMineSwitch == 0){
+      $scope.onlyMineSwitch = 1;
+    }else{
+      $scope.onlyMineSwitch = 0;
+    }
+
+    //重新请求数据
+    var data = 'search='+$scope.search+'&kid='+$scope.menu_id+'&sort_id='+$scope.kind_sort_id+'&sort=0&mine='+$scope.onlyMineSwitch;
+    $http({
+      method: "POST", 
+      url: "./slides/get_all_slides",
+      headers: {
+        'contentType': 'application/json'
+      },
+      data:data
+    }).
+    success(function(data) {
+       $scope.slide = data.slide;
+    }).
+    error(function(data, status) {
+      //$scope.data = data || "Request failed";
+      //$scope.status = status;
+    });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $scope.changeSort = function(item,i){
     $scope.kind_sort = i;
     $scope.kind_sort_id = $scope.sortKind[$scope.kind_sort].id;
@@ -272,19 +349,14 @@ app.controller('fun', function($scope,$http) {
     }
     item.active = true;
     //重新请求数据
+    var data = 'search='+$scope.search+'&kid='+$scope.menu_id+'&sort_id='+$scope.kind_sort_id+'&sort=0&mine='+$scope.onlyMineSwitch;
     $http({
       method: "POST", 
       url: "./slides/get_all_slides",
       headers: {
         'contentType': 'application/json'
       },
-      data:{
-        'search':$scope.search,
-        'kid':$scope.menu_id,
-        'sort_id':$scope.kind_sort_id,
-        'sort':0,
-        'mine':0,
-      }
+      data:data
     }).
     success(function(data) {
        $scope.slide = data.slide;
@@ -487,7 +559,7 @@ app.controller('fun', function($scope,$http) {
   // }).
   $http({
     method: "POST", 
-    url: "./user/get_all_slides",
+    url: "./slides/get_all_slides",
     headers: {
       'contentType': 'application/json'
     },
@@ -546,7 +618,7 @@ app.controller('fun', function($scope,$http) {
 
   $http({
     method: "POST", 
-    url: "./slides/get_all_kinds",
+    url: "./global/get_all_kinds",
     headers: {
       'contentType': 'application/json'
     },

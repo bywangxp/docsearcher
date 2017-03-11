@@ -11,8 +11,17 @@
 <body>
 欢迎,${user.userName}
 ${uploaderror }
-
 <form action="${pageContext.request.contextPath}/slides/upload" method="POST" enctype="multipart/form-data">
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
+	yourfile: <input type="file" name="myfiles"/><br/>
 	yourfile: <input type="file" name="myfiles"/><br/>
 	yourfile: <input type="file" name="myfiles"/><br/>
 <!-- 	yourfile: <input type="file" name="myfiles"/><br/> -->

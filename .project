@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>DocSearcher2</name>
+	<name>DocSearcher</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -28,56 +28,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/css</name>
-			<type>2</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/css</location>
-		</link>
-		<link>
-			<name>WebContent/hello.jsp</name>
-			<type>1</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/hello.jsp</location>
-		</link>
-		<link>
-			<name>WebContent/images</name>
-			<type>2</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/images</location>
-		</link>
-		<link>
-			<name>WebContent/index.html</name>
-			<type>1</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/index.html</location>
-		</link>
-		<link>
-			<name>WebContent/js</name>
-			<type>2</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/js</location>
-		</link>
-		<link>
-			<name>WebContent/jsps</name>
-			<type>2</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/jsps</location>
-		</link>
-		<link>
-			<name>WebContent/login.html</name>
-			<type>1</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/login.html</location>
-		</link>
-		<link>
-			<name>WebContent/login.jsp</name>
-			<type>1</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/login.jsp</location>
-		</link>
-		<link>
-			<name>WebContent/result.html</name>
-			<type>1</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/result.html</location>
-		</link>
-		<link>
-			<name>WebContent/slide.html</name>
-			<type>1</type>
-			<location>C:/Users/Mr.wangxp/Documents/Tencent Files/546691648/FileRecv/DocSearcher2/slide.html</location>
-		</link>
-	</linkedResources>
 </projectDescription>

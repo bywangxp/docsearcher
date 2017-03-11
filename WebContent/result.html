@@ -7,7 +7,7 @@
 
 	<link rel="icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="http://www.csxiaoyao.com/favicon.ico" type="image/x-icon" />
-    <meta name="author" content="孙剑峰" />
+    <meta name="author" content="bywangxp" />
     <meta name="Copyright" content="ustc" />
     <meta name="keywords" content="DocSearcher,404" />
     <meta name="description" content="DocSearcher" />
@@ -96,14 +96,14 @@
 		<div class="div1">
 			<div class="my" ng-click="chooseMy();">只显示我的文库
 				<!-- <div class="chooseMy" ng-class="{'selected':chooseM}" ></div> -->
-				<div class='toggle' id='switch'>
+				<div class='toggle' id='switch' ng-click="onlyMine(this)">
 					<div class='toggle-text-off'></div>
 					<div class='glow-comp'></div>
 					<div class='toggle-button'></div>
 					<div class='toggle-text-on'></div>
 				</div>
 			</div>
-			<button type="button" class="btn btn-lg btn-primary button"><img src="images/result/download.png">&nbsp;下载&nbsp;</button>
+			<button type="button" class="btn btn-lg btn-primary button"  ng-click="download();"><img src="images/result/download.png">&nbsp;下载&nbsp;</button>
 			<button type="button" class="btn btn-lg btn-primary button" onclick="showOverlay();"><img src="images/result/list.png">&nbsp;&nbsp;清单&nbsp;&nbsp;<span class="badge" ng-bind="listNum"></span></button>
   		</div>
   		<div class="div2 bordertest">
@@ -137,7 +137,7 @@
 			<span>对关键词“{{search}}”的搜索结果：</span>
 		</div>
 		<div class="div1">
-			<button type="button" class="btn btn-lg btn-primary button"><img src="images/result/download.png">&nbsp;下载&nbsp;</button>
+			<button type="button" class="btn btn-lg btn-primary button" ng-click="download();"><img src="images/result/download.png">&nbsp;下载&nbsp;</button>
 			<button type="button" class="btn btn-lg btn-primary button" onclick="showOverlay();"><img src="images/result/list.png">&nbsp;&nbsp;清单&nbsp;&nbsp;<span class="badge">{{listNum}}</span></button>
   		</div>
 	</div>
@@ -238,7 +238,7 @@
 		</div>
 		<div class="discript">
 			<div class="start">卍</div>
-			<div class="body" data-ng-bind="user.inf"></div>
+			<div  id="inf" class="body" data-ng-bind="user.inf"></div>
        		<div class="end">卍</div>
 		</div>
 		<button type="button" class="btn btn-lg btn-warning" onclick="showOverlayUpload();"><img src="images/result/upload.png">&nbsp;&nbsp;上传我的文档</button>

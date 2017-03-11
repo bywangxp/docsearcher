@@ -36,9 +36,9 @@ function showOverlayUpload() {
 var app = angular.module('ds', ['ngSanitize']);
 app.controller('fun', function($scope,$http) {
   $scope.search= "";
-  $scope.person={name:'CS逍遥剑仙',level:'LV1'};
+  $scope.person={name:'bywangxp',level:'LV1'};
   $scope.searchKind=[{id:'1',name:'全文检索'},{id:'2',name:'标题'},{id:'3',name:'作者'}];
-  $scope.user={id:'1',logo:'images/user_logo/user_logo.png',coin:'339',name:'CS逍遥剑仙',inf:'孙府藏俊龙，剑出威四方，峰尖笑沧桑，情满散天下',myDoc:'33',allDoc:'133',fav:'13',download:'33'};
+  $scope.user={id:'1',logo:'images/user_logo/user_logo.png',coin:'339',name:'bywangxp',inf:'孙府藏俊龙，剑出威四方，峰尖笑沧桑，情满散天下',myDoc:'33',allDoc:'133',fav:'13',download:'33'};
 
   $scope.rank_top5=[{
                 pic:'images/index/pic1.png',
@@ -53,7 +53,7 @@ app.controller('fun', function($scope,$http) {
               {
                 pic:'images/index/pic3.png',
                 name:'明星用户',
-                data:[{id:'1',rank:'1',name:'孙剑峰',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'2',name:'孙剑峰',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'3',name:'孙剑峰',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'4',name:'孙剑峰',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'5',name:'孙剑峰',pic:'images/user_logo/user_logo.png'}]
+                data:[{id:'1',rank:'1',name:'bywangxp',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'2',name:'孙剑峰',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'3',name:'孙剑峰',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'4',name:'孙剑峰',pic:'images/user_logo/user_logo.png'},{id:'1',rank:'5',name:'孙剑峰',pic:'images/user_logo/user_logo.png'}]
               }];
 
 

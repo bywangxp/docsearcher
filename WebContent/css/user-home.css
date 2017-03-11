@@ -1,0 +1,96 @@
+/*details of right*/
+.right{
+	    /*background: #d7e8e8;*/
+	    box-sizing: border-box;
+        /*width: 70%;
+*/        margin:10px;
+        float:left;
+        height:100%;
+}
+
+
+figure{
+	margin:10px 0;
+	
+	background:#bbbec5;
+	float:left;
+}
+
+figure p{
+	    margin-bottom: 11px;
+    margin-top: 16px;
+	text-align: center;
+	    font-size: 28px;
+}
+
+hr{
+	margin:0;
+}
+#chart1{
+	width:600px;
+	height:605px;
+	margin:0 auto;
+
+
+}
+
+form{
+	background: #bbbec5;
+	width:447px;
+	height: 665px;
+	float:left;
+	margin:10px 0 10px 10px;
+
+	/*border-left:10px solid #fff;*/
+}
+
+form fieldset{
+border-style: none;
+}
+
+.info-head p{
+	font-size:28px;
+	/*font-weight:700;
+*/	line-height: 30px;
+margin-top:11px;
+margin-bottom:12px;
+		/*font-family: "微软雅黑 Bold", "微软雅黑 Regular", 微软雅黑;*/
+}
+.info-head span{
+		float:right;
+		width:30px;
+		height:30px;
+}
+
+.info-head img{
+	width:100%;
+	height:100%;
+}
+
+.input li{
+   list-style:none;
+   margin:20px;
+}
+
+.input{
+	margin-top:170px;
+	/*border-radius: 20px;*/
+}
+
+label{
+	display:inline-block;
+	margin:3px 3px;
+	text-align: right;
+	width:80px;
+	vertical-align: top;
+}
+
+input{
+	border: none;
+	font-size:100%;
+	width: 270px;
+}
+
+input:hover{
+	border:1px solid #333;
+}
