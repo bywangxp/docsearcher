@@ -1,24 +1,10 @@
 
-
-/*.content{
-	    height: 1080px;
-    width: 80%;
-    margin: auto;
-    background: blanchedalmond;
-}*/
-
-
-
 nav{
 	background:#bbbec5;
 	height:65px;
 	position:fixed;
 	top:0px;
 	width:100%;
-
-/*	position:fixed;*/
-	
-
 }
 
 nav span{
@@ -34,40 +20,36 @@ nav span{
 .home{
 	margin-top: 65px;
     width: 100%;
-    height:inherit;
 }
-
 .left{
-	    /*background: #e9e8e8;*/
-	    margin:10px;
-	    box-sizing: border-box;
+		position:absolute;
+	    top:0;
+	    left:0;
         width: 400px;
-        height:100%;
-        float:left;
-     
+        height:100%;   
 }
 
 
 
-.head-img{
-	margin-bottom: 20px;
-	margin-top:10px;
-	background:#bbbec5;
-	height:70%;
-}
-.head-protrait{
+.user-pic-bg{
+
 	width: 200px;
     height: 200px;
-    margin:0 auto;
-    padding:50px 50px;
+    position:relative;
+    background-color:#fff;
+    border-radius:100px;
+    margin:20px auto;
+   
    
 
 }
-.head-protrait img{
-	width: 200px;
-    height: 200px;
-    margin:0 auto;
-     border-radius: 50%;
+.user-pic-bg img{
+	position:absolute;
+	left:4px;
+    top:4px;
+    width:192px;
+    height:192px;
+     border-radius:95px;
     overflow: hidden;
     
 }
@@ -82,28 +64,31 @@ nav span{
 	    line-height: 30px;
     font-size: 28px;
     margin: 0;
+    color:#fff;
 }
 
- ul{
+ .data{
 	display:block;
 	margin:0 auto;
 	width:100%;
 	padding:0;
 }
 
- .asset-info ul li , .head-info ul li{
-	    list-style: none;
-    display: inline-block;
-    
-
+.data span{
+	margin-left:10px;
+	text-align: center;
+	font-size:20px;	
 }
 
-.asset-wrap{
-	margin-top: 20px;
-	    padding: 25px;
-	background:#bbbec5;
-
+.data span:nth-child(2n-1){
+	color:#fff;
 }
+.data span:nth-child(2n){
+	color:#E6BD1A;
+}
+
+
+
 
 .asset-info{
 	 margin: 0 auto;
@@ -111,20 +96,40 @@ nav span{
     text-align: center;
 }
 
-.asset-info .asset{
-	    float: left;
-    line-height: 20px;
-}
-.asset-info .spr-line{
-	width: 1.5px;
-    height: 40px;
-    background-color: #E8E8E8;
-    margin: 16px 15px;
+.asset-info .left-block{
+	width: 33%;
     float: left;
+    margin:0 auto;
+    text-align: center;
+    border-right: 1px dotted #dbdcde;
 
+}
+.asset-info .middle-block{
+width: 33%;
+    float: left;
+    margin:0 auto;
+    text-align: center;
+    border-right: 1px dotted #dbdcde;
+}
+.asset-info .right-block{
+width: 33%;
+    float: left;
+    margin: 0 auto; 
+    text-align: center;
+}
+.asset{
+	color:#E6BD1A;
+	    font-size:24px;
+    line-height: 30px;
+}
+
+.asset .doc{
+	font-size:12px;
+	line-height:30px;
 }
 
 .signiture{
+	width:80%;
 	 margin: 0 auto;
 	    padding:10px;
     
