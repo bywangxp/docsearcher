@@ -1,25 +1,27 @@
-/*details of right*/
-.right{
-	    /*background: #d7e8e8;*/
-	    box-sizing: border-box;
-        /*width: 70%;
-*/        margin:10px;
-        float:left;
+.home{
+/*	padding-top:10px;
+*/    width: 100%;
+    position:relative;
+}
+.left,.right{
+		position:absolute;
+	    top:15px;	    
+        width: 400px;
         height:100%;
+        background:gray;   
 }
+.left{left:0;}
+.right{right:0;}
 
 
-figure{
-	margin:10px 0;
-	
-	background:#bbbec5;
-	float:left;
-}
+.middle{margin:0 410px; height:100%;background: gray}
 
-figure p{
+#pic{cursor:pointer;}
+#id{width:80px;margin:0 auto;}
+.middle p{
 	    margin-bottom: 11px;
-    margin-top: 16px;
-	text-align: center;
+        margin-top: 16px;
+	    text-align: center;
 	    font-size: 28px;
 }
 
@@ -27,25 +29,11 @@ hr{
 	margin:0;
 }
 #chart1{
-	width:600px;
+	width:500px;
 	height:605px;
 	margin:0 auto;
 
 
-}
-
-form{
-	background: #bbbec5;
-	width:447px;
-	height: 665px;
-	float:left;
-	margin:10px 0 10px 10px;
-
-	/*border-left:10px solid #fff;*/
-}
-
-form fieldset{
-border-style: none;
 }
 
 .info-head p{
@@ -67,30 +55,39 @@ margin-bottom:12px;
 	height:100%;
 }
 
-.input li{
-   list-style:none;
-   margin:20px;
+.form-horizontal{
+	margin-top:30%;
+}
+.form-control{
+	border-radius: 0;
 }
 
-.input{
-	margin-top:170px;
-	/*border-radius: 20px;*/
+.control-label{
+	width:19%;
+}
+.col-sm-10{
+	width:76%;
 }
 
-label{
-	display:inline-block;
-	margin:3px 3px;
-	text-align: right;
-	width:80px;
-	vertical-align: top;
+.msg{
+	width:70%;
+
+	margin-bottom:10px;
+	height:30px;
+	font-size:28px;
+	/*border:1px solid #fff;*/
+	position:relative;
+	left:82px;
+
 }
 
-input{
-	border: none;
-	font-size:100%;
-	width: 270px;
-}
+.iBtn{
+	width:100%;
+	height:100%;
+	text-align:center;
 
-input:hover{
-	border:1px solid #333;
+
+}
+#suBtn{
+	font-size:20px; width: 20%;height: 100%;vertical-align: middle;margin-left:47%;
 }

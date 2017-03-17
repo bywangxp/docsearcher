@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+<head>
+	<meta charset="utf-8">
+	<!-- 添加最新的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UserHome</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/user-common.css">
+	<link rel="stylesheet" type="text/css" href="css/user-home.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/userhome.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top">
+  			<div class="container">
+    		<span>DocSearcher</span>
+  			</div>
+		</nav>
+		<div class="home clearfix">
+			<div class="left">
+				<div class="user-pic-bg">
+				<img id="pic" src="images/user_info/banner.jpg">
+				<input id="upload" name="file"  type="file" style="display:none">
+				</div>
+				<div class="head-info">
+					<p class="name" >Name</p>
+					<br>
+					<p class="data">	
+						<span>积分：</span><span class="num">100</span>
+						<span>等级：</span><span class="num">1</span>
+					</p>
+
+					
+								
+				</div>
+				<div class="asset-info clearfix">
+								
+									<div class="left-block" >
+										<p class="asset">
+											num</p>
+										<p class="doc"><a href="#">
+											文档</a>
+										</p>
+									</div>
+									<div class="middle-block">
+										<p class="asset">num</p>
+										<p class="doc"><a href="#">评论</a>
+										</p>
+									</div>
+									<div class="right-block">
+										<p class="asset">num</p>
+										<p class="doc"><a href="#">收藏</a>
+										</p>
+									</div>
+								
+							</div>
+							<div class="signiture">
+					<textarea id="sign" rows="3" placeholder="这个人很懒，什么都没留下"></textarea>
+							</div>
+			</div>
+			<div class="middle">
+				<p>活跃度分析图表</p>
+				<hr>
+				<div id="chart1"></div>											
+			</div>
+			<div class="right">
+				<div class="info-head">
+					<p>基本信息
+					<span><img src="images/user_info/pen.png"></span></p>
+				</div>
+				<hr>
+				<div id='#infoform' class="form-horizontal" >							
+					<div class="form-group">
+						<label for="nickName" class="col-sm-2 control-label">昵称</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="nickName" name="name" readonly="readonly" style="cursor:default;"> 
+						</div>
+					</div>
+					<p class="msg" id="nameMsg"></p>
+					<div class="form-group">
+						<label for="location" class="col-sm-2 control-label">地址</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="address" name="address" readonly="readonly"   style="cursor:default;" >
+						</div>
+					</div>
+					<p class="msg" id="addressMsg"></p>
+					<div class="form-group">
+						<label for="phonenum" class="col-sm-2 control-label">手机</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="phonenum" name="phonenum" readonly="readonly" style="cursor:default;">
+						</div>
+					</div>
+					<p class="msg" id="phoneMsg"></p>
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">邮箱</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="email" name="email" readonly="readonly"  style="cursor:default;">
+						</div>
+					</div>
+					<p class="msg" id="emailMsg"></p>
+					<div .class="iBtn">
+					<button id="suBtn" type="submit" style="cursor:default;visibility: hidden;" >提交</button>
+					</div>	
+				</div>
+
+			</div>			
+		</div>	
+	</div>
+</body>
+	<script type="text/javascript"> 
+		var myChart1=echarts.init(document.getElementById('chart1'))
+		var option1=
+		{
+			    tooltip: {
+			        trigger: 'axis',
+			        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+			            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+			        }
+			    },
+			    legend: {
+			        data: ['本月上传文档数', '本月收藏文档数', '本月文档被评论数', '平均分数'],
+			        align: 'right',
+			        right: 10
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis: [{
+			        type: 'category',
+			        data: ['1月', '2月', '3月', '4月', '5月','6月','7月','8月','9月','10月','11月','12月']
+			    }],
+			    yAxis: [{
+			        type: 'value',
+			        name: '分数',
+			        axisLabel: {
+			            formatter: '{value}'
+			        }
+			    }],
+			    series: [{
+			        name: '本月上传文档数',
+			        type: 'bar',
+			        data: [20, 12, 31, 34, 31]
+			    }, {
+			        name: '本月收藏文档数',
+			        type: 'bar',
+			        data: [10, 20, 5, 9, 3]
+			    }, {
+			        name: '本月文档被评论数',
+			        type: 'bar',
+			        data: [1, 1, 2, 3, 1]
+			    }, {
+			        name: '平均分数',
+			        type: 'line',
+			        data: [60, 80, 50, 10, 80]
+			    }]
+        };		
+		myChart1.setOption(option1);
+	</script>
+</html>
