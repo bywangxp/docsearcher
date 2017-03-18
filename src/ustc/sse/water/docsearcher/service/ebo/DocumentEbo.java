@@ -184,8 +184,8 @@ public class DocumentEbo implements DocumentEbi {
 
 		// 生成用户对应的文件夹。此步骤可以放入用户注册的阶段
 		PPTUtils.createDir(absolutePath + "UserFiles");
-		FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles\\" + "\\" + name_with_suffix);
-		System.out.println(absolutePath + "UserFiles\\" + name_with_suffix);
+		FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles/"+ name_with_suffix);
+		System.out.println(absolutePath + "UserFiles/" + name_with_suffix);
 		// 文件写
 		byte[] buffer = new byte[1024];
 		int length = 0;
@@ -201,13 +201,13 @@ public class DocumentEbo implements DocumentEbi {
 		documentModel.setDocSaveKey(name_no_suffix);
 		documentDao.updateDocument(documentModel);
 
-		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\images");
-		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\images");
-		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\pictures");
-		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\texts");
-		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\pdf");
-		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\index");
-		PPTUtils.createDir(absolutePath + "UserFiles\\" + "\\download");
+		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/images");
+		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/images");
+		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/pictures");
+		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/texts");
+		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/pdf");
+		PPTUtils.createDir(absolutePath + "UserFiles/" + "/index");
+		PPTUtils.createDir(absolutePath + "UserFiles/" + "/download");
 		System.out.println("文件录入，创建文件夹成功");
 		// 用同一个输入流操作
 		int size = 0;
@@ -229,9 +229,9 @@ public class DocumentEbo implements DocumentEbi {
 		ptf.convetToPdf(absolutePath, name_no_suffix, null, size);
 		// ptf.t("1477383417932_PPTX_test1",50);
 		System.out.println("缩列图转pdf成功");
-		String dirpath = absolutePath + "UserFiles\\" + "\\" + name_no_suffix + "\\texts";
-		CreateIndex.createDocumentIndex(dirpath, absolutePath + "UserFiles\\" + "\\index");
-		System.out.println("生成索引文件" + absolutePath + "UserFiles\\" + "\\index");
+		String dirpath = absolutePath + "UserFiles/" + "/" + name_no_suffix + "/texts";
+		CreateIndex.createDocumentIndex(dirpath, absolutePath + "UserFiles/" + "/index");
+		System.out.println("生成索引文件" + absolutePath + "UserFiles/" + "/index");
 	}
 
 	@Override

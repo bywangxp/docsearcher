@@ -84,7 +84,7 @@ public class SlidesController {
 		}
 		String downloadPath = null;
 		if (path != null) {
-			downloadPath = "UserFiles\\download\\" + path + ".pdf";
+			downloadPath = "UserFiles/download/" + path + ".pdf";
 		}
 		totalmap.put("downloadPath", downloadPath);
 		return totalmap;

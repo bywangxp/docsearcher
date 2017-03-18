@@ -40,13 +40,13 @@ public class ConvertToPdf {
 			if (name_no_suffix != null) {
 				// 定义输出文件的位置
 				PdfWriter.getInstance(doc, new FileOutputStream(
-						absolutePath + "UserFiles\\" + name_no_suffix + "\\pdf\\" + name_no_suffix + ".pdf"));
+						absolutePath + "UserFiles/" + name_no_suffix + "/pdf/" + name_no_suffix + ".pdf"));
 			} else {
 				// 定义输出文件的位置
 				// 给下载的文件起名字
 				name = "download_" + System.currentTimeMillis();
 				PdfWriter.getInstance(doc,
-						new FileOutputStream(absolutePath + "UserFiles\\download\\" + name + ".pdf"));
+						new FileOutputStream(absolutePath + "UserFiles/download/" + name + ".pdf"));
 			}
 
 			// 开启文档
@@ -57,13 +57,13 @@ public class ConvertToPdf {
 			for (int i = 1; i <= size; i++) {
 				// 获取图片来源：
 				if (name_no_suffix != null) {
-					jpg1 = Image.getInstance(absolutePath + "UserFiles\\" + name_no_suffix + "\\images\\"
+					jpg1 = Image.getInstance(absolutePath + "UserFiles/" + name_no_suffix + "/images/"
 							+ name_no_suffix + "_" + i + ".png"); // 原来的图片的路径
 				} else {
 					String str = list.get(i - 1).getPageSaveKey();
 					int lastIndexOf = str.lastIndexOf("_");
 					String filename = str.substring(0, lastIndexOf);
-					jpg1 = Image.getInstance(absolutePath + "UserFiles\\" + filename + "\\images\\" + str + ".png"); // 原来的图片的路径
+					jpg1 = Image.getInstance(absolutePath + "UserFiles/" + filename + "/images/" + str + ".png"); // 原来的图片的路径
 				}
 
 				// 获得图片的高度
@@ -161,7 +161,7 @@ public class ConvertToPdf {
 				String pageSaveKeyTemp = pageSaveKey[i - 1];
 				int numTemp = num[i - 1];// 获取在当前文件中的页码值
 				// 根据pid获取图片文件的来源：
-				jpg1 = Image.getInstance(absolutePath + "UserFiles\\" + pageSaveKeyTemp + "\\images\\" + pageSaveKeyTemp
+				jpg1 = Image.getInstance(absolutePath + "UserFiles/" + pageSaveKeyTemp + "/images/" + pageSaveKeyTemp
 						+ "_" + numTemp + ".png"); // 原来的图片的路径
 				// 获得图片的高度
 				float heigth = jpg1.height();

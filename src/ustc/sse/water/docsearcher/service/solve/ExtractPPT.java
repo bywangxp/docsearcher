@@ -61,7 +61,7 @@ public class ExtractPPT {
 			DocumentDao documentDao, PageDao pageDao) throws IOException {
 		// 关于ppt的提取
 		// filepath指明文件所在路径
-		String filepath = absolutePath + "UserFiles\\" + name_no_suffix + ".ppt";
+		String filepath = absolutePath + "UserFiles/" + name_no_suffix + ".ppt";
 		HSLFSlideShow ppt = new HSLFSlideShow(new HSLFSlideShowImpl(filepath));
 		Dimension pgsize = ppt.getPageSize();
 		int size = ppt.getSlides().size();
@@ -93,7 +93,7 @@ public class ExtractPPT {
 			// render
 			ppt.getSlides().get(i).draw(graphics);
 			// save the output
-			FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles\\" + name_no_suffix + "\\images\\"
+			FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles/" + name_no_suffix + "/images/"
 					+ name_no_suffix + "_" + (i + 1) + ".png");
 			javax.imageio.ImageIO.write(img, "png", out);
 			out.close();
@@ -119,7 +119,7 @@ public class ExtractPPT {
 	// 获取缩列图
 	public static int get_Images_PPTX(String name_no_suffix, String absolutePath, Long documentId,
 			DocumentDao documentDao, PageDao pageDao) throws Exception {
-		String filepath = absolutePath + "UserFiles\\" + name_no_suffix + ".pptx";
+		String filepath = absolutePath + "UserFiles/" + name_no_suffix + ".pptx";
 		/* 下面的XML配置文件定义转换后的图片内的文字字体，否则将会出现转换后 的图片内的中文为乱码 */
 		String xmlFontFormat1 = "<xml-fragment xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\" xmlns:p=\"http://schemas.openxmlformats.org/presentationml/2006/main\">";
 		String xmlFontFormat2 = "<a:rPr lang=\"zh-CN\" altLang=\"en-US\" dirty=\"0\" smtClean=\"0\">";
@@ -202,7 +202,7 @@ public class ExtractPPT {
 
 				}
 			}
-			String relativePagePath = "UserFiles\\" + name_no_suffix + "\\images\\" + name_no_suffix + "_" + (i + 1)
+			String relativePagePath = "UserFiles/" + name_no_suffix + "/images/" + name_no_suffix + "_" + (i + 1)
 					+ ".png";
 			// 绝对
 			String absolutePagePath = absolutePath + relativePagePath;
@@ -228,7 +228,7 @@ public class ExtractPPT {
 	}
 
 	public static void get_Pictures_PPT(String name_no_suffix, String absolutePath) throws Exception {
-		String filepath = absolutePath + "UserFiles\\" + name_no_suffix + ".ppt";
+		String filepath = absolutePath + "UserFiles/" + name_no_suffix + ".ppt";
 		HSLFSlideShow ppt = new HSLFSlideShow(new HSLFSlideShowImpl(filepath));
 		// now retrieve pictures containes in the all slide and save them on
 		// disk
@@ -243,7 +243,7 @@ public class ExtractPPT {
 					PictureType type = pictData.getType();
 					// 此处获取的图片有多种类型
 					// 后期需要处理"UserFiles/"+name_no_suffix+"/images/"+name_no_suffix+
-					FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles\\" + name_no_suffix
+					FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles/" + name_no_suffix
 							+ "/pictures/" + name_no_suffix + "" + page + "_" + idx + type.extension);
 					idx++;
 					out.write(data);
@@ -257,7 +257,7 @@ public class ExtractPPT {
 
 	// 获取全部图片，图片序号格式X_Y,X为第几张PPT，Y为同一张PPT的第几个图片
 	public static void get_Pictures_PPTX(String name_no_suffix, String absolutePath) throws Exception {
-		String filepath = absolutePath + "UserFiles\\" + name_no_suffix + ".pptx";
+		String filepath = absolutePath + "UserFiles/" + name_no_suffix + ".pptx";
 		XMLSlideShow ppt = new XMLSlideShow(new FileInputStream(filepath));
 		int page = 1;// 记录页码
 		for (XSLFSlide slide : ppt.getSlides()) {
@@ -269,8 +269,8 @@ public class ExtractPPT {
 					byte[] data = pictData.getData();
 					PictureType type = pictData.getType();
 					// 此处获取的图片有多种类型 后期需要处理
-					FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles\\" + name_no_suffix
-							+ "\\pictures\\" + name_no_suffix + page + "_" + idx + type.extension);
+					FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles/" + name_no_suffix
+							+ "/pictures/" + name_no_suffix + page + "_" + idx + type.extension);
 					idx++;
 					out.write(data);
 					out.close();
@@ -283,7 +283,7 @@ public class ExtractPPT {
 
 	// 获取到PPT的文字
 	public static void get_Texts_PPTX(String name_no_suffix, String absolutePath) throws Exception, IOException {
-		String filepath = absolutePath + "UserFiles\\" + name_no_suffix + ".pptx";
+		String filepath = absolutePath + "UserFiles/" + name_no_suffix + ".pptx";
 		InputStream inputStream = new FileInputStream(filepath);
 		XMLSlideShow ppt = new XMLSlideShow(inputStream);
 		Dimension pgsize = ppt.getPageSize();
@@ -307,7 +307,7 @@ public class ExtractPPT {
 				}
 			}
 			String string = sb.toString();
-			FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles\\" + name_no_suffix + "\\texts\\"
+			FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles/" + name_no_suffix + "/texts/"
 					+ name_no_suffix + "_" + (i + 1) + ".txt");
 			out.write(string.getBytes());
 			out.close();
@@ -317,7 +317,7 @@ public class ExtractPPT {
 
 	// 获取到PPT的文字
 	public static void get_Texts_PPT(String name_no_suffix, String absolutePath) throws Exception, IOException {
-		String filepath = absolutePath + "UserFiles\\" + name_no_suffix + ".ppt";
+		String filepath = absolutePath + "UserFiles/" + name_no_suffix + ".ppt";
 		// 关于ppt的提取
 		HSLFSlideShow ppt = new HSLFSlideShow(new HSLFSlideShowImpl(filepath));
 		int page = 1;// 记录页码
@@ -325,7 +325,7 @@ public class ExtractPPT {
 			List<List<HSLFTextParagraph>> textParagraphs = slide.getTextParagraphs();
 			String string = textParagraphs.toString();
 			FileOutputStream out = new FileOutputStream(
-					absolutePath + "UserFiles\\" + name_no_suffix + "\\texts\\" + name_no_suffix + "_" + page + ".txt");
+					absolutePath + "UserFiles/" + name_no_suffix + "/texts/" + name_no_suffix + "_" + page + ".txt");
 			out.write(string.getBytes());
 			out.close();
 			++page;

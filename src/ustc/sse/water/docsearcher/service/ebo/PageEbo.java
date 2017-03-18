@@ -70,10 +70,10 @@ public class PageEbo implements PageEbi {
 		}
 		// 用户必须登录，才有权限下载文件
 		// Todo 部分文件的创建应该放在用户注册阶段，如用户的私有文件夹
-		PPTUtils.createDir(absolutePath + "UserFiles\\PrivateRepository\\" + userName + "\\composePDF");
+		PPTUtils.createDir(absolutePath + "UserFiles/PrivateRepository/" + userName + "/composePDF");
 		System.out.println(absolutePath);
 		ConvertToPdf convertToPdf = new ConvertToPdf();
-		String path = absolutePath + "UserFiles\\PrivateRepository\\" + userName + "\\composePDF\\" + filename + ".pdf";
+		String path = absolutePath + "UserFiles/PrivateRepository/" + userName + "/composePDF/" + filename + ".pdf";
 		int size = pagesId.length;
 		String[] pageSaveKey = new String[size];
 		int[] num = new int[size];
@@ -143,7 +143,7 @@ public class PageEbo implements PageEbi {
 		ConvertToPdf convert = new ConvertToPdf();
 		String name = convert.convetToPdf(absolutePath, null, downlist, list.size());
 		// 合成下载链接
-		String download = absolutePath + "UserFiles\\download\\" + name + ".pdf";
+		String download = absolutePath + "UserFiles/download/" + name + ".pdf";
 		if (download != null) {
 			return name;
 		}
