@@ -42,7 +42,6 @@ public class UserController {
 
 	@Resource
 	private DocumentEbi documentEbi;
-
 	@ResponseBody
 	@RequestMapping(value = "/login", method = { RequestMethod.GET }) // 后期改为post
 	public Map<String, Object> login(HttpServletRequest request) {
