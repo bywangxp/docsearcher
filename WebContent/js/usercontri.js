@@ -1,10 +1,12 @@
 $(function(){
 	var totalP=null;
+	var page=0;
 	var Id=null;
 	alert('js1');
 	$.ajax({
 	url:'/DocSearcher/user/contri_data',
 	type:'POST',
+	data:page,
 	dataType:'json',
 	success:function(json){
       totalP=json.totalpage;

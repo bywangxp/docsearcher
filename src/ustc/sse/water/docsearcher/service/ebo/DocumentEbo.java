@@ -24,6 +24,7 @@ import ustc.sse.water.docsearcher.service.solve.ConvertToPdf;
 import ustc.sse.water.docsearcher.service.solve.ExtractPPT;
 import ustc.sse.water.docsearcher.service.solve.search.CreateIndex;
 import ustc.sse.water.docsearcher.util.PPTUtils;
+import ustc.sse.water.docsearcher.util.Pager;
 
 /**
  * 
@@ -201,13 +202,13 @@ public class DocumentEbo implements DocumentEbi {
 		documentModel.setDocSaveKey(name_no_suffix);
 		documentDao.updateDocument(documentModel);
 
-		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/images");
-		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/images");
-		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/pictures");
-		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/texts");
-		PPTUtils.createDir(absolutePath + "UserFiles/" + "/" + name_no_suffix + "/pdf");
-		PPTUtils.createDir(absolutePath + "UserFiles/" + "/index");
-		PPTUtils.createDir(absolutePath + "UserFiles/" + "/download");
+		PPTUtils.createDir(absolutePath + "UserFiles" + "/" + name_no_suffix + "/images");
+		PPTUtils.createDir(absolutePath + "UserFiles" + "/" + name_no_suffix + "/images");
+		PPTUtils.createDir(absolutePath + "UserFiles" + "/" + name_no_suffix + "/pictures");
+		PPTUtils.createDir(absolutePath + "UserFiles" + "/" + name_no_suffix + "/texts");
+		PPTUtils.createDir(absolutePath + "UserFiles" + "/" + name_no_suffix + "/pdf");
+		PPTUtils.createDir(absolutePath + "UserFiles" + "/index");
+		PPTUtils.createDir(absolutePath + "UserFiles" + "/download");
 		System.out.println("文件录入，创建文件夹成功");
 		// 用同一个输入流操作
 		int size = 0;
@@ -262,6 +263,13 @@ public class DocumentEbo implements DocumentEbi {
 	public ArrayList<DocumentModel> getAllDocumentModel() {
 		ArrayList<DocumentModel> list = documentDao.getAllDocumentModel();
 		return list;
+	}
+
+	@Override
+	public ArrayList<DocumentModel> getDocumentByUserId(Long userId,Pager pager) {
+		ArrayList<DocumentModel> list = documentDao.getDocumentByUserId(userId,pager);
+		return list;
+		
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ustc.sse.water.docsearcher.model.DocumentModel;
+import ustc.sse.water.docsearcher.util.Pager;
 
 /**
  * 
@@ -35,5 +36,7 @@ public interface DocumentDao {
 	List<DocumentModel> searchDocumentListByKeyword(String keyword);
 
 	ArrayList<DocumentModel> getAllDocumentModel();
+
+	ArrayList<DocumentModel> getDocumentByUserId(Long userId ,Pager pager);
 
 }
