@@ -168,7 +168,7 @@
       		 	function getTableInfo(page){
 					$.ajax({
 					url:'/DocSearcher/user/contribution',
-					type:'GET',
+					type:'POST',
 					data:'p='+page,
 					dataType:'json',
 					success:function(json){

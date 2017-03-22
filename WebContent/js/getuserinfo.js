@@ -1,8 +1,8 @@
 $(function(){
 	//用户栏信息异步加载
 	$.ajax({
-		url:'/DocSearcher/user/test1';
-		type:'GET',
+		url:'/DocSearcher/user/part',
+		type:'POST',
 		data:'',
 		datatype:'json',
 		success:function(rtext){
@@ -13,13 +13,14 @@ $(function(){
 			var $doc=$asset.eq(0);
 			var $rate=$asset.eq(1);
 			var $collect=$asset.eq(2);
-			$('#pic').src(rtext.userimage);
+			$('#pic').src(rtext.img);
 			$name.text(rtext.nickName);
 			$credit.text(rtext.credit);
 			$lvl.text(rtext.level);
 			$asset.text(rtext.collectnum);
 			$doc.text(rtext.docnum);
 			$rate.text(rtext.ratenum);
+			$('.signiture textarea').text(rtext.description);
 		},
 		error:function(XMLHttpRequest,textStatus,errorThrown){
 	 				console.log(XMLHttpRequest.status);

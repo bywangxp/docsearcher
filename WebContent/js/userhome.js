@@ -24,8 +24,8 @@ $(function(){
 				timer=setTimeout(function(){
 					$('#tip').css('display','none');
 				},500);
-			}，
-			error：function(XMLHttpRequest,textStatus,errorThrown){
+			},
+			error:function(XMLHttpRequest,textStatus,errorThrown){
 				console.log(XMLHttpRequest.status);
 	 				console.log(XMLHttpRequest.readyState);
 	 				console.log(textStatus);
@@ -92,7 +92,7 @@ $(function(){
 
 // 每次返回的数据
 	$.ajax({
-		url:'/DocSearcher/user/test1';
+		url:'/DocSearcher/user/test1',
 		type:'GET',
 		data:'',
 		datatype:'json',
