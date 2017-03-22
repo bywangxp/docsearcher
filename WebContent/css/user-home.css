@@ -1,18 +1,12 @@
-.home{
-/*	padding-top:10px;
-*/    width: 100%;
-    position:relative;
-}
-.left,.right{
+
+.right{
 		position:absolute;
-	    top:15px;	    
+	    top:15px;
+	    right:0;	    
         width: 400px;
         height:100%;
         background:gray;   
 }
-.left{left:0;}
-.right{right:0;}
-
 
 .middle{margin:0 410px; height:100%;background: gray}
 

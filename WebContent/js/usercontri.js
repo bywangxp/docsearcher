@@ -1,0 +1,27 @@
+$(function(){
+	var totalP=null;
+	var Id=null;
+	alert('js1');
+	$.ajax({
+	url:'/DocSearcher/user/contribution',
+	dataType:'json',
+	success:function(json){
+      totalP=json.totalpage;
+      var oRow=Json.parse(json.tablerow);
+      for(var i=0;i<oRow.length;i++){
+      Id.push(oRow[i].id);}
+	},
+	error:function(XMLHttpRequest,textStatus,errorThrown){
+						console.log(XMLHttpRequest.status);
+	 					console.log(XMLHttpRequest.readyState);
+	 					console.log(textStatus);
+			      	}
+	});
+	$('#page').page({
+		leng:12,
+		activeClass:'activP',
+	});
+	$('#page').find('ul').attr('class','pagingUl');
+	// $('#page').find('li').css({'float','left'},{'list-style','none'},{'display','inline'});
+
+});
