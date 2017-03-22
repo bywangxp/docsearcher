@@ -1,11 +1,14 @@
 package ustc.sse.water.docsearcher.util.constant;
 
+import java.io.File;
+
 public class PublicConstants {
 	public static final String DEFAULT_PPT_PNG = "ppt的图片";
 	public static final String DEFAULT_RANK_PNG = "排行榜的图片";
 	public static final String SEARCH_RECORD_LOGO = "搜素记录的图片";
 	public static final String IF_ADD_FAV = "images/result/star2.png";
 	public static final String IF_NO_ADD_FAV = "images/result/star1.png";
+	public static String separator=File.pathSeparator;
 
 	public static final int GENDER_MALE = 0;// 值为0，代表男性
 	public static final int GENDER_FEMALE = 1;// 值为1，代表女性
