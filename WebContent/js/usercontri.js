@@ -3,7 +3,8 @@ $(function(){
 	var Id=null;
 	alert('js1');
 	$.ajax({
-	url:'/DocSearcher/user/contribution',
+	url:'/DocSearcher/user/contri_data',
+	type:'POST',
 	dataType:'json',
 	success:function(json){
       totalP=json.totalpage;
