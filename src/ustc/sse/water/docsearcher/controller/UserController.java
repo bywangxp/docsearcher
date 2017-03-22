@@ -208,7 +208,9 @@ public class UserController {
 					map.put("totalpage",0 );//总共页面，每个页面显示十条数据
 				    ArrayList<String> list = new ArrayList<String>();
 //				    for(int i = 0; i < docNum / 10  ){
+				  //  -=
 //				    }
+				   
 					return null;
 				}
 }
