@@ -6,12 +6,16 @@
 	<title>UserContribution</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/user-common.css">
-	<link rel="stylesheet" type="text/css" href="css/user-contribution.css">
+	<link rel="stylesheet" type="text/css" href="css/uer-page.css">
+	<link rel="stylesheet" type="text/css" href="css/user-info.css">
 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/getuserinfo.js"></script>
+	<script type="text/javascript" src="js/usercontri_2.js"></script>
+	<script type="text/javascript" src="js/usercontri.js"></script>
 </head>
 <body>
-	<!-- <div class="main-wrapper"> -->
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top">
   			<div class="container">
     		<span>DocSearcher</span>
   			</div>
@@ -19,7 +23,7 @@
 		<div class="home clearfix">
 			<div class="left">
 				<div class="user-pic-bg">
-				<img id="pic" src="img/banner.jpg">
+				<img id="pic" src="images/user_info/banner.jpg">
 				<input id="upload" name="file"  type="file" style="display:none">
 				</div>
 				<div class="head-info">
@@ -28,127 +32,49 @@
 					<p class="data">	
 						<span>积分：</span><span class="num">100</span>
 						<span>等级：</span><span class="num">1</span>
-					</p>
-
-					
-								
+					</p>			
 				</div>
 				<div class="asset-info clearfix">
-								
-									<div class="left-block" >
-										<p class="asset">
-											num</p>
-										<p class="doc"><a href="#">
-											文档</a>
-										</p>
-									</div>
-									<div class="middle-block">
-										<p class="asset">num</p>
-										<p class="doc"><a href="#">评论</a>
-										</p>
-									</div>
-									<div class="right-block">
-										<p class="asset">num</p>
-										<p class="doc"><a href="#">收藏</a>
-										</p>
-									</div>
-								
-							</div>
-							<div class="signiture">
-					        <div id="signtext" rows="3"></div>
-							</div>
+					<div class="left-block" >
+						<p class="asset">num</p>
+						<p class="doc"><a href="#">文档</a></p>
+					</div>
+					<div class="middle-block">
+						<p class="asset">num</p>
+						<p class="doc"><a href="">评论</a></p>
+					</div>
+					<div class="right-block">
+						<p class="asset">num</p>
+						<p class="doc"><a href="#">收藏</a></p>
+					</div>
+				</div>
+				<div class="signiture">
+					<textarea id="sign" rows="3" placeholder="这个人很懒，什么都没留下"></textarea>
+				</div>
 			</div>
-					<!-- <div class="right">
-						<div class="title">
-							<p>我的贡献<span>点击修改</span><span>删除</span></p>
-						</div> -->
-						<!-- <div class="cen"> -->
-						<div class="context">
-							<div class="table-container">
-							<div class="row0">
-									<div class="table-title">
-									<p>我的贡献<span><a href="#">点击修改</a></span><span><a href="#">删除</a></span></p></div>
-							</div>
 
-							<div id="table-content">
-							<ul id="table-row">
-								<li class="row clearfix">
-									<div class="n1">图标</div>
-									<div class="n2">文档名</div>
-									<div class="n3">上传时间</div>
-									<div class="n4">下载次数</div>
-									<div class="n5">积分</div>
-									<div class="n6">评分</div>	
-								</li>
-								
-
-								<li class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>	
-								</li>
-								
-
-								<li class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</li>
-								
-								<li class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</li>
-								
-
-								<li class="row clearfix">
-								<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</li>
-								
-								<li class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</li>
-								
-								<li class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</li>
-								
-								
+			<div class="context">
+				<div class="table-container">
+					<div class="table-title">
+						<p>我的贡献<span ><a href="#">删除</a></span></p>
+					</div>
+					<div id="table-content">
+						
+							<div class="tHead clearfix">
+								<div class="n1">图标</div>
+								<div class="n2">文档名</div>
+								<div class="n3">上传时间</div>
+								<div class="n4">下载次数</div>
+								<div class="n5">积分</div>
+								<div class="n6">评分</div>	
+							</div>	
+							<ul id="tRow">
+							<!-- 动态加载的数据 -->
 							</ul>
-							<div class="page">
-							<ul  id="page" class="page clearfix">
-								<li id="shouye" class="display:none"></li>
-								<li id="shangyiye" class="display:none"></li>
-								<li id="xiayiye" class="display:none"></li>
-								<li id="weiye" class="display:none"></li>
-								<li id="total" class="display:none"></li>
-							</ul>
-							</div>
+						<div id="page" class="clearfix">
+							
+						</div>
+							
 
 							</div>
 						</div>
@@ -158,46 +84,9 @@
 
 					</div>
 				</div>
-			<!-- </section> -->
-		<!-- </div> -->
-	<!-- </div> -->
+		
 
 </body>
-<script type="text/javascript">
-	var page=1;
-getList(page);
 
-
-function getList(page){
-	$.ajax({
-		type: "post",
-		data: {
-			page: page
-		},
-		url: "",
-		success: function(response) {
-			var json = [{"total":10},{"total":10},{"total":10},{"total":10}]
-			var s = '';
-			for (var i = 0; i < json.length - 1; i++) {
-				s += '' + '' + '';
-				$("#content").html(s);
-				var s = '';
-				for (var j = 1; j <= json[i].total; j++) {
-					if (page == j)
-						s += "<a href='javascript:void(0)' data='" + j + "' class='selected'>" + j + "</a>";
-					else s += "<a href='javascript:void(0)' data='" + j + "'>" + j + "</a>";
-				}
-				$("#page").html(s);
-			}
-
-		}
-	});
-}
-
-$("#page").on("click","a",function(){
-	var page=$(this).attr("data");
-	getList(page);
-
-});
 </script>
 </html>

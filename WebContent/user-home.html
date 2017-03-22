@@ -25,6 +25,7 @@
 				<div class="user-pic-bg">
 				<img id="pic" src="images/user_info/banner.jpg">
 				<input id="upload" name="file"  type="file" style="display:none">
+				<div id="tip" style="width:40px;height:20px;text-align: center;font-size:20px;margin:0 auto;display:none;z-index: 99;background:#fff"></div>
 				</div>
 				<div class="head-info">
 					<p class="name" >Name</p>
@@ -111,9 +112,9 @@
 		</div>	
 	</div>
 </body>
-	<script type="text/javascript"> 
-		var myChart1=echarts.init(document.getElementById('chart1'))
-		var option1=
+	<script type="text/javascript">
+	var myChart1=echarts.init(document.getElementById('chart1'));
+	var option1=
 		{
 			    tooltip: {
 			        trigger: 'axis',
@@ -146,21 +147,20 @@
 			    series: [{
 			        name: '本月上传文档数',
 			        type: 'bar',
-			        data: [20, 12, 31, 34, 31]
+			        data: [20, 12, 31, 34, 31,34,12,66,34,24,23,44]
 			    }, {
 			        name: '本月收藏文档数',
 			        type: 'bar',
-			        data: [10, 20, 5, 9, 3]
+			        data: [10, 20, 5, 9, 3,6,12, 31, 34, 31,34,12]
 			    }, {
 			        name: '本月文档被评论数',
 			        type: 'bar',
-			        data: [1, 1, 2, 3, 1]
+			        data: [1, 1, 2, 3, 1,4,10, 20, 5, 9, 3,6]
 			    }, {
 			        name: '平均分数',
 			        type: 'line',
-			        data: [60, 80, 50, 10, 80]
+			        data: [60, 80, 50, 10, 80,90,1,4,10, 20, 5, 9, 3]
 			    }]
         };		
-		myChart1.setOption(option1);
-	</script>
+	myChart1.setOption(option1);</script>
 </html>

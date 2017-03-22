@@ -5,164 +5,86 @@
 	
 	<title>UserDownload</title>
 	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
-	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/user-common.css">
-	<link rel="stylesheet" type="text/css" href="css/user-download.css">
+	<link rel="stylesheet" type="text/css" href="css/uer-page.css">
+	<link rel="stylesheet" type="text/css" href="css/user-info.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/getuserinfo.js"></script>
 	
 </head>
 <body>
 	
-		<header>
-			<nav>
-				<span>DocSearcher</span>
-			</nav>
-		</header>
-		<!-- <div class="content"> -->
-			<!-- <section> -->
-				<div class="home">
-					<div class="left">
-						<div class="head-img">
-							<div class="head-protrait">
-							<img src="img/banner.jpg">
-							</div>
-							<div class="head-info">
-								<p class="name">Name
-								<br>
-								<ul class="data">
-									<li><p>积分：<span class="num">100</span></p>
-							        </li>
-									<li><p>等级：<span class="num">1</span>
-									</li>
-								</ul>
-
-								</p>
-								
-							</div>
-						</div>
-						<div class="asset-wrap">
-							<div class="asset-info">
-								<ul class="clearfix">
-									<li>
-										<p class="asset">
-											<span>num</span><br>
-											<a href="#">
-											文档</a>
-										</p>
-										<p class="spr-line"></p>
-
-									</li>
-									<li>
-										<p class="asset">
-											<span>num</span><br><a href="#">
-											评论</a>
-										</p>
-										<p class="spr-line"></p>
-									</li>
-									<li>
-										<p class="asset">
-											<span>num</span><br><a href="#">
-											
-										    收藏</a>
-										</p>
-									</li>
-								</ul>
-							</div>
-							<div class="signiture">
-
-								<!-- <label for="sign">个性签名:</label> -->
-
-								<textarea id="sign" rows="3">这个人很懒，什么都没留下</textarea>
-							</div>
-
-						</div>
+		<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top">
+  			<div class="container">
+    		<span>DocSearcher</span>
+  			</div>
+		</nav>
+		<div class="home clearfix">
+			<div class="left">
+				<div class="user-pic-bg">
+				<img id="pic" src="images/user_info/banner.jpg">
+				<input id="upload" name="file"  type="file" style="display:none">
+				</div>
+				<div class="head-info">
+					<p class="name" >Name</p>
+					<br>
+					<p class="data">	
+						<span>积分：</span><span class="num">100</span>
+						<span>等级：</span><span class="num">1</span>
+					</p>			
+				</div>
+				<div class="asset-info clearfix">
+					<div class="left-block" >
+						<p class="asset">num</p>
+						<p class="doc"><a href="#">文档</a></p>
 					</div>
-					
+					<div class="middle-block">
+						<p class="asset">num</p>
+						<p class="doc"><a href="">评论</a></p>
+					</div>
+					<div class="right-block">
+						<p class="asset">num</p>
+						<p class="doc"><a href="#">收藏</a></p>
+					</div>
+				</div>
+				<div class="signiture">
+					<textarea id="sign" rows="3" placeholder="这个人很懒，什么都没留下"></textarea>
+				</div>
+			</div>
+
+			<div class="context">
+				<div class="table-container">
+					<div class="table-title">
+						<p>我的下载<span ><a href="#">删除</a></span></p>
+					</div>
+					<div id="table-content">
+						
+							<div class="tHead clearfix">
+								<div class="n1">图标</div>
+								<div class="n2">文档名</div>
+								<div class="n3">下载时间</div>
+								<div class="n4">上传者</div>
+								<div class="n5">积分</div>
+								<div class="n6">评分</div>	
+							</div>	
+							<ul id="tRow">
+							<!-- 动态加载的数据 -->
+							</ul>
+						<div id="page" class="clearfix">
+							
+						</div>
+							
+
+							</div>
+						</div>
+						<!-- </div> -->
+						
+						
 
 					</div>
 				</div>
-
-
-                           <div class="context">
-							<div class="table-container">
-							<div class="row0">
-									<div class="table-title">
-									<p>我的下载<span><a href="#">删除</a></span></p></div>
-							</div>
-							<div class="table-content">
-								<div class="row clearfix">
-									<div class="n1">图标</div>
-									<div class="n2">文档名</div>
-									<div class="n3">下载时间</div>
-									<div class="n4">上传者</div>
-									<div class="n5">积分</div>
-									<div class="n6">评分</div>	
-								</div>
-								
-
-								<div class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>	
-								</div>
-								
-
-								<div class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</div>
-								
-								<div class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</div>
-								
-
-								<div class="row clearfix">
-								<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</div>
-								
-								<div class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</div>
-								
-								<div class="row clearfix">
-									<div class="n1"></div>
-									<div class="n2"></div>
-									<div class="n3"></div>
-									<div class="n4"></div>
-									<div class="n5"></div>
-									<div class="n6"></div>
-								</div>
-								</div>
-								
-							</div>
-						</div>
-			<!-- </section> -->
-		<!-- </div> -->
-
-
-
 	
 </body>
 </html>
