@@ -15,7 +15,7 @@ $(function(){
 		};
 		reader.readAsDataURL(file);
 		$.ajax({
-			url:"/DocSearcher/user/home",
+			url:"/DocSearcher/user/home_img",
 			type:"POST",
 			data:'url='+url,
 			success:function(){
@@ -32,7 +32,7 @@ $(function(){
 			      }
 		});
 	});
-		fd.append('file',blob);
+		fd.append('file',blob);//此处是什么意思
 		
 	});
 // 666666666666666
@@ -92,8 +92,8 @@ $(function(){
 
 // 每次返回的数据
 	$.ajax({
-		url:'/DocSearcher/user/test1',
-		type:'GET',
+		url:'/DocSearcher/user/home_middle',
+		type:'POST',
 		data:'',
 		datatype:'json',
 		success:function(lText){
@@ -166,8 +166,8 @@ $(function(){
 		var data = 'addre='+iname+'&address='+iaddr+'&iphone='+iphone+'&email='+iemail;
 		// console.log(data);
 		$.ajax({
-			url:'/DocSearcher/user/test1',
-			type:"GET",
+			url:'/DocSearcher/user/home_right',
+			type:"POST",
 			data:data,
 			dataType:'json',
 	 		success:function(rText){	
@@ -199,7 +199,7 @@ $(function(){
 		alert(tdata);
 
 		$.ajax({
-			url:'/DocSearcher/user/test2',
+			url:'/DocSearcher/user/home_sign',
 			type:"POST",
 			data:tdata,
 			// dataType:'json',
