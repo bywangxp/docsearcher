@@ -41,4 +41,9 @@ public class UserEbo implements UserEbi {
 		return userDao.getUserById(userId);
 	}
 
+	@Override
+	public Integer changeUserInfo(UserModel user) {
+		return userDao.changeUserInfo(user);
+	}
+
 }

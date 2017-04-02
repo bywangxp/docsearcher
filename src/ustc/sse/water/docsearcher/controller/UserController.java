@@ -1,5 +1,7 @@
 package ustc.sse.water.docsearcher.controller;
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,13 +16,16 @@ import org.apache.commons.collections4.set.ListOrderedSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import ustc.sse.water.docsearcher.dao.dao.PageDao;
 import ustc.sse.water.docsearcher.model.DocumentModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
 import ustc.sse.water.docsearcher.service.ebi.UserEbi;
+import ustc.sse.water.docsearcher.util.PPTUtils;
 import ustc.sse.water.docsearcher.util.Pager;
 
 /**
@@ -149,81 +154,160 @@ public class UserController {
 		totalmap.put("person", map);
 		return totalmap;
 	}
-	// 用户主页基本信息显示
-		@ResponseBody
-		@RequestMapping(value = "/home", method = { RequestMethod.POST })
-		public Map<String, Object> getUserHome(HttpSession session) {
+	//中栏列表信息反馈
+	@ResponseBody
+	@RequestMapping(value = "/home_middle", method = { RequestMethod.POST })
+	public Map<String, Object> getHomeMiddle(HttpSession session) {
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		//图片信息
+		String []name=new String[4];
+		name[0]="本月上传文档";
+		name[1]="本月收藏文档";
+		name[2]="本月文档被评论数";
+		name[3]="平均分数";
+		String []data=new String[4];
+		//获取本月上传文档
+		data[0]="123,32,32,32,2,3,2,3,2,3,2,23";
+		//获取本月收藏文档
+		data[1]="123,32,32,32,2,3,2,3,2,3,2,23";
+		//本月文档被评论数
+		data[2]="123,32,32,32,2,3,2,3,2,3,2,23";
+		//平均分数
+		data[3]="123,32,32,32,2,3,2,3,2,3,2,23";
+		for(int i = 0 ; i < 4 ; ++i){
+			HashMap<String, Object> hash = new HashMap<String,Object>();
+			hash.put("name", name[i]);
+			hash.put("type", "bar");
+			String[] split = data[i].split(",");
+			hash.put("data", split);
+			list.add(hash);
+		}
+		map.put("series", list);
+		return map;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/home_right", method = { RequestMethod.POST })
+	public Integer getHomeRight(HttpSession session,HttpServletRequest request) {
+		//先获取用户
+		UserModel user =(UserModel) session.getAttribute("user");
+		String nickname = request.getParameter("nickname");
+		String location = request.getParameter("location");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
+		//在修改用户信息
+		if(nickname != null){//验证
+			user.setUserNickName(nickname);
+		}
+		if(location != null){//验证
+			user.setUserLocation(location);
+		}
+		if(phone != null){//验证
+			user.setUserPhone(phone);
+		}
+		if(email != null){//验证
+			user.setUserEmail(email);
+		}
+		Integer flag = userEbi.changeUserInfo(user);
+		//成功返回1，失败返回0
+		return flag;
+	}
+	//提交用户签名表单
+	@ResponseBody
+	@RequestMapping(value = "/home_sign", method = { RequestMethod.POST })
+	public Integer getUserSign(HttpSession session,HttpServletRequest request) {
+		//先获取用户
+		UserModel user =(UserModel) session.getAttribute("user");		
+		String description = request.getParameter("description");
+		//在修改用户信息
+		if(description != null){//验证
+			user.setUserDescription(description);
+		}
+		Integer flag = userEbi.changeUserInfo(user);
+		return flag;
+	}
+	@RequestMapping(value = "/home_img", method = RequestMethod.POST)
+	public Integer getImg(@RequestParam MultipartFile image, HttpServletRequest request,HttpSession session) throws Exception {
+		if (image.isEmpty()) {
+			System.out.println("图片未上传");
+			return 0;
+		} else {
+			String soureceName = image.getOriginalFilename();// 此文件名是带后缀的文件名（无路径）
+		    //获取文件后缀
+			String[] split = soureceName.split(".");
+			//用户头像放在UserFile/用户名/photo/...
+			String adjustName = "image"+split[split.length-1];	
+			String absolutePath = session.getServletContext().getRealPath("/");
+			PPTUtils.createDir(absolutePath + "UserFiles");
+			InputStream inputStream = image.getInputStream();
 			UserModel user =(UserModel) session.getAttribute("user");
-			HashMap<String, Object> map = new HashMap<String,Object>();
-			map.put("nickName", user.getUserNickName());
-			map.put("location", user.getUserLocation());
-			map.put("phone", user.getUserPhone());
-			map.put("email", user.getUserEmail());
-			map.put("description", user.getUserDescription());
-			map.put("userimage", user.getUserPhoto());
-			map.put("credit", user.getUserCredit());
-			//用户等级
-			map.put("level", 0);
-			map.put("docnum", user.getSumPublicDoc());//用户文档数
-			//用户评论数目，待添加功能
-			map.put("ratenum",0);
-			//获取收藏数据
-			map.put("collectnum", 0);
-			ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-			//图片信息
-			String []name=new String[4];
-			name[0]="本月上传文档";
-			name[1]="本月收藏文档";
-			name[2]="本月文档被评论数";
-			name[3]="平均分数";
-			String []data=new String[4];
-			//获取本月上传文档
-			data[0]="123,32,32,32,2,3,2,3,2,3,2,23";
-			//获取本月收藏文档
-			data[1]="123,32,32,32,2,3,2,3,2,3,2,23";
-			//本月文档被评论数
-			data[2]="123,32,32,32,2,3,2,3,2,3,2,23";
-			//平均分数
-			data[3]="123,32,32,32,2,3,2,3,2,3,2,23";
-			for(int i = 0 ; i < 4 ; ++i){
-				HashMap<String, Object> hash = new HashMap<String,Object>();
-				hash.put("name", name[i]);
-				hash.put("type", "bar");
-				String[] split = data[i].split(",");
-				hash.put("data", split);
-				list.add(hash);
+			FileOutputStream out = new FileOutputStream(absolutePath + "UserFiles/"+user.getUserName()+"/photo/"+adjustName);
+			// 文件写
+			byte[] buffer = new byte[1024];
+			int length = 0;
+			while ((length = inputStream.read(buffer)) != -1) {
+				out.write(buffer, 0, length);
 			}
-			map.put("series", list);
+			out.close();
+			System.out.println("文件输出成功");
+			//修改数据库
+			user.setUserPhone("UserFiles/"+user.getUserName()+"/photo/"+adjustName);
+		    userEbi.changeUserInfo(user);
+			return 1;
+	}
+	}
+	
+	
+		// 用户贡献的文档信息
+		@ResponseBody
+		@RequestMapping(value = "/contri_data", method = { RequestMethod.POST })
+		public Map<String, Object> getContributionDoc(HttpSession session,HttpServletRequest request) {
+			int index = Integer.parseInt(request.getParameter("page"));//返回当前的页码值
+			Pager pager = new Pager();//工具类，用于分页
+			pager.setCurrentPage(index);
+			//获取到用户的信息
+			UserModel user =(UserModel) session.getAttribute("user");
+			//获取指定用户所有的文档
+			List<DocumentModel> list=documentEbi.getDocumentByUserId(user.getUserId(),pager);
+			HashMap<String, Object> map = new HashMap<String,Object>();
+			map.put("totalpage", pager.getTotalPage());
+			ArrayList<Map<String, Object>> doclist = new ArrayList<Map<String, Object>>();
+            for (DocumentModel documentModel : list) {
+            		HashMap <String, Object> docMap=new HashMap<String ,Object>();
+            		docMap.put("logo", documentModel.getDocLogo());
+            		docMap.put("docname", documentModel.getDocTitle());
+            		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+            		String date = simpleDateFormat.format(documentModel.getCreateTime());
+            		docMap.put("uptime", date);
+            		docMap.put("download", documentModel.getSumDownload());
+            		docMap.put("credit", documentModel.getDocValue());
+            		docMap.put("score", documentModel.getDocRating());
+            		docMap.put("id", documentModel.getDocId());
+            		doclist.add(docMap);
+			}
+             map.put("tablerow", doclist);
 			return map;
 		}
-		// 用户贡献的文档信息
-				@ResponseBody
-				@RequestMapping(value = "/contri_data", method = { RequestMethod.POST })
-				public Map<String, Object> getContributionDoc(HttpSession session,HttpServletRequest request) {
-					int index = Integer.parseInt(request.getParameter("page"));//返回当前的页码值
-					Pager pager = new Pager();//工具类，用于分页
-					pager.setCurrentPage(index);
-					//获取到用户的信息
-					UserModel user =(UserModel) session.getAttribute("user");
-					//获取指定用户所有的文档
-					List<DocumentModel> list=documentEbi.getDocumentByUserId(user.getUserId(),pager);
-					HashMap<String, Object> map = new HashMap<String,Object>();
-					map.put("totalpage", pager.getTotalPage());
-					ArrayList<Map<String, Object>> doclist = new ArrayList<Map<String, Object>>();
-                    for (DocumentModel documentModel : list) {
-                    		HashMap <String, Object> docMap=new HashMap<String ,Object>();
-                    		docMap.put("logo", documentModel.getDocLogo());
-                    		docMap.put("docname", documentModel.getDocTitle());
-                    		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
-                    		String date = simpleDateFormat.format(documentModel.getCreateTime());
-                    		docMap.put("uptime", date);
-                    		docMap.put("download", documentModel.getSumDownload());
-                    		docMap.put("credit", documentModel.getDocValue());
-                    		docMap.put("score", documentModel.getDocRating());
-                    		docMap.put("id", documentModel.getDocId());
-                    		doclist.add(docMap);
-					}
-                     map.put("tablerow", doclist);
-					return map;
-				}
+		//左侧用户信息展示
+		@ResponseBody
+		@RequestMapping(value = "/part", method = { RequestMethod.POST })
+		public Map<String, Object> gerUserLeftInfo(HttpSession session,HttpServletRequest request) {
+			//获取到用户的信息
+			UserModel user =(UserModel) session.getAttribute("user");
+			HashMap <String, Object> map=new HashMap<String ,Object>();
+		    map.put("nickName", user.getUserNickName());
+		    map.put("credit", user.getUserCredit());
+		    //用户等级，待计算
+		    map.put("level", "666");
+		    map.put("docnum", user.getSumPublicDoc()+user.getSumPrivateDoc());
+		    //用户评论数，待计算
+		    map.put("ratenum", 0);
+		    //用户收藏数目 ,待计算
+		    map.put("collectnum", 0);
+		    map.put("description", user.getUserDescription());
+		    map.put("img", user.getUserPhoto());
+			return map;
+		
+		}
+				
 }

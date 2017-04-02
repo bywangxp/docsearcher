@@ -25,4 +25,6 @@ public interface UserEbi {
 	public UserModel findUser(UserModel userQueryModel);
 
 	public UserModel getUserById(Long userId);
+
+	public Integer changeUserInfo(UserModel user);
 }

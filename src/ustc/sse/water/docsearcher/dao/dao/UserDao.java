@@ -23,4 +23,6 @@ public interface UserDao {
 
 	UserModel getUserById(Long userId);
 
+	Integer changeUserInfo(UserModel user);
+
 }

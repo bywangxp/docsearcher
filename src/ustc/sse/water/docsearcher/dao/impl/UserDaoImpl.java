@@ -1,5 +1,6 @@
 package ustc.sse.water.docsearcher.dao.impl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -51,16 +52,7 @@ public class UserDaoImpl implements UserDao {
 
 		int size = list.size();
 
-		/*
-		 * System.out.println(userQueryModel.getUserName() + "" +
-		 * userQueryModel.getUserPassword()); DetachedCriteria dc =
-		 * DetachedCriteria.forClass(UserQueryModel.class);
-		 * dc.add(Restrictions.eq("userName", userQueryModel.getUserName()));
-		 * dc.add(Restrictions.eq("password",
-		 * userQueryModel.getUserPassword())); Criteria cri =
-		 * dc.getExecutableCriteria(session); List<UserQueryModel> list =
-		 * cri.list(); int size = list.size();
-		 */
+
 		session.flush();
 
 		// tx.commit();
@@ -85,6 +77,16 @@ public class UserDaoImpl implements UserDao {
 		query.setParameter(0, userId);
 		List<UserModel> list = query.list();
 		return list.get(0);
+	}
+
+	@Override
+	public Integer changeUserInfo(UserModel user) {
+		Session session = getCurrentSession();
+		Serializable save = session.save(user);
+		String string = save.toString();
+		System.out.println("修改："+string);
+		//修改待测试
+		return 0;
 	}
 
 }

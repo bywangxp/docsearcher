@@ -31,14 +31,7 @@ public class PPTUtils {
 		return fileFullname.substring(0, lastIndexOf);
 	}
 
-	/*
-	 * public static String getShortname(String filepath) { String filename =
-	 * getFilename(filepath); System.out.println(filename); int indexOf =
-	 * filename.lastIndexOf("."); System.out.println(indexOf); String name =
-	 * filename.substring(0,2); System.out.println(name); return name;
-	 * 
-	 * }
-	 */
+	
 	// 获取后缀
 	// TODO后期要防止用户上传的文件名为空名
 	public static String getSuffixname(String filepath) {
@@ -112,7 +105,6 @@ public class PPTUtils {
 			System.out.println("mkdirs");
 			new File(file.getParent()).mkdirs();
 		}
-
 		boolean createNewFile;
 		try {
 			createNewFile = file.createNewFile();
