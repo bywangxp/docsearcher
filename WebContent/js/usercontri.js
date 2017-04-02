@@ -2,7 +2,9 @@ $(function(){
 	var totalP=null;
 	var page=0;
 	var Id=null;
+	var curPage=null;
 	alert('js1');
+
 	$.ajax({
 	url:'/DocSearcher/user/contri_data',
 	type:'POST',
@@ -20,6 +22,7 @@ $(function(){
 	 					console.log(textStatus);
 			      	}
 	});
+
 	$('#page').page({
 		leng:12,
 		activeClass:'activP',

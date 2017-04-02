@@ -1,6 +1,7 @@
 // 参考jquery分页插件，主要参考动态加载逻辑编写
 (function($){
 	// 设置默认参数
+	
 	var defaults={
 		leng:5,
 		avtiveClass:'page-active',
@@ -42,7 +43,7 @@
 
 				obj.on('click','.next',function(){
 					var pageshow=parseInt($('.'+opts.avtiveClass).html());//取得高亮显示的页码值
-					getTableInfo(pageshow);//加载下一页数据
+					return pageshow;
 
 					if(pageshow==l){}
 						// 最后半部分显示
@@ -61,7 +62,7 @@
 
 				obj.on('click', '.prv', function () {
           			var pageshow = parseInt($('.' + opts.activeClass).html());
-          			getTableInfo(pageshow+'-2');
+          			return pageshow+'-2';
           			if (pageshow == 1) {
          			 			}else if(pageshow > l-3&&pageshow < l+1){
           			  $('.' + opts.activeClass).removeClass(opts.activeClass).parent().prev().find('a').addClass(opts.activeClass);
@@ -78,9 +79,10 @@
 
         		obj.on('click', '.first', function(){
           			var pageshow = 1;
+          			return 0;
           			$('.' + opts.activeClass).removeClass(opts.activeClass).parent().prev().find('a').addClass(opts.activeClass);
           			fpagePrv(0);
-          			getTableInfo('0');
+          			
         		});
 
         		 obj.on('click', '.last', function(){
