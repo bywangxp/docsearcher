@@ -1,22 +1,27 @@
 package ustc.sse.water.docsearcher.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections4.set.ListOrderedSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ustc.sse.water.docsearcher.dao.dao.PageDao;
+import ustc.sse.water.docsearcher.model.DocumentModel;
 import ustc.sse.water.docsearcher.model.UserModel;
 import ustc.sse.water.docsearcher.service.ebi.DocumentEbi;
 import ustc.sse.water.docsearcher.service.ebi.UserEbi;
+import ustc.sse.water.docsearcher.util.Pager;
 
 /**
  * 类型名 <br>
@@ -143,7 +148,6 @@ public class UserController {
 		map.put("level", userLevel);
 		totalmap.put("person", map);
 		return totalmap;
-
 	}
 	// 用户主页基本信息显示
 		@ResponseBody
@@ -194,23 +198,32 @@ public class UserController {
 		}
 		// 用户贡献的文档信息
 				@ResponseBody
-				@RequestMapping(value = "/contribution", method = { RequestMethod.POST })
+				@RequestMapping(value = "/contri_data", method = { RequestMethod.POST })
 				public Map<String, Object> getContributionDoc(HttpSession session,HttpServletRequest request) {
-					String index = request.getParameter("index");//返回当前的页码值
-					if(index == null){
-						index = "1";
-					}
-					HashMap<String, Object> map = new HashMap<String,Object>();
-					//获取指定用户所有的文档
+					int index = Integer.parseInt(request.getParameter("page"));//返回当前的页码值
+					Pager pager = new Pager();//工具类，用于分页
+					pager.setCurrentPage(index);
 					//获取到用户的信息
 					UserModel user =(UserModel) session.getAttribute("user");
-					int docNum=10;
-					map.put("totalpage",0 );//总共页面，每个页面显示十条数据
-				    ArrayList<String> list = new ArrayList<String>();
-//				    for(int i = 0; i < docNum / 10  ){
-				  //  -=
-//				    }
-				   
-					return null;
+					//获取指定用户所有的文档
+					List<DocumentModel> list=documentEbi.getDocumentByUserId(user.getUserId(),pager);
+					HashMap<String, Object> map = new HashMap<String,Object>();
+					map.put("totalpage", pager.getTotalPage());
+					ArrayList<Map<String, Object>> doclist = new ArrayList<Map<String, Object>>();
+                    for (DocumentModel documentModel : list) {
+                    		HashMap <String, Object> docMap=new HashMap<String ,Object>();
+                    		docMap.put("logo", documentModel.getDocLogo());
+                    		docMap.put("docname", documentModel.getDocTitle());
+                    		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+                    		String date = simpleDateFormat.format(documentModel.getCreateTime());
+                    		docMap.put("uptime", date);
+                    		docMap.put("download", documentModel.getSumDownload());
+                    		docMap.put("credit", documentModel.getDocValue());
+                    		docMap.put("score", documentModel.getDocRating());
+                    		docMap.put("id", documentModel.getDocId());
+                    		doclist.add(docMap);
+					}
+                     map.put("tablerow", doclist);
+					return map;
 				}
 }

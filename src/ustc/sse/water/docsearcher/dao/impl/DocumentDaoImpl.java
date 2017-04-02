@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import ustc.sse.water.docsearcher.dao.dao.DocumentDao;
 import ustc.sse.water.docsearcher.model.DocumentModel;
+import ustc.sse.water.docsearcher.util.Pager;
 
 /**
  * 
@@ -98,6 +99,26 @@ public class DocumentDaoImpl implements DocumentDao {
 		String hql = "select d from DocumentModel d ";
 		Query query = session.createQuery(hql);
 		ArrayList<DocumentModel> list = (ArrayList<DocumentModel>) query.list();
+		return list;
+	}
+
+	@Override
+	public ArrayList<DocumentModel> getDocumentByUserId(Long userId, Pager pager) {
+		Session session = getCurrentSession();
+		String hql = "select d from DocumentModel d where d.userId = ?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, userId);
+		List docSize = query.list();
+		int num = 0;
+		num = docSize.size() % 10 == 0 ? docSize.size() / 10 : docSize.size() / 10 + 1;
+		int totalPage=(num);//查询总页数
+		pager.setTotalPage(totalPage);
+		
+		
+		query.setFirstResult(pager.getCurrentPage());
+		query.setProperties(10);//设置每页显示的页数;
+		ArrayList<DocumentModel> list = (ArrayList<DocumentModel>) query.list();
+		System.out.println(list.size());
 		return list;
 	}
 
