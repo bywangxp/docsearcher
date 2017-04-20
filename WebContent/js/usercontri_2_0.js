@@ -30,9 +30,15 @@ var l=opts.leng;
       type: 'POST',
       data: 'page=' + p,
       dataType: 'json',
-      success: function(json) {
-        var oRow = Json.parse(json.tablerow);
-        totalP = json.totalpage; //总页数
+      success: function(json0) {
+        var jsonObj=json0;
+        console.log(jsonObj);
+        var oRow=[];
+        for (var i = 0; i < jsonObj.length; i++) {
+           oRow[i]=jsonObj[i];
+         } 
+        console.log(oRow);
+        totalP = json0.totalpage; //总页数
         console.log(totalP);
 
         var rowData = '';
