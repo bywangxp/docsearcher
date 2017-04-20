@@ -105,8 +105,7 @@ $(function(){
 			var $rate=$asset.eq(1);
 			var $collect=$asset.eq(2);
 			
-
-			$('#pic').src(lText.userimage)
+			$('#pic').attr('src',lText.userimage);
 			$name.text(lText.nickName);
 			$credit.text(lText.credit);
 			$lvl.text(lText.level);
