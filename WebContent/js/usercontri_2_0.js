@@ -31,7 +31,7 @@ var l=opts.leng;
       data: 'page=' + p,
       dataType: 'json',
       success: function(json) {
-        var oRow = Json.parse(json.tablerow);
+        var oRow = JSON.parse(json.tablerow);
         totalP = json.totalpage; //总页数
         console.log(totalP);
 

@@ -13,8 +13,12 @@ $(function(){
 			var $doc=$asset.eq(0);
 			var $rate=$asset.eq(1);
 			var $collect=$asset.eq(2);
-			$('#pic').src(rtext.img);
+			console.log(rtext);
+			$('#pic').attr('src',rtext.img);
 			$name.text(rtext.nickName);
+			console.log(rtext.nickName);
+			var name=$name.text();
+			console.log(name);
 			$credit.text(rtext.credit);
 			$lvl.text(rtext.level);
 			$asset.text(rtext.collectnum);
