@@ -1,0 +1,119 @@
+/*
+* @Author: hwaphon
+* @Date:   2017-02-26 12:08:48
+* @Last Modified by:   hwaphon
+* @Last Modified time: 2017-02-26 14:46:47
+*/
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 36px;
+    padding-top: 64px;
+}
+header img {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+}
+article:before {
+    font-size: 36px;
+
+    position: absolute;
+    top: -48px;
+    left: 0;
+
+    content: 'DocSeacher';
+
+    color: #0cc;
+}
+article {
+    position: relative;
+
+    width: 960px;
+    height: 540px;
+    margin: 0 auto;
+
+    border: 1px solid #ccc;
+}
+article header {
+    display: flex;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #ccc;
+
+    align-items: center;
+}
+article header h2 {
+    font-size: 22px;
+    font-weight: normal;
+
+    margin-left: 12px;
+
+    color: #333;
+}
+article aside {
+    position: absolute;
+    top: 72px;
+    right: 0;
+
+    width: 33%;
+    height: 468px;
+
+    border-left: 1px solid #ccc;
+}
+#article-info {
+    overflow: hidden;
+
+    padding: 8px;
+
+    color: #666;
+    border-bottom: 1px solid #ccc;
+}
+#article-info h3 {
+    float: left;
+}
+#article-info a {
+    font-size: 12px;
+
+    float: right;
+
+    margin-top: 6px;
+    margin-right: 12px;
+}
+#article-des {
+    line-height: 36px;
+
+    margin-top: 24px;
+    padding: 8px 16px;
+
+    color: #666;
+}
+#article-des p {
+    position: relative;
+
+    margin-bottom: 12px;
+
+    text-align: justify;
+}
+#article-des span {
+    font-size: 12px;
+
+    position: absolute;
+    left: 64px;
+
+    width: 192px;
+
+    text-align: center;
+
+    border: 1px solid #ccc;
+}
+#article-des p:last-child span {
+    padding-bottom: 48px;
+}

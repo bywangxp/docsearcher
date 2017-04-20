@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/upload.css">
+		<!-- <link rel="stylesheet" type="text/css" href="css/upload-info.css"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="css/upload-success.css"> -->
+	</head>
+	<body>
+	    <nav>
+			<p id="nav">DocSeacher -> 文档上传</p>	
+			<p>上传文档</p>
+			<p>简单两步，让你的知识更流通～</p>
+		</nav>
+		<article>
+			<section style="display:block;">
+				<div class="upload-steps clearfix">
+				<ul>
+				<li class="step-num active">1<span class="tips">选择文档</span>
+				</li>
+				<li class="step-bar"></li>
+				<li class="step-num">2<span class="tips">补充信息</span>
+				</li>
+				<li class="step-bar"></li>
+				<li class="step-num">3<span class="tips">完成上传</span>
+				</li>
+				</ul>
+				</div>
+				<div id="upload">
+					<button>上传我的文档</button>
+					<p>每上传一篇公开文章，可获取 <span>积分+2</span> 奖励</p>
+				</div>
+			</section>
+			<!--间隔区块 -->
+			<div style="width:100%;height:90px"></div> 
+
+			<section style="display:block;">
+				<div class="upload-steps clearfix">
+				<ul>
+				<li class="step-num active">1<span class="tips">选择文档</span>
+				</li>
+				<li class="step-bar"></li>
+				<li class="step-num">2<span class="tips">补充信息</span>
+				</li>
+				<li class="step-bar"></li>
+				<li class="step-num">3<span class="tips">完成上传</span>
+				</li>
+				</ul>
+				</div>
+				<div id="info_label">
+					<div class="label_l">
+					<p class="label_title">
+						请补充文档信息，完成上传~
+					</p>
+					<p class="label_more">
+						上传完成后，您将获得<b class="primary">积分值+2</b>的奖励
+					</p>
+					</div>
+					<div class="btn_do_add"><b class="next">></b>  确认上传</div>
+					<div class="btn_add"><b class="add">+</b> 继续上传</div>
+					
+					<div class="clear"></div>
+				</div>
+				
+			
+				<div id="article-des">
+					<div class="t_l">
+
+					<p>标题：&nbsp;&nbsp;&nbsp;<input type="text" placeholder="我的文档标题"></p>
+					<p>简介：<br><textarea style=" width:240px;margin-left: 70px;margin-top:-30px;" rows="5" columes="30">
+						填写文档简介,帮助文档传播~
+					</textarea></p>
+					<p>分类：&nbsp;&nbsp;&nbsp;<select name="" id="">
+										<option value="">选择分类</option>
+										<option value="">分类1</option>
+										<option value="">分类2</option>
+							 </select></p>
+
+					<p>标签：&nbsp;&nbsp;&nbsp;<input type="text" placeholder="多个标签请有逗号隔开"></p>
+					</div>
+					<div class="t_r">
+					类型:<form method="get" style="margin-left: 40px;margin-top:-32px">
+							<input type="radio" name="document" value="common"/>公开文档&nbsp;&nbsp;任何人都可检索、阅读<br>
+							<input type="radio" name="document" value="privite"/>私有文档&nbsp;&nbsp;仅自己可见
+						</form>
+					售价：<select name="" id="">
+										<option value="">1 财富值</option>
+										<option value="">分类1</option>
+										<option value="">分类2</option>
+							  </select>
+					</div>
+				</div>
+			</section>
+
+<!-- 间隔区块 -->
+				<div style="width:100%;height:90px"></div> 
+
+			<section style="display:block;">
+				<div class="upload-steps clearfix">
+				<ul>
+				<li class="step-num active">1<span class="tips">选择文档</span>
+				</li>
+				<li class="step-bar"></li>
+				<li class="step-num">2<span class="tips">补充信息</span>
+				</li>
+				<li class="step-bar"></li>
+				<li class="step-num">3<span class="tips">完成上传</span>
+				</li>
+				</ul>
+				</div>
+				<div id="success">
+					<p>恭喜！文档上传成功！</p>
+					<p>稍等片刻哦～即可收到积分值奖励～</p>
+					<p>你还可以：<a href="#">查看已上传文档</a></p>
+					<button>继续上传文档</button>
+				</div>
+			</section>
+
+
+			
+		</article>
+	</body>
+</html>
