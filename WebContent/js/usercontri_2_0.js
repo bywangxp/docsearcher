@@ -31,11 +31,11 @@ var l=opts.leng;
       data: 'page=' + p,
       dataType: 'json',
       success: function(json0) {
-        var jsonObj=json0;
+        var jsonObj=json0.tablerow;
         console.log(jsonObj);
         var oRow=[];
         for (var i = 0; i < jsonObj.length; i++) {
-           oRow[i]=jsonObj[i];
+           oRow.push(jsonObj[i]);
          } 
         console.log(oRow);
         totalP = json0.totalpage; //总页数
