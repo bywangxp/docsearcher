@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/upload.css">
-		<!-- <link rel="stylesheet" type="text/css" href="css/upload-info.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/upload-success.css"> -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
 	    <nav>
@@ -27,7 +27,8 @@
 				</ul>
 				</div>
 				<div id="upload">
-					<button>上传我的文档</button>
+					<input type="file" id="DocInput" name="myfile" style="display:none"/>
+					<a class="btn btn-default" onclick="$('#DocInput')click();">上传我的文档</a>
 					<p>每上传一篇公开文章，可获取 <span>积分+2</span> 奖励</p>
 				</div>
 			</section>
