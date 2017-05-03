@@ -5,6 +5,8 @@
 		<link rel="stylesheet" type="text/css" href="css/upload.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/ajaxFileupload.js"></script>
+		<script type="text/javascript" src="js/upload.js"></script>
 	</head>
 	<body>
 	    <nav>
@@ -13,7 +15,7 @@
 			<p>简单两步，让你的知识更流通～</p>
 		</nav>
 		<article>
-			<section style="display:block;">
+			<section id="f-sec" style="display:block;">
 				<div class="upload-steps clearfix">
 				<ul>
 				<li class="step-num active">1<span class="tips">选择文档</span>
@@ -27,15 +29,15 @@
 				</ul>
 				</div>
 				<div id="upload">
-					<input type="file" id="DocInput" name="myfile" style="display:none"/>
-					<a class="btn btn-default" onclick="$('#DocInput')click();">上传我的文档</a>
+					<input type="file" id="DocInput" name="upload" style="display:block"/>
+					<a class="btn btn-default" onclick="$('#DocInput').click();">上传我的文档</a>
 					<p>每上传一篇公开文章，可获取 <span>积分+2</span> 奖励</p>
 				</div>
 			</section>
 			<!--间隔区块 -->
 			<div style="width:100%;height:90px"></div> 
 
-			<section style="display:block;">
+			<section id="s-sec" style="display:block;">
 				<div class="upload-steps clearfix">
 				<ul>
 				<li class="step-num active">1<span class="tips">选择文档</span>
@@ -58,7 +60,10 @@
 					</p>
 					</div>
 					<div class="btn_do_add"><b class="next">></b>  确认上传</div>
-					<div class="btn_add"><b class="add">+</b> 继续上传</div>
+					<!-- <div class="btn_add">
+						<input type="file"  name="upload" style="display:block"/>
+						<a class="btn btn-default" onclick="$('div.btn_add input').click();"><b class="add">+</b> 继续上传</a>
+					</div> -->
 					
 					<div class="clear"></div>
 				</div>
@@ -67,14 +72,19 @@
 				<div id="article-des">
 					<div class="t_l">
 
-					<p>标题：&nbsp;&nbsp;&nbsp;<input type="text" placeholder="我的文档标题"></p>
+					<p id="ti">标题：&nbsp;&nbsp;&nbsp;<input type="text" placeholder="我的文档标题"></p>
 					<p>简介：<br><textarea style=" width:240px;margin-left: 70px;margin-top:-30px;" rows="5" columes="30">
 						填写文档简介,帮助文档传播~
 					</textarea></p>
 					<p>分类：&nbsp;&nbsp;&nbsp;<select name="" id="">
 										<option value="">选择分类</option>
-										<option value="">分类1</option>
-										<option value="">分类2</option>
+										<option value="">课件</option>
+										<option value="">演示</option>
+										<option value="">科技</option>
+										<option value="">文学</option>
+										<option value="">情感</option>
+										<option value="">教程</option>
+										<option value="">其他</option>
 							 </select></p>
 
 					<p>标签：&nbsp;&nbsp;&nbsp;<input type="text" placeholder="多个标签请有逗号隔开"></p>
@@ -84,11 +94,13 @@
 							<input type="radio" name="document" value="common"/>公开文档&nbsp;&nbsp;任何人都可检索、阅读<br>
 							<input type="radio" name="document" value="privite"/>私有文档&nbsp;&nbsp;仅自己可见
 						</form>
-					售价：<select name="" id="">
-										<option value="">1 财富值</option>
-										<option value="">分类1</option>
-										<option value="">分类2</option>
-							  </select>
+					售价：<div class="myInputNumber">
+						    <input type="text" min="0" max="10" step="1">
+						    <div class="spin-wrap">
+						    <div class="spin" data-node="up"></div>
+						    <div class="spin" data-node="down"></div>
+						    </div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -96,7 +108,7 @@
 <!-- 间隔区块 -->
 				<div style="width:100%;height:90px"></div> 
 
-			<section style="display:block;">
+			<section id="l-sec" style="display:block;">
 				<div class="upload-steps clearfix">
 				<ul>
 				<li class="step-num active">1<span class="tips">选择文档</span>
