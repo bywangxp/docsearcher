@@ -22,7 +22,7 @@ import javax.persistence.Table;
  * Company: 中科大软件学院
  * <p>
  * 
- * @author 王训谱 bywangxp@mail.ustc.edu.cn
+ * @author  bywangxp@mail.ustc.edu.cn
  * @version 版本号
  */
 
