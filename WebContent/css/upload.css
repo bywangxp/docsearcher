@@ -270,3 +270,22 @@ article aside {
 }
 /**************/
 
+.myInputNumber{
+    width:200px;
+}
+.myInputNumber input{
+    width:180px;
+    border-right:none;
+}
+.spin-wrap{
+    float:right;
+}
+.spin{
+    background-color:white;
+    width:20px;
+    height:10px;
+}
+.spin:hover{
+    background-color:gray;
+    cursor:pointer;
+}
